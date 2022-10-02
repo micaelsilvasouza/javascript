@@ -5,44 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auterando as Cores</title>
-    <style>
-        body{
-            background-color: #22b922;
-            font-family: Arial, Helvetica, sans-serif;
-            height: 96vh;
-        }
-
-        div{
-            margin-top: 10px;
-        }
-        
-        div#principal{
-            background-color: rgba(0, 0, 0, 0.37);
-            text-align: center;
-            width: 300px;
-            padding: 10px;
-            margin: auto;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="principal">
-        <h1 id="titulo">SITE</h1>
-        <p id="men">Nenhuma alteração</p>
-    </div>
-
-    <div>
-        <label for="ntitulo">Mudar titulo do site</label>
-        <input type="text" name="ntituto" id="ntitulo" value="SITE" maxlength="10">
-        <input type="button" value="Alterar titulo" onclick="AlterarTitulo()">
-    </div>
-
-    <div>
-        <label for="cor">Mudar cor de fundo</label>
-        <input type="color" name="cor" id="cor" value="#22b922">
-        <input type="button" value="Alterar cor">
-    </div>
-
-    <script src="script.js"></script>
+    <main>
+        <p>
+            <label for="icor">Escolha sua própria cor</label>
+            <input type="color" name="cor" id="icor" value="#808080" oninput="document.body.style.backgroundColor = this.value">
+        </p>
+        <section>
+            <div id="verm" onclick="document.body.style.backgroundColor = '#9e130e' icor.value = '#9e130e'"  >
+                <!--fundo vermelho-->
+            </div>
+            <div id="azul" onclick="document.body.style.backgroundColor = '#0a65cc'">
+                <!--Fundo azul-->
+            </div>
+            <div id="verd" onclick="document.body.style.backgroundColor = '#12a74b'">
+                <!--Fundo verde-->
+            </div>
+            <div id="amar" onclick="document.body.style.backgroundColor = '#e4e723'">
+                <!--fundo Amarelo-->
+            </div>
+            
+        </section>
+    </main>
 </body>
 </html>
