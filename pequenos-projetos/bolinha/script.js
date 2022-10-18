@@ -1,12 +1,18 @@
 let boll = true
-//let inter = setInterval(Quicar, 500)
-function Quicar(){
+let x = 100
+let y = 100
+let inter = setInterval(LogoDVD, 1100)
+function LogoDVD(){
     if(boll){
-        bola.style.top = "300px"
         boll = false
-       
+        bola.style.top = `calc(${y}% - 50px)`
+        x = Math.floor(Math.random() * 100)
     }else{
-        bola.style.top = '100px'
         boll = true
-    } 
+        bola.style.left = `calc(${x}% - 50px)`
+        y = Math.floor(Math.random() * 100)
+    }
+    
+    
 }
+
