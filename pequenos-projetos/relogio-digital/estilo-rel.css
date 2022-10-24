@@ -25,11 +25,10 @@ div#rel{
     top: 50%;
 
     font-size: 90px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: 'Courier New', Courier, monospace;
     text-align: center;
     background-color: black;
     color: #2d94c4;
-    width: 300px;
     padding: 10px;
     border: 10px solid #2d94c4;
     border-radius: 20px;

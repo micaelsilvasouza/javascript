@@ -4,7 +4,7 @@ function Hora(){
     let m = data.getMinutes()
     let s = data.getSeconds()
 
-    rel.innerHTML = `${h}:${m}:${s}`
+    rel.innerHTML =`${h}:${m}:${s}`
 }
 
 setInterval(Hora, 1000)

@@ -20,8 +20,10 @@ section{
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.753);
 }
 
-select#flista{
-    width: 150px;
+span{
+    display: inline-block;
+    margin-top: 10px;
+    margin-right: 10px;
 }
 
 footer{

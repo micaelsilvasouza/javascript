@@ -9,5 +9,31 @@
 <body>
     <h1>JavaScript</h1>
     <p>Repositorio de JavaScript para o curso de JavaScript do Curso em Video, e também para mini projetos que teste o meu conhecimento.</p>
+    <label for="des">Desafios</label>
+    <select name="des" id="des">
+        <option value="des001">Hora do dia</option>
+        <option value="des002">Verificador de Idade</option>
+        <option value="des003">Super Contador</option>
+        <option value="des004">Tabuada</option>
+        <option value="des005">Analizando Números</option>
+    </select>
+    <a id="ldes" href="desafios/des001/index.html" target="_blank">Ver Desafio</a>
+    <br><br>
+    <label for="proj">Mini Projetos</label>
+    <select name="proj" id="proj">
+        <option value="auterando-cores">Auterando Cores</option>
+        <option value="relogio-digital">Relógio</option>
+        <option value="logo-dvd">Logo DVD</option>
+    </select>
+    <a id="lproj" href="#" target="_blank">Ver Projetos</a>
+    <script>
+        ldes.onclick = function (){
+            ldes.href = "desafios/"+ des.value +"/index.html"
+        }
+
+        lproj.onclick = function (){
+            lproj.href = "pequenos-projetos/"+ proj.value +"/index.html"
+        }
+    </script>
 </body>
 </html>

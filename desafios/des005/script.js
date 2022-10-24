@@ -1,82 +1,61 @@
-var valores = []
-function adicionar(list){
-    let txtn = document.getElementById("txtn")
-    let res = document.getElementById("res")
-    let sel = document.getElementById("sel")
-    let valor = Number(txtn.value)
-    let opt = document.createElement("option")
+let num = document.querySelector("input#fnum")
+let lista = document.querySelector("select#flista")
+let res = document.getElementById("res")
+let valores = []
 
-    if(valor >= 10 && valor <= 100 && !valores.includes(valor)){
-        opt.innerHTML = `O valor ${valor} foi adicionado`
-        sel.appendChild(opt)
-        txtn.value = ""
-        res.innerHTML = ""
-        list.push(valor)
-    }else if(list.includes(valor)) {
-        alert("Valor já existente. Adicione outro.")
-        txtn.value = ""
+function isNumber(n){
+    if(Number(n) >= 1 && Number(n) <= 100){
+        return true
     }else{
-        alert("Verifique se o valor que deseja adicionar está correto e tente novamente.")
+        return false
     }
-    
-}
-function media(list){
-    let total = 0
-    let m = 0
-
-    for(let num of list){
-        total += num
-    }
-
-    m = total / list.length
-
-    return m
 }
 
-function maior(list){
-    let m = 10
-    for(let num of list){
-        m = num > m? num : m
-    }
-    return m
-}
-
-function menor(list){
-    let n = 100 
-    for(let num of list){
-        n = n < num? n : num
-    }
-    return n
-} 
-
-console.log(menor([1,2,3]))
-
-function conferir(list){
-    let res = document.getElementById("res")
-    let len = list.length
-    let min = menor(list)
-    let max = maior(list)
-    let med = media(list)
-
-    if(len > 0){
-        res.innerHTML = ""
-        res.innerHTML += `<p>A lista possui <strong>${len}</strong> valores.</p>`
-        res.innerHTML += `<p>O maior valor da lista é <strong>${max}</strong>.</p>`
-        res.innerHTML += `<p>O menor valor da lista é <strong>${min}</strong></p>`
-        res.innerHTML += `<p>A média entre os valores da lista é <strong>${med.toFixed(2)}</strong></p>`
+function inLista(n, l){
+    if(l.indexOf(Number(n)) != -1){
+        return true
     }else{
-        res.innerHTML = "<p><strong>Adione um valor a lista.</strong></p>"
+        return false
     }
-    
-    
 }
 
-function limpar(){
-    let txtn = document.getElementById("txtn")
-    let sel = document.getElementById("sel")
-    let res = document.getElementById("res")
-
+function adicionar(){
+    if(isNumber(num.value) && !inLista(num.value, valores)){
+        valores.push(Number(num.value))
+        let item = document.createElement("option")
+        item.text = `Valor ${num.value} adicionado`
+        lista.appendChild(item)
+    }else{
+        window.alert("Valor inválido ou já encontrado na lista.")
+    }
+    num.value = ""
+    num.focus()
     res.innerHTML = ""
-    sel.innerHTML = "<option>Digite um valor...</option>"
-    txtn.value = ""
+}
+
+function finalizar(){
+    if(valores.length == 0){
+        window.alert("Adicione valores antes de finalizar.")
+    }else{
+        let tot = valores.length
+        let maior = valores[0]
+        let menor = valores[0]
+        let soma = 0
+        for(let pos in valores){
+            soma += valores[pos]
+            if(valores[pos] > maior)
+                maior = valores[pos]
+            
+            if(valores[pos] < menor)
+                menor = valores[pos]
+            
+        }
+        let media = soma / tot
+        res.innerHTML = ""
+        res.innerHTML += `<p>Ao total temos ${tot} números cadastrados.</p>`
+        res.innerHTML += `<p>O maior valor informado foi ${maior}.</p>`
+        res.innerHTML += `<p>O menor valor informado foi ${menor}.</p>`
+        res.innerHTML += `<p>Somando todos os valores, temos ${soma}.</p>`
+        res.innerHTML += `<p>A média dos valores digitados é ${media}.</p>`
+    }
 }
