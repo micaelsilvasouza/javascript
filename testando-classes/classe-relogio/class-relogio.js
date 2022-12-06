@@ -82,6 +82,8 @@ main.innerHTML += "<p>Que horas são?<br>" + r1.getHoras() + "</p>"
 main.innerHTML += "<p>Quais são os minutos?<br>" + r1.getMinutos() + "</p>"
 main.innerHTML += "<p>Quais são os segundos?<br>" + `<span id=seg>${r1.getSegundos()}</span>` + "</p>"
 
+
+/*
 seg.style.backgroundColor = r1.getCor()
 
 function updateSegundos(){
@@ -90,3 +92,4 @@ function updateSegundos(){
 }
 
 setInterval(updateSegundos, 1000)
+*/
