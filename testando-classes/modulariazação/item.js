@@ -1,4 +1,4 @@
-class Item{
+export class Item{
     #tipo
     #elemento
     #bonus
