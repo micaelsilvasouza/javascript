@@ -1,0 +1,20 @@
+{
+  "name": "primeiro-modulo",
+  "version": "1.0.0",
+  "description": "Primeiro acesso a modulariazção ",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/micaelsilvasouza/javascript.git"
+  },
+  "author": "Micael Silva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/micaelsilvasouza/javascript/issues"
+  },
+  "homepage": "https://github.com/micaelsilvasouza/javascript#readme",
+  "type": "module"
+}
