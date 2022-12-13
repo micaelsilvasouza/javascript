@@ -1,4 +1,4 @@
-export class Person{
+export default class Person{
     constructor(nome){
         this.nome = nome
         this.forca = 100
