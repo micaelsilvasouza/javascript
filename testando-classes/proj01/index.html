@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Criando um Personagem</title>
     <link rel="stylesheet" href="style.css">
-    
-
 </head>
 <body>
     <h1>Criando um Personagem</h1>
@@ -15,8 +13,11 @@
 
     <script src="main.js"></script>
     <script>
-        main.innerHTML += p1.status()
+        let p1 = new Person("Juvenildo", "fogo")
+        let i1 = new Item("BraskHands", "Amuleto", [10, 15, 5])
 
+        main.innerHTML += p1.status()
+        main.innerHTML += i1.propriedades()
     </script>
 </body>
 </html>
