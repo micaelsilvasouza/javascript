@@ -6,23 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Criando um Personagem</title>
     <link rel="stylesheet" href="style.css">
-    
 </head>
 <body>
     <h1>Criando um Personagem</h1>
     <main id="main">
-        <select name="itens" id="itens">
-            <option value="i[0]">Amuleto BraskHands</option>
-            <option value="1[1]">Anel Blustands</option>
-        </select>
-        <button onclick="add()">Adicionar</button>
+        <p>Para criar um Personagem basta dizer qual o seu nome e o seu atributo para magia</p>
+        <form>
+            <div>Nome: <input type="text" name="nome" id="nome"></div>
+            <div>Atributo: <input type="text" name="atr" id="atr"></div>
+            <input type="button" value="Criar"
+            onclick="criarPersonagem()">
+        </form>
     </main>
 
     <script src="Person.js"></script>
     <script src="Item.js"></script>
     <script src="index.js"></script>
-    <script>
-        
-    </script>
 </body>
 </html>
