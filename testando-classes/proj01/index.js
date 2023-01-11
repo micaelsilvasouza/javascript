@@ -11,6 +11,20 @@ p1.addItem(i[2])
 p1.removeItem("CronosHands")
 p1.subsItem("Blustands", i[3])
 
-function criarPersonagem(){
-    
+let personagens = {}
+
+function criarPersonagem(nome, atr){
+    personagens[nome] = new Person(nome, atr)
+    console.log("Criado " + nome)
+
+    let opt = document.createElement("option")
+    opt.value = nome
+    opt.innerHTML = nome
+    selperson.appendChild(opt)
+}
+
+function verStatus(){
+    let selperson = document.querySelector("selperson")
+    let sel = selperson.selected
+    console.log(sel.value)
 }

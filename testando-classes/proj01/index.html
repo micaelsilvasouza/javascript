@@ -11,11 +11,27 @@
     <h1>Criando um Personagem</h1>
     <main id="main">
         <p>Para criar um Personagem basta dizer qual o seu nome e o seu atributo para magia</p>
-        <form>
-            <div>Nome: <input type="text" name="nome" id="nome"></div>
-            <div>Atributo: <input type="text" name="atr" id="atr"></div>
-            <input type="button" value="Criar"
-            onclick="criarPersonagem()">
+        <form autocomplete="off">
+            <div>
+                Nome: 
+                <input type="text" name="nome" id="nome">
+            </div>
+
+            <div>
+                Atributo: 
+                <input type="text" name="atr" id="atr">
+            </div>
+
+            <div>
+                <input type="button" value="Criar Personagem" id="criar" onclick="criarPersonagem(nome.value, atr.value)">
+            </div>
+
+            <div>
+                <select name="personagem" id="selperson">
+                    <option value="Sem Valor">Selecione</option>
+                </select>
+                <input type="button" value="Ver Status" onclick="verStatus()">
+            </div>
         </form>
     </main>
 
