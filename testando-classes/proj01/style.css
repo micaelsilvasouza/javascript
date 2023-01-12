@@ -6,16 +6,9 @@
 }
 
 html, body{
-    width: 100vw;
-    height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
     background-color: gray;
 }
-
-p{
-    margin: 10px;
-}
-
 div{
-    margin: 10px;
+    padding: 5px;
 }

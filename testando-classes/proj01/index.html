@@ -27,26 +27,27 @@
                     <option value="raio">Raio</option>
                 </select>
             </div>
+            <div>
+                <input type="button" value="Criar Personagem" id="criar" onclick="criarPersonagem(nome.value, atr.options[atr.selectedIndex].value,)">
+            </div>
 
             <div>
-                <label for="item">Item</label>
-                <select name="item" id="item">
+                <label for="selperson">Selecione o Personagem: </label>
+                <select name="personagem" id="selperson">
+                    <option value="Sem Valor">Seu personagem</option>
+                </select>
+                <input type="button" value="Ver Status" onclick="verStatus()">
+            </div>
+            <div>
+                <p>Selecione até <span id="itemRestante">3</span> para melhorar o seu personagem</p>
+                <label for="itens">Itens:</label>
+                <select name="itens" id="itens">
                     <option value="braskhands">BraskHands</option>
                     <option value="blustands">BlusTands</option>
                     <option value="cronoshands">CronosHands</option>
                     <option value="andrands">AndRands</option>
                 </select>
-            </div>
-
-            <div>
-                <input type="button" value="Criar Personagem" id="criar" onclick="criarPersonagem(nome.value, atr.options[atr.selectedIndex].value, item.options[item.selectedIndex].value)">
-            </div>
-
-            <div>
-                <select name="personagem" id="selperson">
-                    <option value="Sem Valor">Selecione personagem</option>
-                </select>
-                <input type="button" value="Ver Status" onclick="verStatus()">
+                <input type="button" value="Adicionar Item" onclick="addItem()">
             </div>
         </form>
         <h2>Status de Personagem</h2>

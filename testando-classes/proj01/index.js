@@ -11,25 +11,30 @@ function criarPersonagem(nome, atr, item){
     if(nome.length > 0 && atr.length > 0){
         if(!personagens[nome]){
             personagens[nome] = new Person(nome, atr)
-            personagens[nome].addItem(i[item])
-            console.log("Criado " + nome)
+            alert("Criado " + nome)
 
             let opt = document.createElement("option")
             opt.value = nome
             opt.innerHTML = nome
             selperson.appendChild(opt)
         }else{
-            console.log("Personagem já existente")
+            alert("Personagem já existente")
         }
     }else{
-        console.log("Personagem não pode ser criado, necessário preencher todos os campos.")
+        alert("Personagem não pode ser criado, necessário preencher todos os campos.")
     }
     
     
 }
 
 function verStatus(){
-    let selperson = document.getElementById("selperson")
     let sel = selperson.options[selperson.selectedIndex].value
     barraStatus.innerHTML = personagens[sel].status()
+}
+
+function addItem(){
+    let personagem = selperson.options[selperson.selectedIndex].value
+    let item = itens.options[itens.selectedIndex].value
+    personagens[personagem].addItem(i[item])
+    verStatus()
 }

@@ -30,12 +30,13 @@ class Person{
                 this.#ataque += item.bonus[0]
                 this.#defesa += item.bonus[1]
                 this.#magia += item.bonus[2] 
+                alert("Item " + item.nome +  " Adicionado a " + this.#nome)
             }else{
-                console.log("Item já existente")
+                alert("Item já existente")
             }
              
         }else{
-            console.log("Numero maximo de item é 3, não se pode colocar mais itens")
+            alert("Numero maximo de item é 3, não se pode colocar mais itens")
         }
         
     }
@@ -52,7 +53,7 @@ class Person{
         }
 
         if(pos == "não"){ // verificação de existencia de objeto
-            console.log("Esse nome não corresponde a nenhum item existente")
+            alert("Esse nome não corresponde a nenhum item existente")
         }else{ // remove o objeto e os bonus 
             this.#ataque -= this.#item[pos].bonus[0]
             this.#defesa -= this.#item[pos].bonus[1]
