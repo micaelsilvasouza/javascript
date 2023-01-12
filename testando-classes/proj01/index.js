@@ -1,8 +1,8 @@
 let i = {
-   braskhands: new Item("BraskHands", "Amuleto", [50, 30, 20]),
-   blustands: new Item("Blustands", "Anel", [60,40,80]),
-   cronoshands: new Item("CronosHands", "Colar", [10,20,90]),
-   andrands: new Item("AndRands", "Medalhão", [50,60,10])
+   braskhands: new Item("braskhands", "Amuleto", [50, 30, 20]),
+   blustands: new Item("blustands", "Anel", [60,40,80]),
+   cronoshands: new Item("cronoshands", "Colar", [10,20,90]),
+   andrands: new Item("andrands", "Medalhão", [50,60,10])
 }
 
 let personagens = {}

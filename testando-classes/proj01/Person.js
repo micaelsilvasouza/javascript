@@ -5,7 +5,7 @@ class Person{
     #defesa = 100
     #magia = 100
     #atrMagico
-    #item = []
+    #item = {}
 
     constructor(nome, atr){
         this.#nome = nome
@@ -24,11 +24,16 @@ class Person{
 
     addItem(item){ //Adiciona um objeto da classe Item numa array de trés itens
 
-        if(this.#item.length < 3){ //adiciona os bonus nos respectivos atributos
-            this.#item.push(item)
-            this.#ataque += item.bonus[0]
-            this.#defesa += item.bonus[1]
-            this.#magia += item.bonus[2] 
+        if(Object.keys(this.#item).length < 3){ //adiciona os bonus nos respectivos atributos
+            if(!this.#item[item.nome]){
+                this.#item[item.nome] = item
+                this.#ataque += item.bonus[0]
+                this.#defesa += item.bonus[1]
+                this.#magia += item.bonus[2] 
+            }else{
+                console.log("Item já existente")
+            }
+             
         }else{
             console.log("Numero maximo de item é 3, não se pode colocar mais itens")
         }
