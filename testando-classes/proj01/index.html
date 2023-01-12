@@ -13,26 +13,45 @@
         <p>Para criar um Personagem basta dizer qual o seu nome e o seu atributo para magia</p>
         <form autocomplete="off">
             <div>
-                Nome: 
+                <label for="nome">Nome: </label>
                 <input type="text" name="nome" id="nome">
             </div>
 
             <div>
-                Atributo: 
-                <input type="text" name="atr" id="atr">
+                <label for="atr">Atributo: </label>
+                <select name="atr" id="atr">
+                    <option value="agua">Água<ption>
+                    <option value="fogo">Fogo</option>
+                    <option value="terra">Terra</option>
+                    <option value="vento">Vento</option>
+                    <option value="raio">Raio</option>
+                </select>
             </div>
 
             <div>
-                <input type="button" value="Criar Personagem" id="criar" onclick="criarPersonagem(nome.value, atr.value)">
+                <label for="item">Item</label>
+                <select name="item" id="item">
+                    <option value="braskhands">BraskHands</option>
+                    <option value="blustands">BlusTands</option>
+                    <option value="cronoshands">CronosHands</option>
+                    <option value="andrands">AndRands</option>
+                </select>
+            </div>
+
+            <div>
+                <input type="button" value="Criar Personagem" id="criar" onclick="criarPersonagem(nome.value, atr.options[atr.selectedIndex].value, item.options[item.selectedIndex].value)">
             </div>
 
             <div>
                 <select name="personagem" id="selperson">
-                    <option value="Sem Valor">Selecione</option>
+                    <option value="Sem Valor">Selecione personagem</option>
                 </select>
                 <input type="button" value="Ver Status" onclick="verStatus()">
             </div>
         </form>
+        <h2>Status de Personagem</h2>
+        <p>Selecione um personagem</p>
+        <p id="barraStatus"></p>
     </main>
 
     <script src="Person.js"></script>

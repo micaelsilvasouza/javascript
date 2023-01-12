@@ -1,30 +1,35 @@
-let p1 = new Person("Juvenildo", "fogo")
-let i = [
-    new Item("BraskHands", "Amuleto", [50, 30, 20]),
-    new Item("Blustands", "Anel", [60,40,80]),
-    new Item("CronosHands", "Colar", [10,20,90]),
-    new Item("AndRands", "Medalhão", [50,60,10])
-]  
-p1.addItem(i[0])
-p1.addItem(i[1])
-p1.addItem(i[2])
-p1.removeItem("CronosHands")
-p1.subsItem("Blustands", i[3])
+let i = {
+   braskhands: new Item("BraskHands", "Amuleto", [50, 30, 20]),
+   blustands: new Item("Blustands", "Anel", [60,40,80]),
+   cronoshands: new Item("CronosHands", "Colar", [10,20,90]),
+   andrands: new Item("AndRands", "Medalhão", [50,60,10])
+}
 
 let personagens = {}
 
-function criarPersonagem(nome, atr){
-    personagens[nome] = new Person(nome, atr)
-    console.log("Criado " + nome)
+function criarPersonagem(nome, atr, item){
+    if(nome.length > 0 && atr.length > 0){
+        if(!personagens[nome]){
+            personagens[nome] = new Person(nome, atr)
+            personagens[nome].addItem(i[item])
+            console.log("Criado " + nome)
 
-    let opt = document.createElement("option")
-    opt.value = nome
-    opt.innerHTML = nome
-    selperson.appendChild(opt)
+            let opt = document.createElement("option")
+            opt.value = nome
+            opt.innerHTML = nome
+            selperson.appendChild(opt)
+        }else{
+            console.log("Personagem já existente")
+        }
+    }else{
+        console.log("Personagem não pode ser criado, necessário preencher todos os campos.")
+    }
+    
+    
 }
 
 function verStatus(){
-    let selperson = document.querySelector("selperson")
-    let sel = selperson.selected
-    console.log(sel.value)
+    let selperson = document.getElementById("selperson")
+    let sel = selperson.options[selperson.selectedIndex].value
+    barraStatus.innerHTML = personagens[sel].status()
 }

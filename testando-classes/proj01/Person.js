@@ -18,7 +18,7 @@ class Person{
                     Ataque = ${this.#ataque}<br>
                     Defesa = ${this.#defesa}<br>
                     Magia = ${this.#magia}<br>
-                    Atributo Magico = ${this.#atrMagico}
+                    Atributo Magico = ${this.#atrMagico}<br>
                 </p>`
     }
 
