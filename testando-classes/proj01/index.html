@@ -11,13 +11,13 @@
     <header>
         <h1>Criando um Personagem</h1>
         <nav id="menuBar">
-            <span class="botomenu">Criar</span>
-            <span class="botomenu">Adicionar itens</span>
-            <span class="botomenu">Ver Personagem</span>
+            <span id="btcriar" class="botomenu">Criar</span>
+            <span id="btitem" class="botomenu">Adicionar itens</span>
+            <span id="btstatus" class="botomenu">Ver Personagem</span>
         </nav>
     </header>
     <main>
-        <section id="campCriar">
+        <section class="campo" id="campCriar">
             <h1>Criação do Personagem</h1>
             <p>Para criar um Personagem basta colocar um nome e escolher qual será seu Atributo mágico</p>
             
@@ -41,7 +41,7 @@
             </div>
         </section>
 
-        <section id="campItens">
+        <section class="campo" id="campItens">
             <h1>Adicionar Itens</h1>
             <p>Selecione até três itens para melhorar os atributos do seu Personagem</p>
 
@@ -64,16 +64,19 @@
             </div>
         </section>
 
-        <section id="campStatus">
+        <section class="campo" id="campStatus">
             <h1>Status do Personagem</h1>
             <p>Selecione o Personagem para conferir todos os seus atributos</p>
-            <label for="selpersonStatus">Selecione o Personagem: </label>
-            <select id="selpersonStatus">
-                <option value="Sem Valor">Seu personagem</option>
-            </select> 
-            <input type="button" value="Ver Status" onclick="verStatus()">
+            <div>
+                <label for="selpersonStatus">Selecione o Personagem: </label>
+                <select id="selpersonStatus">
+                    <option value="Sem Valor">Seu personagem</option>
+                </select>
+            </div>
+            <div>
+                <input type="button" value="Ver Status" onclick="verStatus()">
+            </div>
             <p id="barraStatus"></p>
-
         </section>
     </main>
     <footer>
@@ -83,5 +86,6 @@
     <script src="Person.js"></script>
     <script src="Item.js"></script>
     <script src="index.js"></script>
+    <script src="menu.js"></script>
 </body>
 </html>
