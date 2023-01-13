@@ -13,10 +13,17 @@ function criarPersonagem(nome, atr, item){
             personagens[nome] = new Person(nome, atr)
             alert("Criado " + nome)
 
-            let opt = document.createElement("option")
-            opt.value = nome
-            opt.innerHTML = nome
-            selperson.appendChild(opt)
+            let optItem = document.createElement("option")
+            let optStatus = document.createElement("option")
+            
+            optItem.value = nome
+            optStatus.value = nome
+
+            optItem.innerHTML = nome
+            optStatus.innerHTML = nome
+            
+            selpersonItem.appendChild(optItem)
+            selpersonStatus.appendChild(optStatus)
         }else{
             alert("Personagem já existente")
         }
@@ -28,13 +35,12 @@ function criarPersonagem(nome, atr, item){
 }
 
 function verStatus(){
-    let sel = selperson.options[selperson.selectedIndex].value
+    let sel = selpersonStatus.options[selpersonStatus.selectedIndex].value
     barraStatus.innerHTML = personagens[sel].status()
 }
 
 function addItem(){
-    let personagem = selperson.options[selperson.selectedIndex].value
+    let personagem = selpersonItem.options[selpersonItem.selectedIndex].value
     let item = itens.options[itens.selectedIndex].value
     personagens[personagem].addItem(i[item])
-    verStatus()
 }

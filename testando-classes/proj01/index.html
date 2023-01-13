@@ -8,10 +8,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Criando um Personagem</h1>
-    <main id="main">
-        <p>Para criar um Personagem basta dizer qual o seu nome e o seu atributo para magia</p>
-        <form autocomplete="off">
+    <header>
+        <h1>Criando um Personagem</h1>
+        <nav id="menuBar">
+            <span class="botomenu">Criar</span>
+            <span class="botomenu">Adicionar itens</span>
+            <span class="botomenu">Ver Personagem</span>
+        </nav>
+    </header>
+    <main>
+        <section id="campCriar">
+            <h1>Criação do Personagem</h1>
+            <p>Para criar um Personagem basta colocar um nome e escolher qual será seu Atributo mágico</p>
+            
             <div>
                 <label for="nome">Nome: </label>
                 <input type="text" name="nome" id="nome">
@@ -30,18 +39,22 @@
             <div>
                 <input type="button" value="Criar Personagem" id="criar" onclick="criarPersonagem(nome.value, atr.options[atr.selectedIndex].value,)">
             </div>
+        </section>
+
+        <section id="campItens">
+            <h1>Adicionar Itens</h1>
+            <p>Selecione até três itens para melhorar os atributos do seu Personagem</p>
 
             <div>
-                <label for="selperson">Selecione o Personagem: </label>
-                <select name="personagem" id="selperson">
+                <label for="selpersonItem">Selecione o Personagem: </label>
+                <select id="selpersonItem">
                     <option value="Sem Valor">Seu personagem</option>
-                </select>
-                <input type="button" value="Ver Status" onclick="verStatus()">
+                </select> 
             </div>
+
             <div>
-                <p>Selecione até <span id="itemRestante">3</span> para melhorar o seu personagem</p>
                 <label for="itens">Itens:</label>
-                <select name="itens" id="itens">
+                <select id="itens">
                     <option value="braskhands">BraskHands</option>
                     <option value="blustands">BlusTands</option>
                     <option value="cronoshands">CronosHands</option>
@@ -49,12 +62,24 @@
                 </select>
                 <input type="button" value="Adicionar Item" onclick="addItem()">
             </div>
-        </form>
-        <h2>Status de Personagem</h2>
-        <p>Selecione um personagem</p>
-        <p id="barraStatus"></p>
-    </main>
+        </section>
 
+        <section id="campStatus">
+            <h1>Status do Personagem</h1>
+            <p>Selecione o Personagem para conferir todos os seus atributos</p>
+            <label for="selpersonStatus">Selecione o Personagem: </label>
+            <select id="selpersonStatus">
+                <option value="Sem Valor">Seu personagem</option>
+            </select> 
+            <input type="button" value="Ver Status" onclick="verStatus()">
+            <p id="barraStatus"></p>
+
+        </section>
+    </main>
+    <footer>
+        <p>Mini projeto testando classes em javascript</p>
+        <p>Criado Por Micael Silva</p>
+    </footer>
     <script src="Person.js"></script>
     <script src="Item.js"></script>
     <script src="index.js"></script>
