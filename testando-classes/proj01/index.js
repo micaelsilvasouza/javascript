@@ -7,11 +7,12 @@ let i = {
 
 let personagens = {}
 
-function criarPersonagem(nome, atr, item){
+
+function criarPersonagem(nome, atr){
     if(nome.length > 0 && atr.length > 0){
         if(!personagens[nome]){
             personagens[nome] = new Person(nome, atr)
-            alert("Criado " + nome)
+            personCriados.innerHTML += nome + "<br>"
 
             let optItem = document.createElement("option")
             let optStatus = document.createElement("option")
@@ -30,8 +31,6 @@ function criarPersonagem(nome, atr, item){
     }else{
         alert("Personagem não pode ser criado, necessário preencher todos os campos.")
     }
-    
-    
 }
 
 function verStatus(){
@@ -41,6 +40,16 @@ function verStatus(){
 
 function addItem(){
     let personagem = selpersonItem.options[selpersonItem.selectedIndex].value
-    let item = itens.options[itens.selectedIndex].value
-    personagens[personagem].addItem(i[item])
+    let item = selAddItem.options[selAddItem.selectedIndex]
+    let item2 = item
+
+    personagens[personagem].addItem(i[item.value])
+    selRemoverItem.appendChild(item2)
+}
+
+function removeItem(){
+    let personagem = selpersonItem.options[selpersonItem.selectedIndex].value
+    let item = selRemoverItem.options[selRemoverItem.selectedIndex].value
+
+    personagem.removeItem(i[item])
 }

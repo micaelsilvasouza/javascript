@@ -41,24 +41,16 @@ class Person{
         
     }
 
-    removeItem(nomeItem){ //Remove um item pelo seu nome. Percorre a array do  atributo item, e confere o nome recebido no parametro da função
+    removeItem(item){ //Remove um item pelo seu nome. Percorre a array do  atributo item, e confere o nome recebido no parametro da função
 
-        let pos = "nao" // guarda o valor da posição do objeto na array item, predefindo como string para verificação se caso não exista nenhum objeto com o nome passado
-
-        for (let index = 0; index < this.#item.length; index++) {
-            if(this.#item[index].nome === nomeItem){
-                pos = index
-                index += this.#item.length
-            }
-        }
-
-        if(pos == "não"){ // verificação de existencia de objeto
+        if(this.#item[item.nome]){ // verificação de existencia de objeto
+            this.#ataque -= item.bonus[0]
+            this.#defesa -= item.bonus[1]
+            this.#magia -= item.bonus[2]
+            
+            delete this.#item[item.nome]
+        }else{ 
             alert("Esse nome não corresponde a nenhum item existente")
-        }else{ // remove o objeto e os bonus 
-            this.#ataque -= this.#item[pos].bonus[0]
-            this.#defesa -= this.#item[pos].bonus[1]
-            this.#magia -= this.#item[pos].bonus[2]
-            this.#item.splice(pos,1)
         } 
     }
 

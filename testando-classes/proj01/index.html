@@ -37,14 +37,14 @@
                 </select>
             </div>
             <div>
-                <input type="button" value="Criar Personagem" id="criar" onclick="criarPersonagem(nome.value, atr.options[atr.selectedIndex].value,)">
+                <input type="button" value="Criar Personagem" id="btCriarPersonagem" onclick = "criarPersonagem(nome.value, atr.options[atr.selectedIndex].value)">
             </div>
+
+            <h2>Personagens Criados</h2>
+            <p id="personCriados"></p>
         </section>
 
         <section class="campo" id="campItens">
-            <h1>Adicionar Itens</h1>
-            <p>Selecione até três itens para melhorar os atributos do seu Personagem</p>
-
             <div>
                 <label for="selpersonItem">Selecione o Personagem: </label>
                 <select id="selpersonItem">
@@ -52,15 +52,28 @@
                 </select> 
             </div>
 
+            <h1>Adicionar Itens</h1>
+            <p>Selecione até três itens para melhorar os atributos do seu Personagem</p>
+
             <div>
-                <label for="itens">Itens:</label>
-                <select id="itens">
+                <label for="selAddItem">Itens:</label>
+                <select id="selAddItem">
                     <option value="braskhands">BraskHands</option>
                     <option value="blustands">BlusTands</option>
                     <option value="cronoshands">CronosHands</option>
                     <option value="andrands">AndRands</option>
                 </select>
                 <input type="button" value="Adicionar Item" onclick="addItem()">
+            </div>
+
+            <h1>Remover Item</h1>
+            <p>Selecione qual item deseja remover</p>
+            <div>
+                <label for="selRemoverItem">Item</label>
+                <select id="selRemoverItem">
+                    <option value="Sem valor">Itens do Personagem</option>
+                </select>
+                <input type="button" value="Remover">
             </div>
         </section>
 
@@ -72,8 +85,6 @@
                 <select id="selpersonStatus">
                     <option value="Sem Valor">Seu personagem</option>
                 </select>
-            </div>
-            <div>
                 <input type="button" value="Ver Status" onclick="verStatus()">
             </div>
             <p id="barraStatus"></p>
@@ -83,6 +94,7 @@
         <p>Mini projeto testando classes em javascript</p>
         <p>Criado Por Micael Silva</p>
     </footer>
+
     <script src="Person.js"></script>
     <script src="Item.js"></script>
     <script src="index.js"></script>
