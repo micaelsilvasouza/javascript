@@ -40,7 +40,7 @@ function verStatus(){
 
 ///Funções Relacionadas a manipulação dos itens de um personagem////
 
-function verficarItens(){
+function verificarItens(){
     selRemoverItem.innerHTML = ""
     let personagem = selpersonItem.options[selpersonItem.selectedIndex].value
     let itens = Object.keys(personagens[personagem].item)
@@ -58,7 +58,7 @@ function addItem(){
 
 
     personagens[personagem].addItem(i[item.value])
-    verficarItens()
+    verificarItens()
 }
 
 function removerItem(){
@@ -66,19 +66,20 @@ function removerItem(){
     let item = selRemoverItem.options[selRemoverItem.selectedIndex].value
 
     personagem.removeItem(i[item])
-    verficarItens()
+    verificarItens()
 
     alert(item + " removido")
 }
 
 function substituirItem(){
     let personagem = personagens[selpersonItem.value]
-    let reitem = i[selRemoverItem.vlaue]
+    let reitem = i[selRemoverItem.value]
     let additem = i[selAddItem.value]
 
     personagem.substItem(reitem, additem)
+    verificarItens()
 }
 
-selpersonItem.addEventListener("change", verficarItens)
+selpersonItem.addEventListener("change", verificarItens)
 btremover.addEventListener("click", removerItem)
 btsubstituir.addEventListener("click", substituirItem)
