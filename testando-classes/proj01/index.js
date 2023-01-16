@@ -38,18 +38,47 @@ function verStatus(){
     barraStatus.innerHTML = personagens[sel].status()
 }
 
+///Funções Relacionadas a manipulação dos itens de um personagem////
+
+function verficarItens(){
+    selRemoverItem.innerHTML = ""
+    let personagem = selpersonItem.options[selpersonItem.selectedIndex].value
+    let itens = Object.keys(personagens[personagem].item)
+    for (let item of itens) {
+        let opt = document.createElement("option")
+        opt.value = item
+        opt.innerHTML = item
+        selRemoverItem.appendChild(opt)
+    }
+}
+
 function addItem(){
     let personagem = selpersonItem.options[selpersonItem.selectedIndex].value
     let item = selAddItem.options[selAddItem.selectedIndex]
-    let item2 = item
+
 
     personagens[personagem].addItem(i[item.value])
-    selRemoverItem.appendChild(item2)
+    verficarItens()
 }
 
-function removeItem(){
-    let personagem = selpersonItem.options[selpersonItem.selectedIndex].value
+function removerItem(){
+    let personagem = personagens[selpersonItem.options[selpersonItem.selectedIndex].value]
     let item = selRemoverItem.options[selRemoverItem.selectedIndex].value
 
     personagem.removeItem(i[item])
+    verficarItens()
+
+    alert(item + " removido")
 }
+
+function substituirItem(){
+    let personagem = personagens[selpersonItem.value]
+    let reitem = i[selRemoverItem.vlaue]
+    let additem = i[selAddItem.value]
+
+    personagem.substItem(reitem, additem)
+}
+
+selpersonItem.addEventListener("change", verficarItens)
+btremover.addEventListener("click", removerItem)
+btsubstituir.addEventListener("click", substituirItem)

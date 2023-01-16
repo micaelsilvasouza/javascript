@@ -54,8 +54,8 @@ class Person{
         } 
     }
 
-    subsItem(nome, novoItem){
-        this.removeItem(nome)
+    substItem(antigoItem, novoItem){ // os parametros são objetos da classe Item e suas subclasses
+        this.removeItem(antigoItem)
         this.addItem(novoItem)
     }
 

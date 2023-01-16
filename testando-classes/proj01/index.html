@@ -66,14 +66,17 @@
                 <input type="button" value="Adicionar Item" onclick="addItem()">
             </div>
 
-            <h1>Remover Item</h1>
-            <p>Selecione qual item deseja remover</p>
+            <h1>Remover e Substituir Item</h1>
+            <p>Selecione qual item deseja remover e click em remover.</p>
+            <p>Click em Substituir e alterará o item selecionado para o que está selecionado em Adicionar Item</p>
+            <p id="p"></p>
             <div>
-                <label for="selRemoverItem">Item</label>
+                <label for="selRemoverItem">Item:</label>
                 <select id="selRemoverItem">
                     <option value="Sem valor">Itens do Personagem</option>
                 </select>
-                <input type="button" value="Remover">
+                <input type="button" value="Remover" id="btremover">
+                <input type="button" value="Substituir" id="btsubstituir">
             </div>
         </section>
 
