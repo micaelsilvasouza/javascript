@@ -14,11 +14,11 @@ class Person{
 
     status(){ //Demonstra o status desse personagem
         return `<p>
-                    Nome = ${this.#nome}<br>
+                    Nome = ${this.#nome.toUpperCase()}<br>
                     Ataque = ${this.#ataque}<br>
                     Defesa = ${this.#defesa}<br>
                     Magia = ${this.#magia}<br>
-                    Atributo Magico = ${this.#atrMagico}<br>
+                    Atributo Magico = ${this.#atrMagico.toUpperCase()}<br>
                     itens = ${Object.keys(this.#item)}
                 </p>`
     }
@@ -56,8 +56,13 @@ class Person{
     }
 
     substItem(antigoItem, novoItem){ // os parametros são objetos da classe Item e suas subclasses
-        this.removeItem(antigoItem)
-        this.addItem(novoItem)
+
+        if(!this.#item[novoItem.nome]){
+            this.removeItem(antigoItem)
+            this.addItem(novoItem) 
+        }else{
+            aparecerMensagem("O item que deseja adiciona já existe")
+        }
     }
 
     get nome(){
