@@ -19,6 +19,7 @@ class Person{
                     Defesa = ${this.#defesa}<br>
                     Magia = ${this.#magia}<br>
                     Atributo Magico = ${this.#atrMagico}<br>
+                    itens = ${Object.keys(this.#item)}
                 </p>`
     }
 
@@ -30,13 +31,13 @@ class Person{
                 this.#ataque += item.bonus[0]
                 this.#defesa += item.bonus[1]
                 this.#magia += item.bonus[2] 
-                alert("Item " + item.nome +  " Adicionado a " + this.#nome)
+                aparecerMensagem("Item " + item.nome +  " Adicionado a " + this.#nome)
             }else{
-                alert("Item já existente")
+                aparecerMensagem("Item já existente")
             }
              
         }else{
-            alert("Numero maximo de item é 3, não se pode colocar mais itens")
+            aparecerMensagem("Numero maximo de item é 3, não se pode colocar mais itens")
         }
         
     }
@@ -50,7 +51,7 @@ class Person{
             
             delete this.#item[item.nome]
         }else{ 
-            alert("Esse nome não corresponde a nenhum item existente")
+            aparecerMensagem("Esse nome não corresponde a nenhum item existente")
         } 
     }
 

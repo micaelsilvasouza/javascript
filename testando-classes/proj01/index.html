@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Criando um Personagem</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="mensagem.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mensagem.css">
 </head>
 <body>
     <header>
@@ -48,9 +48,7 @@
         <section class="campo" id="campItens">
             <div>
                 <label for="selpersonItem">Selecione o Personagem: </label>
-                <select id="selpersonItem">
-                    <option value="Sem Valor">Seu personagem</option>
-                </select> 
+                <select id="selpersonItem"></select> 
             </div>
 
             <h1>Adicionar Itens</h1>
@@ -71,11 +69,10 @@
             <p>Selecione qual item deseja remover e click em remover.</p>
             <p>Click em Substituir e alterará o item selecionado para o que está selecionado em Adicionar Item</p>
             <p id="p"></p>
+            
             <div>
                 <label for="selRemoverItem">Item:</label>
-                <select id="selRemoverItem">
-                    <option value="Sem valor">Itens do Personagem</option>
-                </select>
+                <select id="selRemoverItem"></select>
                 <input type="button" value="Remover" id="btremover">
                 <input type="button" value="Substituir" id="btsubstituir">
             </div>
@@ -86,9 +83,7 @@
             <p>Selecione o Personagem para conferir todos os seus atributos</p>
             <div>
                 <label for="selpersonStatus">Selecione o Personagem: </label>
-                <select id="selpersonStatus">
-                    <option value="Sem Valor">Seu personagem</option>
-                </select>
+                <select id="selpersonStatus"></select>
                 <input type="button" value="Ver Status" onclick="verStatus()">
             </div>
             <p id="barraStatus"></p>
@@ -101,9 +96,10 @@
         <p>Criado Por Micael Silva</p>
     </footer>
 
-    <script src="Person.js"></script>
-    <script src="Item.js"></script>
-    <script src="index.js"></script>
-    <script src="menu.js"></script>
+    <script src="js/classes/Person.js"></script>
+    <script src="js/classes/Item.js"></script>
+    <script src="js/subscripts/menu.js"></script>
+    <script src="js/subscripts/mensagem.js"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>

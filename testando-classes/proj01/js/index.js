@@ -13,6 +13,7 @@ function criarPersonagem(nome, atr){
         if(!personagens[nome]){
             personagens[nome] = new Person(nome, atr)
             personCriados.innerHTML += nome + "<br>"
+            aparecerMensagem( "Personagem " + nome + " criado")
 
             let optItem = document.createElement("option")
             let optStatus = document.createElement("option")
@@ -26,10 +27,10 @@ function criarPersonagem(nome, atr){
             selpersonItem.appendChild(optItem)
             selpersonStatus.appendChild(optStatus)
         }else{
-            alert("Personagem já existente")
+            aparecerMensagem("Personagem já existente")
         }
     }else{
-        alert("Personagem não pode ser criado, necessário preencher todos os campos.")
+        aparecerMensagem("Personagem não pode ser criado, necessário preencher todos os campos.")
     }
 }
 
@@ -68,7 +69,7 @@ function removerItem(){
     personagem.removeItem(i[item])
     verificarItens()
 
-    alert(item + " removido")
+    aparecerMensagem(item + " removido")
 }
 
 function substituirItem(){

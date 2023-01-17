@@ -12,5 +12,6 @@ p.mensagem{
     
     position: fixed;
     top: 70%;
-    left: 10px;
+    left: -400px;
+    transition-duration: 0.5s;
 }
