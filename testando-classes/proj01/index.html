@@ -28,6 +28,13 @@
             </div>
 
             <div>
+                <label for="mas">Masculino</label>
+                <input type="radio" name="sexo" id="mas" checked>
+                <label for="fem">feminino</label>
+                <input type="radio" name="sexo" id="fem">
+            </div>
+
+            <div>
                 <label for="atr">Atributo: </label>
                 <select name="atr" id="atr">
                     <option value="agua">Água<ption>
@@ -38,11 +45,11 @@
                 </select>
             </div>
             <div>
-                <input type="button" value="Criar Personagem" id="btCriarPersonagem" onclick = "criarPersonagem(nome.value, atr.options[atr.selectedIndex].value)">
+                <input type="button" value="Criar Personagem" id="btCriarPersonagem">
             </div>
 
             <h2>Personagens Criados</h2>
-            <p id="personCriados"></p>
+            <select id="selpersonCriados"></select>
         </section>
 
         <section class="campo" id="campItens">

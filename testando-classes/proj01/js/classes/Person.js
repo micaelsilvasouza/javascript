@@ -1,14 +1,16 @@
 /*Uma classe que cria um personagem*/ 
 class Person{
     #nome
+    #sexo
     #ataque = 100
     #defesa = 100
     #magia = 100
     #atrMagico
     #item = {}
 
-    constructor(nome, atr){
+    constructor(nome, sexo, atr){
         this.#nome = nome
+        this.#sexo = sexo
         this.#atrMagico = atr
     }
 
@@ -71,6 +73,14 @@ class Person{
 
     set nome(nome){
         this.#nome = nome
+    }
+
+    get sexo(){
+        return this.#sexo
+    }
+
+    set sexo(sexo){
+        this.#sexo = sexo
     }
 
     get defesa(){

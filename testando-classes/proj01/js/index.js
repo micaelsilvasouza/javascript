@@ -1,30 +1,40 @@
 let personagens = {}
 
 
-function criarPersonagem(nome, atr){
-    if(nome.length > 0 && atr.length > 0){
-        if(!personagens[nome]){
-            personagens[nome] = new Person(nome, atr)
-            personCriados.innerHTML += nome + "<br>"
-            aparecerMensagem( "Personagem " + nome + " criado")
+function criarPersonagem(){
+    let radioSex = document.getElementsByName("sexo")[0]
+    let nomePerson = nome.value
+    let sexo = radioSex.checked? "Masculino": "Feminio"
+    let atributo = atr.options[atr.selectedIndex].value
+
+    if(nomePerson.length > 0 && atributo.length > 0){
+        if(!personagens[nomePerson]){
+            personagens[nomePerson] = new Person(nomePerson, sexo, atributo)
+            aparecerMensagem( "Personagem " + nomePerson + " criado")
 
             let optItem = document.createElement("option")
             let optStatus = document.createElement("option")
+            let optCriado = document.createElement("option")
             
-            optItem.value = nome
-            optStatus.value = nome
+            optItem.value = nomePerson
+            optStatus.value = nomePerson
+            optCriado.value = nomePerson
 
-            optItem.innerHTML = nome
-            optStatus.innerHTML = nome
+            optItem.innerHTML = nomePerson
+            optStatus.innerHTML = nomePerson
+            optCriado.text = nomePerson
             
             selpersonItem.appendChild(optItem)
             selpersonStatus.appendChild(optStatus)
+            selpersonCriados.appendChild(optCriado)
         }else{
             aparecerMensagem("Personagem já existente")
         }
     }else{
         aparecerMensagem("Personagem não pode ser criado, necessário preencher todos os campos.")
     }
+
+    nome.value = ""
 }
 
 function verStatus(){
@@ -74,6 +84,7 @@ function substituirItem(){
     verificarItens()
 }
 
+btCriarPersonagem.addEventListener("click",criarPersonagem)
 selpersonItem.addEventListener("change", verificarItens)
 btremover.addEventListener("click", removerItem)
 btsubstituir.addEventListener("click", substituirItem)
