@@ -23,7 +23,10 @@ function criarPersonagem(){
             optItem.innerHTML = nomePerson
             optStatus.innerHTML = nomePerson
             optCriado.text = nomePerson
+
+
             
+            optCriado.selected = true
             selpersonItem.appendChild(optItem)
             selpersonStatus.appendChild(optStatus)
             selpersonCriados.appendChild(optCriado)
@@ -35,6 +38,16 @@ function criarPersonagem(){
     }
 
     nome.value = ""
+    setImgPerson()
+}
+
+//Mudar a imagem do personagem na section de criar pelo onchage no select dos personagens criados
+
+function setImgPerson(){
+        let personagem = personagens[selpersonCriados.value]
+        let img = personagem.sexo == "Masculino"? "imagens/person-masculino.png": "imagens/person-feminino.png"
+    
+        imgPerson.setAttribute("src", img)
 }
 
 function verStatus(){
@@ -84,7 +97,15 @@ function substituirItem(){
     verificarItens()
 }
 
+//Chamada para criar Personagem
 btCriarPersonagem.addEventListener("click",criarPersonagem)
+
+//chamadas usando a imagem do Pesonagem
+selpersonCriados.addEventListener("change", setImgPerson)
+selpersonItem.addEventListener("change", setImgPerson)
+selpersonStatus.addEventListener("change", setImgPerson)
+
+//Chamadas usando funções de itens
 selpersonItem.addEventListener("change", verificarItens)
 btremover.addEventListener("click", removerItem)
 btsubstituir.addEventListener("click", substituirItem)

@@ -17,6 +17,7 @@ class Person{
     status(){ //Demonstra o status desse personagem
         return `<p>
                     Nome = ${this.#nome.toUpperCase()}<br>
+                    Sexo = ${this.#sexo}<br>
                     Ataque = ${this.#ataque}<br>
                     Defesa = ${this.#defesa}<br>
                     Magia = ${this.#magia}<br>
