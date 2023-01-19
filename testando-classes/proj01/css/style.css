@@ -87,11 +87,19 @@ main>section#campCriar{
     display: block;
 }
 
-main > img#imgPerson{
-    display: block;
-    margin: auto;
-    height: 225px;
+main > section#visuPerson{
+    text-align: center;
+    padding: 10px;
+}
+
+main > section#visuPerson > img#imgPerson{
     width: 183px;
+    height: 225px;
+}
+
+main > section#visuPerson > img#imgAtributo{
+    width: 50px;
+    height: 50px;
 }
 
 footer{

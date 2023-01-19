@@ -5,7 +5,7 @@ function criarPersonagem(){
     let radioSex = document.getElementsByName("sexo")[0]
     let nomePerson = nome.value
     let sexo = radioSex.checked? "Masculino": "Feminio"
-    let atributo = atr.options[atr.selectedIndex].value
+    let atributo = selAtributo.value
 
     if(nomePerson.length > 0 && atributo.length > 0){
         if(!personagens[nomePerson]){
@@ -24,9 +24,10 @@ function criarPersonagem(){
             optStatus.innerHTML = nomePerson
             optCriado.text = nomePerson
 
-
-            
             optCriado.selected = true
+            optItem.selected = true
+            optStatus.selected = true
+
             selpersonItem.appendChild(optItem)
             selpersonStatus.appendChild(optStatus)
             selpersonCriados.appendChild(optCriado)
@@ -41,21 +42,35 @@ function criarPersonagem(){
     setImgPerson()
 }
 
+//Atualizar todos os select de personagens, para sempre ficarem com mensmo persoangem selecioando////
+
+function atualizarSelPerson(){
+    let indexopt = this.selectedIndex
+    selpersonCriados.options[indexopt].selected = true
+    selpersonItem.options[indexopt].selected = true
+    selpersonStatus.options[indexopt].selected = true
+}
+
 //Mudar a imagem do personagem na section de criar pelo onchage no select dos personagens criados
 
 function setImgPerson(){
+    let img
+    if(selpersonCriados.options.length > 0){
         let personagem = personagens[selpersonCriados.value]
-        let img = personagem.sexo == "Masculino"? "imagens/person-masculino.png": "imagens/person-feminino.png"
-    
-        imgPerson.setAttribute("src", img)
+        img = personagem.sexo == "Masculino"? "imagens/person-masculino.png": "imagens/person-feminino.png"
+    }else{
+        img = document.getElementsByName("sexo")[0].checked? "imagens/person-masculino.png": "imagens/person-feminino.png"
+    }
+
+    imgPerson.setAttribute("src", img) 
 }
 
 function verStatus(){
     let sel = selpersonStatus.options[selpersonStatus.selectedIndex].value
     barraStatus.innerHTML = personagens[sel].status()
 }
-
-///Funções Relacionadas a manipulação dos itens de um personagem////
+//////////////////////////////////////////////////////////////
+///Funções Relacionadas a manipulação dos itens de um personagem///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function verificarItens(){
     selRemoverItem.innerHTML = ""
@@ -97,13 +112,25 @@ function substituirItem(){
     verificarItens()
 }
 
+//Mudar os simbolo do atributo usando o select atributos
+selAtributo.onchange = function(){
+    imgAtributo.src = `imagens/atributo-${this.value}.png`
+}
+
 //Chamada para criar Personagem
 btCriarPersonagem.addEventListener("click",criarPersonagem)
+
+//Chamadas para atualizar os selects de personagens
+selpersonCriados.addEventListener("change", atualizarSelPerson)
+selpersonItem.addEventListener("change", atualizarSelPerson)
+selpersonStatus.addEventListener("change", atualizarSelPerson)
 
 //chamadas usando a imagem do Pesonagem
 selpersonCriados.addEventListener("change", setImgPerson)
 selpersonItem.addEventListener("change", setImgPerson)
 selpersonStatus.addEventListener("change", setImgPerson)
+radioSexMas.addEventListener("click", setImgPerson)
+radioSexFem.addEventListener("click", setImgPerson)
 
 //Chamadas usando funções de itens
 selpersonItem.addEventListener("change", verificarItens)

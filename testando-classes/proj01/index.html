@@ -28,15 +28,15 @@
             </div>
 
             <div>
-                <label for="mas">Masculino</label>
-                <input type="radio" name="sexo" id="mas" checked>
-                <label for="fem">feminino</label>
-                <input type="radio" name="sexo" id="fem">
+                <label for="radioSexMas">Masculino</label>
+                <input type="radio" name="sexo" id="radioSexMas" checked>
+                <label for="radioSexFem">feminino</label>
+                <input type="radio" name="sexo" id="radioSexFem">
             </div>
 
             <div>
-                <label for="atr">Atributo: </label>
-                <select name="atr" id="atr">
+                <label for="selAtributo">Atributo: </label>
+                <select name="atr" id="selAtributo">
                     <option value="agua">Água<ption>
                     <option value="fogo">Fogo</option>
                     <option value="terra">Terra</option>
@@ -90,7 +90,10 @@
             <p id="barraStatus"></p>
         </section>
 
-        <img id="imgPerson" src="imagens/person-masculino.png" alt="imagem-personagem">
+        <section id="visuPerson">
+            <img id="imgPerson" src="imagens/person-masculino.png" alt="imagem-personagem">
+            <img id="imgAtributo" src="imagens/atributo-agua.png" alt="icone-atributo">
+        </section>
 
         <p class="mensagem">Mensagem especial para cada ação</p>
     </main>
