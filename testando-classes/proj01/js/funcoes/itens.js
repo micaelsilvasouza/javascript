@@ -48,3 +48,9 @@ function substituirItem(){
     personagem.substItem(reitem, additem)
     verificarItens()
 }
+
+function propriedadeItem(){
+    propItem.innerHTML = i[this.value].propriedades()
+    imgItem.src = `imagens/${this.value}.png`
+    imgItem.alt = this.value
+}

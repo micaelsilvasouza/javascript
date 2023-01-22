@@ -59,7 +59,6 @@
             </div>
 
             <h1>Adicionar Itens</h1>
-            <p>Selecione até três itens para melhorar os atributos do seu Personagem</p>
 
             <div>
                 <label for="selAddItem">Itens:</label>
@@ -68,12 +67,10 @@
             </div>
 
             <h1>Remover e Substituir Item</h1>
-            <p>Selecione qual item deseja remover e click em remover.</p>
-            <p>Click em Substituir e alterará o item selecionado para o que está selecionado em Adicionar Item</p>
             
             <div>
                 <label for="selRemoverItem">Item:</label>
-                <select id="selRemoverItem"></select>
+                <select id="selRemoverItem"></select><br>
                 <input type="button" value="Remover" id="btremover">
                 <input type="button" value="Substituir" id="btsubstituir">
             </div>
@@ -90,9 +87,20 @@
             <p id="barraStatus"></p>
         </section>
 
-        <section id="visuPerson">
+        <section class="visuImg" id="visuPerson">
             <img id="imgPerson" src="imagens/person-masculino.png" alt="imagem-personagem">
             <img id="imgAtributo" src="imagens/atributo-agua.png" alt="icone-atributo">
+        </section>
+
+        <section class="visuImg" id="visuItem">
+            <img id="imgItem" src="imagens/BraskHands.png" alt="imagem-item">
+            <p id="propItem">Propriedades <br>
+                Nome = BraskHands <br>
+                Tipo = Anel <br>
+                Ataque = +50 <br>
+                Defesa = +30 <br>
+                Magia = +20 <br>
+            </p>
         </section>
 
         <p class="mensagem">Mensagem especial para cada ação</p>
