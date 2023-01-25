@@ -50,7 +50,15 @@ function substituirItem(){
 }
 
 function propriedadeItem(){
-    propItem.innerHTML = i[this.value].propriedades()
-    imgItem.src = `imagens/${this.value}.png`
-    imgItem.alt = this.value
+    if(this.value != "Propriedades"){
+        propItem.innerHTML = i[this.value].propriedades()
+        imgItem.src = `imagens/${this.value}.png`
+        imgItem.alt = this.value 
+    }else{
+        let value = selRemoverItem.value
+        propItem.innerHTML = i[value].propriedades()
+        imgItem.src = `imagens/${value}.png`
+        imgItem.alt = value
+    }
+    
 }

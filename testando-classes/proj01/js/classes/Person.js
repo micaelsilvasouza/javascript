@@ -2,6 +2,7 @@
 class Person{
     #nome
     #sexo
+    #vida = 100
     #ataque = 100
     #defesa = 100
     #magia = 100
@@ -18,6 +19,7 @@ class Person{
         return `<p>
                     Nome = ${this.#nome.toUpperCase()}<br>
                     Sexo = ${this.#sexo}<br>
+                    vida = ${this.#vida}<br>
                     Ataque = ${this.#ataque}<br>
                     Defesa = ${this.#defesa}<br>
                     Magia = ${this.#magia}<br>
@@ -25,6 +27,35 @@ class Person{
                     itens = ${Object.keys(this.#item)}
                 </p>`
     }
+    
+    static defedendo = false
+
+    defender(){
+        this.defesa += this.#defesa / 4
+    }
+
+    atacar(inimigo){
+        let dano = this.#ataque - inimigo.defesa
+        if(dano < 0){
+            inimigo.vida -= dano
+        }else{
+            inimigo.vida -= 10
+        }
+    }
+
+    atacarMagia(inimigo){
+        let dano = this.#magia - inimigo.defesa
+        if(dano < 0){
+            inimigo.vida -= dano
+            this.#magia -= dano/2
+        }else{
+            inimigo.vida -= 10
+            this.#magia = 5
+        }        
+    }
+
+    
+
 
     addItem(item){ //Adiciona um objeto da classe Item numa array de trés itens
 
@@ -82,6 +113,14 @@ class Person{
 
     set sexo(sexo){
         this.#sexo = sexo
+    }
+
+    get vida(){
+        return this.#vida
+    }
+
+    set vida(vida){
+        this.#vida = vida
     }
 
     get defesa(){
