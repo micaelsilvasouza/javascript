@@ -9,6 +9,7 @@ class Person{
     #atrMagico
     #item = {}
 
+
     constructor(nome, sexo, atr){
         this.#nome = nome
         this.#sexo = sexo
@@ -28,6 +29,15 @@ class Person{
                 </p>`
     }
     
+    #vidaMax = this.#vida
+    curar(cura){
+        if(this.#vida + cura < this.#vidaMax){
+            this.#vida += cura
+        }else{
+            this.#vida = this.#vidaMax
+        }
+    }    
+    
     static defedendo = false
 
     defender(){
@@ -36,7 +46,7 @@ class Person{
 
     atacar(inimigo){
         let dano = this.#ataque - inimigo.defesa
-        if(dano < 0){
+        if(dano > 0){
             inimigo.vida -= dano
         }else{
             inimigo.vida -= 10
