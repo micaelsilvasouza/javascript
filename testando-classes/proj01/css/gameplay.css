@@ -7,10 +7,52 @@ section#gameplay{
 
 section#gameplay > div{
     height: 50vh;
+    position: relative;
 }
 
 section#gameplay > div >img{
     display: block;
     margin: auto;
     height: 35vh;
+    padding-top: 10px;
+}
+
+section#gameplay > div#campPerson > div#buttons{
+    position: absolute;
+    top: 20%;
+    left: 10px;
+    float: left;
+}
+
+section#gameplay > div#campPerson > div#buttons > button{
+    display: block;
+    background-color: rgb(14, 123, 224);
+    color: white;
+    font-size: 3vh;
+    font-weight: bolder;
+    width: 30vw;
+    padding: 10px;
+    margin: auto;
+    margin-bottom: 1vh;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px grey;
+    
+}
+
+section#gameplay > div#campPerson > div#buttons > button:hover{
+    background-color: rgb(252, 172, 0);
+}
+
+section#gameplay > div#campPerson > div#buttons > button:active{
+    background-color: rgb(226, 92, 15);
+}
+
+span.vida{
+    display: block;
+    text-align: center;
+    background-color: red;
+    width: 20vw;
+    float: right;
+    margin-right: 10px;
 }
