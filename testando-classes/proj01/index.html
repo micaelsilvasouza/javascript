@@ -7,109 +7,112 @@
     <title>Criando um Personagem</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/mensagem.css">
+    <link rel="stylesheet" href="css/gameplay.css">
 </head>
 <body>
-    <header>
-        <h1>Criando um Personagem</h1>
-        <nav id="menuBar">
-            <span id="btcriar" class="botomenu">Criar</span>
-            <span id="btitem" class="botomenu">Adicionar itens</span>
-            <span id="btstatus" class="botomenu">Ver Personagem</span>
-        </nav>
-    </header>
-    <main>
-        <section class="campo" id="campCriar">
-            <h1>Criação do Personagem</h1>
-            <p>Para criar um Personagem basta colocar um nome e escolher qual será seu Atributo mágico</p>
-            
-            <div>
-                <label for="nome">Nome: </label>
-                <input type="text" name="nome" id="nome">
-            </div>
+    <section  id="criacao">
+        <header>
+            <h1>Criando um Personagem</h1>
+            <nav id="menuBar">
+                <span id="btcriar" class="botomenu">Criar</span>
+                <span id="btitem" class="botomenu">Adicionar itens</span>
+                <span id="btstatus" class="botomenu">Ver Personagem</span>
+            </nav>
+        </header>
+        <main>
+            <section class="campo" id="campCriar">
+                <h1>Criação do Personagem</h1>
+                <p>Para criar um Personagem basta colocar um nome e escolher qual será seu Atributo mágico</p>
+        
+                <div>
+                    <label for="nome">Nome: </label>
+                    <input type="text" name="nome" id="nome">
+                </div>
+                <div>
+                    <label for="radioSexMas">Masculino</label>
+                    <input type="radio" name="sexo" id="radioSexMas" checked>
+                    <label for="radioSexFem">feminino</label>
+                    <input type="radio" name="sexo" id="radioSexFem">
+                </div>
+                <div>
+                    <label for="selAtributo">Atributo: </label>
+                    <select name="atr" id="selAtributo">
+                        <option value="agua">Água<ption>
+                        <option value="fogo">Fogo</option>
+                        <option value="terra">Terra</option>
+                        <option value="vento">Vento</option>
+                        <option value="raio">Raio</option>
+                    </select>
+                </div>
+                <div>
+                    <input type="button" value="Criar Personagem" id="btCriarPersonagem">
+                </div>
+                <h2>Personagens Criados</h2>
+                <select id="selpersonCriados"></select>
+            </section>
+            <section class="campo" id="campItens">
+                <div>
+                    <label for="selpersonItem">Selecione o Personagem: </label>
+                    <select id="selpersonItem"></select>
+                </div>
+                <h1>Adicionar Itens</h1>
+                <div>
+                    <label for="selAddItem">Itens:</label>
+                    <select id="selAddItem"></select>
+                    <input id="btaddItem" type="button" value="Adicionar Item">
+                </div>
+                <h1>Remover e Substituir Item</h1>
+        
+                <div>
+                    <label for="selRemoverItem">Item:</label>
+                    <select id="selRemoverItem"></select><br>
+                    <input type="button" value="Remover" id="btremover">
+                    <input type="button" value="Substituir" id="btsubstituir">
+                    <input type="button" value="Propriedades" id="btpropriedade">
+                </div>
+            </section>
+            <section class="campo" id="campStatus">
+                <h1>Status do Personagem</h1>
+                <p>Selecione o Personagem para conferir todos os seus atributos</p>
+                <div>
+                    <label for="selpersonStatus">Selecione o Personagem: </label>
+                    <select id="selpersonStatus"></select>
+                    <input id="btverStatus" type="button" value="Ver Status">
+                </div>
+                <p id="barraStatus"></p>
+            </section>
+            <section class="visuImg" id="visuPerson">
+                <img id="imgPerson" src="imagens/person-masculino.png" alt="imagem-personagem">
+                <img id="imgAtributo" src="imagens/atributo-agua.png" alt="icone-atributo">
+            </section>
+            <section class="visuImg" id="visuItem">
+                <img id="imgItem" src="imagens/BraskHands.png" alt="imagem-item">
+                <p id="propItem">Propriedades <br>
+                    Nome = BraskHands <br>
+                    Tipo = Anel <br>
+                    Ataque = +50 <br>
+                    Defesa = +30 <br>
+                    Magia = +20 <br>
+                </p>
+            </section>
+            <p class="mensagem">Mensagem especial para cada ação</p>
+        </main>
+        <footer>
+            <p>Mini projeto testando classes em javascript</p>
+            <p>Criado Por Micael Silva</p>
+        </footer>
+    </section>
 
-            <div>
-                <label for="radioSexMas">Masculino</label>
-                <input type="radio" name="sexo" id="radioSexMas" checked>
-                <label for="radioSexFem">feminino</label>
-                <input type="radio" name="sexo" id="radioSexFem">
-            </div>
+    <section id="gameplay">
+        <div id="campInimigo">
+            <img src="imagens/inimigo-esqueleto.png" alt="imagem-inimigo">
+        </div>
 
-            <div>
-                <label for="selAtributo">Atributo: </label>
-                <select name="atr" id="selAtributo">
-                    <option value="agua">Água<ption>
-                    <option value="fogo">Fogo</option>
-                    <option value="terra">Terra</option>
-                    <option value="vento">Vento</option>
-                    <option value="raio">Raio</option>
-                </select>
-            </div>
-            <div>
-                <input type="button" value="Criar Personagem" id="btCriarPersonagem">
-            </div>
 
-            <h2>Personagens Criados</h2>
-            <select id="selpersonCriados"></select>
-        </section>
-
-        <section class="campo" id="campItens">
-            <div>
-                <label for="selpersonItem">Selecione o Personagem: </label>
-                <select id="selpersonItem"></select> 
-            </div>
-
-            <h1>Adicionar Itens</h1>
-
-            <div>
-                <label for="selAddItem">Itens:</label>
-                <select id="selAddItem"></select>
-                <input id="btaddItem" type="button" value="Adicionar Item">
-            </div>
-
-            <h1>Remover e Substituir Item</h1>
-            
-            <div>
-                <label for="selRemoverItem">Item:</label>
-                <select id="selRemoverItem"></select><br>
-                <input type="button" value="Remover" id="btremover">
-                <input type="button" value="Substituir" id="btsubstituir">
-                <input type="button" value="Propriedades" id="btpropriedade">
-            </div>
-        </section>
-
-        <section class="campo" id="campStatus">
-            <h1>Status do Personagem</h1>
-            <p>Selecione o Personagem para conferir todos os seus atributos</p>
-            <div>
-                <label for="selpersonStatus">Selecione o Personagem: </label>
-                <select id="selpersonStatus"></select>
-                <input id="btverStatus" type="button" value="Ver Status">
-            </div>
-            <p id="barraStatus"></p>
-        </section>
-
-        <section class="visuImg" id="visuPerson">
-            <img id="imgPerson" src="imagens/person-masculino.png" alt="imagem-personagem">
-            <img id="imgAtributo" src="imagens/atributo-agua.png" alt="icone-atributo">
-        </section>
-
-        <section class="visuImg" id="visuItem">
-            <img id="imgItem" src="imagens/BraskHands.png" alt="imagem-item">
-            <p id="propItem">Propriedades <br>
-                Nome = BraskHands <br>
-                Tipo = Anel <br>
-                Ataque = +50 <br>
-                Defesa = +30 <br>
-                Magia = +20 <br>
-            </p>
-        </section>
-
-        <p class="mensagem">Mensagem especial para cada ação</p>
-    </main>
-    <footer>
-        <p>Mini projeto testando classes em javascript</p>
-        <p>Criado Por Micael Silva</p>
-    </footer>
+        <div id="campPerson">
+            <img src="imagens/person-masculino.png" alt="imagem-personagem">
+        </div>
+    </section>
 
     <script src="js/classes/Person.js"></script>
     <script src="js/classes/Inimigo.js"></script>
@@ -123,4 +126,5 @@
     <script src="js/funcoes/alteracao-imagens.js"></script>
     <script src="js/index.js"></script>
 </body>
+
 </html>

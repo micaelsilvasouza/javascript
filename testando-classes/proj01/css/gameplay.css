@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+section#gameplay{
+    height: 100vh;
+    width: 100vw;
+}
+
+section#gameplay > div{
+    height: 50vh;
+}
+
+section#gameplay > div >img{
+    display: block;
+    margin: auto;
+    height: 35vh;
+}
