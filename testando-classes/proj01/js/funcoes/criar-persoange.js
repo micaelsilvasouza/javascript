@@ -2,7 +2,9 @@
 //Atualiza as imagens relacionadas ao personagem recem criado///
 //Faz uso da classe Person
 
-let personagens = {}
+let personagens = {
+    test: new Person("test", "Masculino", "Fogo")
+}
 
 function criarPersonagem(){
     let radioSex = document.getElementsByName("sexo")[0]

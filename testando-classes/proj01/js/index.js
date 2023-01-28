@@ -27,3 +27,8 @@ btpropriedade.addEventListener("click", propriedadeItem)
 btaddItem.addEventListener("click", addItem)
 btremover.addEventListener("click", removerItem)
 btsubstituir.addEventListener("click", substituirItem)
+
+//Chamadas usando funções de combate
+btatacar.addEventListener("click", atacarInimigo)
+btdefender.addEventListener('click', defenderPerson)
+btusarMagia.addEventListener("click", usarMagiaPerson)

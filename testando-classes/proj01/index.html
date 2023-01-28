@@ -95,7 +95,6 @@
                     Magia = +20 <br>
                 </p>
             </section>
-            <p class="mensagem">Mensagem especial para cada ação</p>
         </main>
         <footer>
             <p>Mini projeto testando classes em javascript</p>
@@ -106,7 +105,7 @@
     <section id="gameplay">
         <div id="campInimigo">
             <img src="imagens/inimigo-esqueleto.png" alt="imagem-inimigo">
-            <span class="vida">50</span>
+            <span class="vida">1000</span>
         </div>
 
 
@@ -114,12 +113,14 @@
             <img src="imagens/person-masculino.png" alt="imagem-personagem">
             <span class="vida">100</span>
             <div id="buttons">
-                <button>Atacar</button>
-                <button>Defender</button>
-                <button>Usar Magia</button>
+                <button id="btatacar">Atacar</button>
+                <button id="btdefender">Defender</button>
+                <button id="btusarMagia">Usar Magia</button>
             </div>
         </div>
     </section>
+
+    <p class="mensagem">Mensagem especial para cada ação</p>
 
     <script src="js/classes/Person.js"></script>
     <script src="js/classes/Inimigo.js"></script>
@@ -131,6 +132,7 @@
     <script src="js/funcoes/criar-persoange.js"></script>
     <script src="js/funcoes/itens.js"></script>
     <script src="js/funcoes/alteracao-imagens.js"></script>
+    <script src="js/funcoes/combate.js"></script>
     <script src="js/index.js"></script>
 </body>
 

@@ -39,9 +39,16 @@ class Person{
     }    
     
     static defedendo = false
-
-    defender(){
-        this.defesa += this.#defesa / 4
+    #defesaMax = this.#defesa
+    setDefendendo(){
+        if(this.defedendo){
+            this.defesa = this.#defesaMax
+            this.defedendo = false
+        }else{
+            this.defesa += this.#defesa / 4
+            this.defedendo = true
+        }
+        
     }
 
     atacar(inimigo){
@@ -55,16 +62,18 @@ class Person{
 
     atacarMagia(inimigo){
         let dano = this.#magia - inimigo.defesa
-        if(dano < 0){
+        if(this.#magia > 0){
+            if(dano > 0){
             inimigo.vida -= dano
             this.#magia -= dano/2
-        }else{
+            }else{
             inimigo.vida -= 10
-            this.#magia = 5
-        }        
+            this.#magia -= 20
+            }
+            console.log(this.magia)
+        }
+                
     }
-
-    
 
 
     addItem(item){ //Adiciona um objeto da classe Item numa array de trés itens
