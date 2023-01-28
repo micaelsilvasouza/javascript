@@ -1,3 +1,3 @@
 let inimigos = {
-    Naokin: new Inimgo("Naokin", "Monstro", "Fogo", 1000, 150, 100, 80)
+    Naokin: new Inimgo("Naokin", "Monstro", "Fogo", 200, 60, 50, 30)
 }

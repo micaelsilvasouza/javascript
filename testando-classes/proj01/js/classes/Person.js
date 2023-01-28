@@ -38,15 +38,15 @@ class Person{
         }
     }    
     
-    static defedendo = false
+    #defedendo = false
     #defesaMax = this.#defesa
-    setDefendendo(){
+    setDefedendo(){
         if(this.defedendo){
             this.defesa = this.#defesaMax
-            this.defedendo = false
+            this.#defedendo = false
         }else{
             this.defesa += this.#defesa / 4
-            this.defedendo = true
+            this.#defedendo = true
         }
         
     }
@@ -148,6 +148,10 @@ class Person{
 
     set defesa(defesa){
         this.#defesa = defesa
+    }
+
+    get defedendo(){
+        return this.#defedendo
     }
 
     get ataque(){
