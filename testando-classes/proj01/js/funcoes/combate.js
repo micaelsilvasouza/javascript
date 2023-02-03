@@ -8,15 +8,27 @@ let random
 
 function atacarPerson(){
     random = Math.floor(Math.random() * 3) + 1
+
+    let verificaVidaIni = inimigo.vida
+    let exibDano = document.createElement("span")
+    exibDano.setAttribute("class", "exibDano")
+
     if(random == 3){
         defenderInimigo()
     }else{
         setTimeout(atacarInimigo, 2500)
     }
 
+    hitInimigo.style.display = "block"
+    setTimeout(()=>{hitInimigo.style.display = "none"}, 300)
+
     person.atacar(inimigo)
     vidaInimigo.innerHTML = inimigo.vida
     aparecerMensagem(person.nome + " atacou " + inimigo.nome)
+    exibDano.innerHTML = inimigo.vida - verificaVidaIni
+
+    campInimigo.appendChild(exibDano)
+    setTimeout(()=>{exibDano.remove()}, 400)
 }
 
 function defenderPerson(){
@@ -33,9 +45,9 @@ function usarMagiaPerson(){
         defenderInimigo()
     }
 
-    let verificaVida = inimigo.vida    
+    let verificaVidaIni = inimigo.vida    
     person.atacarMagia(inimigo)
-    if(inimigo.vida < verificaVida){
+    if(inimigo.vida < verificaVidaIni){
         vidaInimigo.innerHTML = inimigo.vida
         aparecerMensagem(person.nome + " atacou " + inimigo.nome + " usando magia")
         //reação do inimigo
@@ -48,12 +60,26 @@ function usarMagiaPerson(){
 }
 
 function atacarInimigo(){
+    let verificaVidaPerson = person.vida
+    let exibDano = document.createElement("span")
+    exibDano.setAttribute("class", "exibDano")
+
     inimigo.atacar(person)
     vidaPerson.innerHTML = person.vida
+
+    let danoTomado = person.vida - verificaVidaPerson
+    exibDano.innerHTML = danoTomado
+
+    hitPerson.style.display = "block"
+    setTimeout(()=>{hitPerson.style.display = "none"}, 300)
 
     if(person.defendedo){
         person.setDefedendo()
     }
+
+    campPerson.appendChild(exibDano)
+
+    setTimeout(()=>{exibDano.remove()}, 400)
 }
 
 function defenderInimigo(){
