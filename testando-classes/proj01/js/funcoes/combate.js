@@ -1,9 +1,10 @@
 // funções para combate entre inimigo e personagem
 let inimigo = inimigos.Naokin
 let person = personagens.test
-let vidaInimigo = document.getElementsByClassName("vida")[0]
-let vidaPerson = document.getElementsByClassName("vida")[1]
+let vidaInimigo = document.getElementById("barraVidaInimigo")
+let vidaPerson = document.getElementById("barraVidaPerson")
 
+// Funções Personagem
 let random
 
 function atacarPerson(){
@@ -40,13 +41,22 @@ function defenderPerson(){
 
 function usarMagiaPerson(){
     random = Math.floor(Math.random() * 3) + 1
-    console.log(random)
+    
+    let verificaVidaIni = inimigo.vida
+    let exibDano = document.createElement("span")
+    exibDano.setAttribute("class", "exibDano")
+
     if(random == 3){
         defenderInimigo()
     }
-
-    let verificaVidaIni = inimigo.vida    
+   
     person.atacarMagia(inimigo)
+    exibDano.innerHTML = inimigo.vida - verificaVidaIni
+    hitInimigo.style.display = "block"
+    setTimeout(()=>{hitInimigo.style.display = "none"}, 300)
+    campInimigo.appendChild(exibDano)
+    setTimeout(()=>{exibDano.remove()}, 400)
+
     if(inimigo.vida < verificaVidaIni){
         vidaInimigo.innerHTML = inimigo.vida
         aparecerMensagem(person.nome + " atacou " + inimigo.nome + " usando magia")
@@ -58,6 +68,12 @@ function usarMagiaPerson(){
         aparecerMensagem(person.nome + " não possui magia suficente para atacar")
     }
 }
+
+function setBarraVida(newvida){
+    
+}
+
+/////Funções para o Inimigo
 
 function atacarInimigo(){
     let verificaVidaPerson = person.vida

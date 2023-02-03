@@ -84,11 +84,15 @@ section#gameplay > div#campPerson > div#buttons > button:active{
     background-color: rgb(226, 92, 15);
 }
 
-span.vida{
+div.barraVida{
     display: block;
     text-align: center;
+    background-color: rgb(77, 77, 77);
+    width: 50vw;
+    margin: auto;
+}
+
+div.barraVida > span{
+    display: block;
     background-color: red;
-    width: 20vw;
-    float: right;
-    margin-right: 10px;
 }
