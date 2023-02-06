@@ -84,15 +84,26 @@ section#gameplay > div#campPerson > div#buttons > button:active{
     background-color: rgb(226, 92, 15);
 }
 
-div.barraVida{
+div.containerBarraVida{
     display: block;
-    text-align: center;
-    background-color: rgb(77, 77, 77);
-    width: 50vw;
+    border: 2px solid rgb(56, 55, 55);
+    width: 80vw;
+    max-width: 800px;
     margin: auto;
+    position: relative;
 }
 
-div.barraVida > span{
+div.barraVida, div.barraDano{
     display: block;
-    background-color: red;
+    text-align: center;
+    background-color: orange;
+    height: 3vh;
+    max-height: 30px;
+}
+
+div.barraDano{
+    background-color: grey;
+    transition-duration: .3s;
+    position: absolute;
+    top: 0px;
 }

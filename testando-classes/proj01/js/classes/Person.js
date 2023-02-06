@@ -142,6 +142,14 @@ class Person{
         this.#vida = vida
     }
 
+    get vidaMax(){
+        return this.#vidaMax
+    }
+
+    set vidaMax(vida){
+        this.#vidaMax = vida
+    }
+
     get defesa(){
         return this.#defesa
     }

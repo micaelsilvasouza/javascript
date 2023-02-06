@@ -7,6 +7,7 @@ class Inimgo extends Person{
         this.sexo = sexo
         this.atrMagico = atr
         this.vida = vida 
+        this.vidaMax = vida
         this.ataque = ataque
         this.defesa = defesa
         this.magia = magia
