@@ -15,7 +15,7 @@ function criarPersonagem(){
     if(nomePerson.length > 0 && atributo.length > 0){
         if(!personagens[nomePerson]){
             personagens[nomePerson] = new Person(nomePerson, sexo, atributo)
-            aparecerMensagem( "Personagem " + nomePerson + " criado")
+            aparecerMensagem( "Personagem " + nomePerson + " criado", "person")
 
             let optItem = document.createElement("option")
             let optStatus = document.createElement("option")
@@ -37,10 +37,10 @@ function criarPersonagem(){
             selpersonStatus.appendChild(optStatus)
             selpersonCriados.appendChild(optCriado)
         }else{
-            aparecerMensagem("Personagem já existente")
+            aparecerMensagem("Personagem já existente" , "person")
         }
     }else{
-        aparecerMensagem("Personagem não pode ser criado, necessário preencher todos os campos.")
+        aparecerMensagem("Personagem não pode ser criado, necessário preencher todos os campos.", "person")
     }
 
     nome.value = ""

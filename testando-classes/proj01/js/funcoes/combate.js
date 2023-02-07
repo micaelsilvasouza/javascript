@@ -23,6 +23,7 @@ function atacarPerson(){
 
     person.atacar(inimigo)
     setBarraVida("inimigo")
+    verificaMorte(inimigo, person)
     aparecerMensagem(person.nome + " atacou " + inimigo.nome, "person")
     exibDano.innerHTML = inimigo.vida - verificaVidaIni
 
@@ -50,6 +51,7 @@ function usarMagiaPerson(){
    
     person.atacarMagia(inimigo)
     setBarraVida('inimigo')
+    verificaMorte(inimigo, person)
     exibDano.innerHTML = inimigo.vida - verificaVidaIni
     hitInimigo.style.display = "block"
     setTimeout(()=>{hitInimigo.style.display = "none"}, 300)
@@ -66,6 +68,45 @@ function usarMagiaPerson(){
         aparecerMensagem(person.nome + " não possui magia suficente para atacar", "person")
     }
 }
+
+
+
+/////Funções para o Inimigo
+
+function atacarInimigo(){
+    let verificaVidaPerson = person.vida
+    let exibDano = document.createElement("span")
+    exibDano.setAttribute("class", "exibDano")
+
+    inimigo.atacar(person)
+    setBarraVida("person")
+    verificaMorte(person, inimigo)
+    let danoTomado = person.vida - verificaVidaPerson
+    exibDano.innerHTML = danoTomado
+
+    hitPerson.style.display = "block"
+    setTimeout(()=>{hitPerson.style.display = "none"}, 300)
+
+    if(person.defendedo){
+        person.setDefedendo()
+    }
+
+    campPerson.appendChild(exibDano)
+    aparecerMensagem(inimigo.nome + " atacou o " + person.nome, "inimigo")
+
+    setTimeout(()=>{exibDano.remove()}, 400)
+}
+
+function defenderInimigo(){
+    inimigo.setDefedendo()
+    
+    setTimeout(()=>{
+        inimigo.setDefedendo() 
+        aparecerMensagem("Inimigo Defedendo", "inimigo")
+    }, 1000)
+}
+
+///Funções auxiliares de combate
 
 function setBarraVida(atacado){
     let tamanhoBarra = window.innerWidth * 0.8
@@ -98,36 +139,10 @@ function setBarraVida(atacado){
     }
 }
 
-/////Funções para o Inimigo
-
-function atacarInimigo(){
-    let verificaVidaPerson = person.vida
-    let exibDano = document.createElement("span")
-    exibDano.setAttribute("class", "exibDano")
-
-    inimigo.atacar(person)
-    setBarraVida("person")
-    let danoTomado = person.vida - verificaVidaPerson
-    exibDano.innerHTML = danoTomado
-
-    hitPerson.style.display = "block"
-    setTimeout(()=>{hitPerson.style.display = "none"}, 300)
-
-    if(person.defendedo){
-        person.setDefedendo()
+function verificaMorte(atacado, atacando){
+    if(atacado.vida < 1){
+        resultado.innerHTML = atacando.nome + " Ganhou"
+        resPartida.style.display = "block"
+        gameplay.style.display = "none"
     }
-
-    campPerson.appendChild(exibDano)
-    aparecerMensagem(inimigo.nome + " atacou o " + person.nome, "inimigo")
-
-    setTimeout(()=>{exibDano.remove()}, 400)
-}
-
-function defenderInimigo(){
-    inimigo.setDefedendo()
-    
-    setTimeout(()=>{
-        inimigo.setDefedendo() 
-        aparecerMensagem("Inimigo Defedendo", "inimigo")
-    }, 1000)
 }

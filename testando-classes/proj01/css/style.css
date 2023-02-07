@@ -19,7 +19,7 @@ body,html{
 }
 
 section#criacao{
-    display: none;
+    display: block;
 }
 
 header{
@@ -118,9 +118,25 @@ main > section#visuItem > img{
     width: 100%;
 }
 
-footer{
-    text-align: center;
-    font-size: 1.2em;
-    font-weight: bold;
-    padding-top: 10px;
+button#iniciarCombate{
+    display: block;
+    background-color: rgb(14, 123, 224);
+    color: white;
+    font-size: 3vh;
+    font-weight: bolder;
+    width: 40vw;
+    padding: 10px;
+    margin: auto;
+    margin-top: 1vh;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgba(141, 141, 141, 0.692);
+}
+
+button#iniciarCombate:hover{
+    background-color: rgb(252, 172, 0);
+}
+
+button#iniciarCombate:active{
+    background-color: rgb(226, 92, 15);
 }

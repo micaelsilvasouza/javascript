@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+@keyframes ampliar{
+    0%{
+        width: 0px;
+        font-size: 0px;
+    }
+
+    100%{
+        width: 50vw;
+        max-width: 500px;
+        font-size: 5vh;
+    }
+}
+
+section#resPartida{
+    display: none;
+    background-color: rgb(0, 0, 0);
+    width: 100vw;
+    height: 100vh;
+
+    position: absolute;
+    top: 0px;
+}
+
+section#resPartida > div{
+    background-color: rgb(28, 186, 207);
+    color: white;
+    font-size: 5vh;
+    font-family: cursive;
+    text-align: center;
+    width: 50vw;
+    max-width: 500px;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px rgba(141, 141, 141, 0.692);
+
+    animation: ampliar 1s ease;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+section#resPartida > button{
+    display: block;
+    background-color: rgb(14, 123, 224);
+    color: white;
+    font-size: 3vh;
+    font-weight: bolder;
+    width: 30vw;
+    padding: 10px;
+    margin: auto;
+    margin-bottom: 1vh;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgba(141, 141, 141, 0.692);
+    
+    position: absolute;
+    top: 75vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+}
+
+section#resPartida > button:hover{
+    background-color: rgb(252, 172, 0);
+}
+
+section#resPartida > button:active{
+    background-color: rgb(226, 92, 15);
+}
