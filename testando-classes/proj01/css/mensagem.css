@@ -15,3 +15,7 @@ p.mensagem{
     left: -350px;
     transition-duration: 0.5s;
 }
+
+p#mensagemInimigo{
+    top: 80px;
+}

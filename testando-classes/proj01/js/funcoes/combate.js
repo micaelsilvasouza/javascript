@@ -23,7 +23,7 @@ function atacarPerson(){
 
     person.atacar(inimigo)
     setBarraVida("inimigo")
-    aparecerMensagem(person.nome + " atacou " + inimigo.nome)
+    aparecerMensagem(person.nome + " atacou " + inimigo.nome, "person")
     exibDano.innerHTML = inimigo.vida - verificaVidaIni
 
     campInimigo.appendChild(exibDano)
@@ -32,13 +32,13 @@ function atacarPerson(){
 
 function defenderPerson(){
     person.setDefedendo()
-    aparecerMensagem(person.nome + " está se defendendo " + person.defesa)
+    aparecerMensagem(person.nome + " está se defendendo " + person.defesa, "person")
 
     setTimeout(atacarInimigo, 2500)
 }
 
 function usarMagiaPerson(){
-    random = Math.floor(Math.random() * 3) + 1
+    random = 3//Math.floor(Math.random() * 3) + 1
     
     let verificaVidaIni = inimigo.vida
     let exibDano = document.createElement("span")
@@ -57,13 +57,13 @@ function usarMagiaPerson(){
     setTimeout(()=>{exibDano.remove()}, 400)
 
     if(inimigo.vida < verificaVidaIni){
-        aparecerMensagem(person.nome + " atacou " + inimigo.nome + " usando magia")
+        aparecerMensagem(person.nome + " atacou " + inimigo.nome + " usando magia", "person")
         //reação do inimigo
         if(random < 3){
             setTimeout(atacarInimigo, 2500)
         }
     }else{
-        aparecerMensagem(person.nome + " não possui magia suficente para atacar")
+        aparecerMensagem(person.nome + " não possui magia suficente para atacar", "person")
     }
 }
 
@@ -87,7 +87,12 @@ function setBarraVida(atacado){
         barraDano.width = vida * tamanhoBarra / inimigo.vidaMax + "px"
         
     } else if(atacado == "person"){
-        
+        vida = person.vida
+        barraDano = barraDanoPerson.style
+        barraVida = barraVidaPerson.style
+
+        barraVida.width = vida * tamanhoBarra / person.vidaMax + "px"
+        barraDano.width = vida * tamanhoBarra / person.vidaMax + "px"
     }else{
         console.error("nenhum atacado compativel")
     }
@@ -113,12 +118,16 @@ function atacarInimigo(){
     }
 
     campPerson.appendChild(exibDano)
+    aparecerMensagem(inimigo.nome + " atacou o " + person.nome, "inimigo")
 
     setTimeout(()=>{exibDano.remove()}, 400)
 }
 
 function defenderInimigo(){
     inimigo.setDefedendo()
-    console.log("defedendo")
-    setTimeout(inimigo.setDefedendo(), 1000)
+    
+    setTimeout(()=>{
+        inimigo.setDefedendo() 
+        aparecerMensagem("Inimigo Defedendo", "inimigo")
+    }, 1000)
 }

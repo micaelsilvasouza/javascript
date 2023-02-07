@@ -84,13 +84,13 @@ class Person{
                 this.#ataque += item.bonus[0]
                 this.#defesa += item.bonus[1]
                 this.#magia += item.bonus[2] 
-                aparecerMensagem("Item " + item.nome +  " Adicionado a " + this.#nome)
+                aparecerMensagem("Item " + item.nome +  " Adicionado a " + this.#nome, "person")
             }else{
-                aparecerMensagem("Item já existente")
+                aparecerMensagem("Item já existente", "person")
             }
              
         }else{
-            aparecerMensagem("Numero maximo de item é 3, não se pode colocar mais itens")
+            aparecerMensagem("Numero maximo de item é 3, não se pode colocar mais itens", "person")
         }
         
     }
@@ -104,7 +104,7 @@ class Person{
             
             delete this.#item[item.nome]
         }else{ 
-            aparecerMensagem("Esse nome não corresponde a nenhum item existente")
+            aparecerMensagem("Esse nome não corresponde a nenhum item existente", "person")
         } 
     }
 
@@ -114,7 +114,7 @@ class Person{
             this.removeItem(antigoItem)
             this.addItem(novoItem) 
         }else{
-            aparecerMensagem("O item que deseja adiciona já existe")
+            aparecerMensagem("O item que deseja adiciona já existe", "person")
         }
     }
 
