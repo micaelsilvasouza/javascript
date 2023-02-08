@@ -9,7 +9,7 @@ let personagens = {
 function criarPersonagem(){
     let radioSex = document.getElementsByName("sexo")[0]
     let nomePerson = nome.value
-    let sexo = radioSex.checked? "Masculino": "Feminio"
+    let sexo = radioSex.checked? "Masculino": "Feminino"
     let atributo = selAtributo.value
 
     if(nomePerson.length > 0 && atributo.length > 0){

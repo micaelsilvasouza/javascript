@@ -1,12 +1,35 @@
 // funções para combate entre inimigo e personagem
 let inimigo = inimigos.Naokin
-let person = personagens.test
+let person
+
+function iniciarCombate() {
+    person = personagens[selpersonCriados.value]
+    
+    //auterando a imagem do personagem na section gameplay
+    if(person.sexo == "Masculino"){
+        imagemPersonGameplay.src = "imagens/person-masculino.png"
+    }else if(person.sexo == "Feminino"){
+        imagemPersonGameplay.src = `imagens/person-feminino.png`
+    }else{
+        console.error("sexo indefinido")
+    }
+
+    //setando a barra de vida para ficar com 100%
+    barraDanoPerson.style.width = "100%" 
+    barraDanoInimigo.style.width = "100%" 
+    barraVidaPerson.style.width = "100%" 
+    barraVidaInimigo.style.width = "100%" 
+
+    //auterando a visibilidade das sections 
+    gameplay.style.display = "block"
+    criacao.style.display = "none"
+}
 
 // Funções Personagem
 let random
 
 function atacarPerson(){
-    random = Math.floor(Math.random() * 3) + 1
+    random = 1//Math.floor(Math.random() * 3) + 1
 
     let verificaVidaIni = inimigo.vida
     let exibDano = document.createElement("span")

@@ -29,6 +29,7 @@ btremover.addEventListener("click", removerItem)
 btsubstituir.addEventListener("click", substituirItem)
 
 //Chamadas usando funções de combate
+btiniciarCombate.addEventListener("click", iniciarCombate)
 btatacar.addEventListener("click", atacarPerson)
 btdefender.addEventListener('click', defenderPerson)
 btusarMagia.addEventListener("click", usarMagiaPerson)
@@ -37,4 +38,8 @@ btusarMagia.addEventListener("click", usarMagiaPerson)
 btmenu.onclick = ()=>{
     resPartida.style.display = "none"
     criacao.style.display = "block"
+
+    //setando a vida do personagem e do inimigo
+    person.curar(100000)
+    inimigo.curar(100000)
 }

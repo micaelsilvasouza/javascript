@@ -41,18 +41,22 @@ class Person{
     #defedendo = false
     #defesaMax = this.#defesa
     setDefedendo(){
-        if(this.defedendo){
+        if(this.#defedendo){
             this.defesa = this.#defesaMax
             this.#defedendo = false
+            console.log("não defende")
+            console.log(this.defesa)
         }else{
             this.defesa += this.#defesa / 4
             this.#defedendo = true
-        }
-        
+            console.log("defende")
+            console.log(this.defesa)
+        }   
     }
 
     atacar(inimigo){
         let dano = this.#ataque - inimigo.defesa
+        
         if(dano > 0){
             inimigo.vida -= dano
         }else{
@@ -70,7 +74,6 @@ class Person{
             inimigo.vida -= 10
             this.#magia -= 20
             }
-            console.log(this.magia)
         }
                 
     }
@@ -83,6 +86,7 @@ class Person{
                 this.#item[item.nome] = item
                 this.#ataque += item.bonus[0]
                 this.#defesa += item.bonus[1]
+                this.#defesaMax += item.bonus[1]
                 this.#magia += item.bonus[2] 
                 aparecerMensagem("Item " + item.nome +  " Adicionado a " + this.#nome, "person")
             }else{
@@ -100,6 +104,7 @@ class Person{
         if(this.#item[item.nome]){ // verificação de existencia de objeto
             this.#ataque -= item.bonus[0]
             this.#defesa -= item.bonus[1]
+            this.#defesaMax -= item.bonus[1]
             this.#magia -= item.bonus[2]
             
             delete this.#item[item.nome]
@@ -157,9 +162,13 @@ class Person{
     set defesa(defesa){
         this.#defesa = defesa
     }
+    
+    get defesaMax(){
+        return this.#defesaMax
+    }
 
-    get defedendo(){
-        return this.#defedendo
+    set defesaMax(defesa){
+        this.#defesaMax = defesa
     }
 
     get ataque(){

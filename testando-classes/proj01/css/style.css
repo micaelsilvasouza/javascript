@@ -118,7 +118,7 @@ main > section#visuItem > img{
     width: 100%;
 }
 
-button#iniciarCombate{
+button#btiniciarCombate{
     display: block;
     background-color: rgb(14, 123, 224);
     color: white;
@@ -133,10 +133,10 @@ button#iniciarCombate{
     box-shadow: 0px 0px 5px rgba(141, 141, 141, 0.692);
 }
 
-button#iniciarCombate:hover{
+button#btiniciarCombate:hover{
     background-color: rgb(252, 172, 0);
 }
 
-button#iniciarCombate:active{
+button#btiniciarCombate:active{
     background-color: rgb(226, 92, 15);
 }
