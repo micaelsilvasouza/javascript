@@ -4,6 +4,8 @@ let person
 
 function iniciarCombate() {
     person = personagens[selpersonCriados.value]
+    inimigo = inimigos[listInimigos[person.quantInimigos]]
+    imagemInimigoGameplay.src = `imagens/inimigo-${listInimigos[person.quantInimigos]}.png`
     
     //auterando a imagem do personagem na section gameplay
     if(person.sexo == "Masculino"){
@@ -62,7 +64,7 @@ function defenderPerson(){
 }
 
 function usarMagiaPerson(){
-    random = 3//Math.floor(Math.random() * 3) + 1
+    random = Math.floor(Math.random() * 3) + 1
     
     let verificaVidaIni = inimigo.vida
     let exibDano = document.createElement("span")
@@ -167,5 +169,11 @@ function verificaMorte(atacado, atacando){
         resultado.innerHTML = atacando.nome + " Ganhou"
         resPartida.style.display = "block"
         gameplay.style.display = "none"
+        
+        if(atacando.nome == person.nome){
+            person.quantInimigos += 1 
+        }
     }
+
+    
 }

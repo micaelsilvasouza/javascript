@@ -2,6 +2,7 @@
 class Person{
     #nome
     #sexo
+    #quantInimigos = 0
     #vida = 100
     #ataque = 100
     #defesa = 100
@@ -137,6 +138,14 @@ class Person{
 
     set sexo(sexo){
         this.#sexo = sexo
+    }
+
+    get quantInimigos(){
+        return this.#quantInimigos
+    }
+
+    set quantInimigos(numero){
+        this.#quantInimigos = numero
     }
 
     get vida(){
