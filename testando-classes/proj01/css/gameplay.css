@@ -15,7 +15,7 @@
 section#gameplay{
     height: 100vh;
     width: 100vw;
-    display: none;
+    display: block;
 }
 
 section#gameplay > div{
@@ -27,17 +27,17 @@ section#gameplay > div >img{
     display: block;
     margin: auto;
     height: 35vh;
-    padding-top: 10px;
+    padding-top: 5vh;
 }
 
 section#gameplay > div > div.hitDano{
     display: none;
     background-color: rgba(255, 0, 0, 0.116);
-    height: 37vh;
+    height: 35vh;
     width: 30vw;
     max-width: 190px;
     position: absolute;
-    top: 0px;
+    top: 5vh;
     left: 50vw;
     transform: translateX(-50%);
 }
@@ -61,14 +61,14 @@ section#gameplay > div#campPerson > div#buttons{
     float: left;
 }
 
-section#gameplay > div#campPerson > div#buttons > button{
+section#gameplay button{
     display: block;
     background-color: rgb(14, 123, 224);
     color: white;
-    font-size: 3vh;
+    font-size: 3vw;
     font-weight: bolder;
-    width: 30vw;
-    padding: 10px;
+    width: 20vw;
+    padding: 2vh;
     margin: auto;
     margin-bottom: 1vh;
     border: none;
@@ -77,13 +77,14 @@ section#gameplay > div#campPerson > div#buttons > button{
     
 }
 
-section#gameplay > div#campPerson > div#buttons > button:hover{
+section#gameplay button:hover{
     background-color: rgb(252, 172, 0);
 }
 
-section#gameplay > div#campPerson > div#buttons > button:active{
+section#gameplay button:active{
     background-color: rgb(226, 92, 15);
 }
+
 
 div.containerBarraVida{
     display: block;
@@ -111,4 +112,19 @@ div.barraVida{
 div.barraDano{
     background-color: grey;
     transition-duration: .6s;
+}
+
+#barraVidaPerson{
+    background-color: rgb(6, 206, 6);
+}
+
+#barraVidaInimigo{
+    background-color: rgb(184, 21, 21);
+}
+
+button#encerraCombate{
+    padding: 10px;
+    position: absolute;
+    top: 10px;
+    left: 75vw;
 }

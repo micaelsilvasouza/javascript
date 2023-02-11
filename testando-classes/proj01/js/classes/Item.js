@@ -13,10 +13,9 @@ class Item{
         return `<p>
                     Nome = ${this.#nome}<br>
                     Tipo = ${this.#tipo}<br>
-                    bonus:<br>
-                    Ataque = ${this.#bonus[0]}<br>
-                    Defesa = ${this.#bonus[1]}<br>
-                    Magia = ${this.#bonus[2]}
+                    Ataque = +${this.#bonus[0]}<br>
+                    Defesa = +${this.#bonus[1]}<br>
+                    Magia = +${this.#bonus[2]}
                 </p>`
     }
 

@@ -6,9 +6,9 @@
     
 }
 
-/*::-webkit-scrollbar{
+::-webkit-scrollbar{
     width: 0px;
-}*/
+}
 
 
 body,html{
@@ -19,7 +19,7 @@ body,html{
 }
 
 section#criacao{
-    display: block;
+    display: none;
 }
 
 header{
@@ -40,7 +40,7 @@ header>nav{
 
 header>nav>span{
     display: inline-block;
-    font-size: 1.2em;
+    font-size: 4vw;
     font-weight: bolder;
     width: calc(100% / 3);
     padding-top: 10px;
@@ -66,14 +66,12 @@ main{
 
 main > section.campo{
     display: none;
-    width: 50%;
     padding: 10px;
-    position: absolute;
 }
 
 main > section.campo > h1{
     text-align: center;
-    font-size: 2em;
+    font-size: 4vw;
     padding: 10px;
 }
 
@@ -85,6 +83,7 @@ main > section.campo > p{
 
 main > section.campo > div{
     margin-bottom: 10px;
+    font-size: 3vw;
 }
 
 main>section#campCriar{
@@ -93,22 +92,15 @@ main>section#campCriar{
 
 main > section.visuImg{
     text-align: center;
-    width: 40%;
-    padding: 10px;
-    position: absolute;
-    top: 50px;
-    left: 55%;
-    float: right;
 }
 
 main > section#visuPerson > img#imgPerson{
-    width: 183px;
-    height: 225px;
+    width: 37vw;
+    height: 35vh;
 }
 
 main > section#visuPerson > img#imgAtributo{
-    width: 50px;
-    height: 50px;
+    width: 13vw;
 }
 
 main > section#visuItem{
@@ -116,7 +108,8 @@ main > section#visuItem{
 }
 
 main > section#visuItem > img{
-    width: 100%;
+    width: 30vw;
+    height: 23vh;
 }
 
 button#btiniciarCombate{
@@ -125,7 +118,6 @@ button#btiniciarCombate{
     color: white;
     font-size: 3vh;
     font-weight: bolder;
-    width: 40vw;
     padding: 10px;
     margin: auto;
     margin-top: 1vh;

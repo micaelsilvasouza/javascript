@@ -3,7 +3,7 @@
 p.mensagem{
     display: inline-block;
     text-align: center;
-    font-size: 3.5vh;
+    font-size: 3vw;
     background-color: rgb(2, 113, 204);
     color: rgb(255, 168, 6);
     max-width: 300px;
@@ -11,7 +11,7 @@ p.mensagem{
     border-radius: 20px;
     
     position: fixed;
-    top: calc(100vh - 80px);
+    top: 90vh;
     left: -350px;
     transition-duration: 0.5s;
 }

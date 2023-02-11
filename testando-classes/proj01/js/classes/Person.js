@@ -18,7 +18,7 @@ class Person{
     }
 
     status(){ //Demonstra o status desse personagem
-        return `<p>
+        return `<pre>
                     Nome = ${this.#nome.toUpperCase()}<br>
                     Sexo = ${this.#sexo}<br>
                     vida = ${this.#vida}<br>
@@ -27,7 +27,7 @@ class Person{
                     Magia = ${this.#magia}<br>
                     Atributo Magico = ${this.#atrMagico.toUpperCase()}<br>
                     itens = ${Object.keys(this.#item)}
-                </p>`
+                </pre>`
     }
     
     #vidaMax = this.#vida
