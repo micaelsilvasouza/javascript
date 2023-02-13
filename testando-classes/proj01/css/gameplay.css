@@ -32,10 +32,10 @@ section#gameplay > div >img{
 
 section#gameplay > div > div.hitDano{
     display: none;
-    background-image: url(../imagens/efeitos\ de\ corte\ 3.png);
+    background-image: url(../imagens/esfeito-corte.png);
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     height: 35vh;
     width: 100vw;
     max-width: 190px;
