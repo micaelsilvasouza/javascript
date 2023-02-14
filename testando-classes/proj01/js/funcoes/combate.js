@@ -1,6 +1,6 @@
 // funções para combate entre inimigo e personagem
-let inimigo = inimigos.Naokin
-let person
+let inimigo = inimigos.esqueleto
+let person = personagens.test
 
 function iniciarCombate() {
     person = personagens[selpersonCriados.value]
@@ -75,6 +75,7 @@ function usarMagiaPerson(){
     }
    
     person.atacarMagia(inimigo)
+    hitInimigo.style.backgroundImage = `url(imagens/efeito-magia-${person.atrMagico.toLowerCase()}.png)`
     setBarraVida('inimigo')
     verificaMorte(inimigo, person)
     exibDano.innerHTML = inimigo.vida - verificaVidaIni
@@ -102,6 +103,8 @@ function atacarInimigo(){
     let verificaVidaPerson = person.vida
     let exibDano = document.createElement("span")
     exibDano.setAttribute("class", "exibDano")
+    //Setando o efeito de dano do inimigo
+    hitPerson.style.backgroundImage = `url(imagens/efeito-ataque-${inimigo.sexo}.png)`
 
     inimigo.atacar(person)
     setBarraVida("person")
@@ -174,6 +177,5 @@ function verificaMorte(atacado, atacando){
             person.quantInimigos += 1 
         }
     }
-
-    
 }
+

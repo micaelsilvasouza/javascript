@@ -15,7 +15,7 @@
 section#gameplay{
     height: 100vh;
     width: 100vw;
-    display: block;
+    display: none;
 }
 
 section#gameplay > div{
@@ -125,7 +125,7 @@ div.barraDano{
     background-color: rgb(184, 21, 21);
 }
 
-button#encerraCombate{
+button#btencerrarCombate{
     padding: 10px;
     position: absolute;
     top: 10px;

@@ -43,3 +43,11 @@ btmenu.onclick = ()=>{
     person.curar(100000)
     inimigo.curar(100000)
 }
+
+btencerrarCombate.onclick = function (){
+    gameplay.style.display = "none"
+    criacao.style.display = "block"
+
+    person.curar(100000)
+    inimigo.curar(100000)
+}
