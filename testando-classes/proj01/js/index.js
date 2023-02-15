@@ -41,6 +41,7 @@ btmenu.onclick = ()=>{
 
     //setando a vida do personagem e do inimigo
     person.curar(100000)
+    person.magia = magiaMaxPerson
     inimigo.curar(100000)
 }
 
@@ -49,5 +50,6 @@ btencerrarCombate.onclick = function (){
     criacao.style.display = "block"
 
     person.curar(100000)
+    person.magia = magiaMaxPerson
     inimigo.curar(100000)
 }

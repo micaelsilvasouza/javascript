@@ -45,13 +45,9 @@ class Person{
         if(this.#defedendo){
             this.defesa = this.#defesaMax
             this.#defedendo = false
-            console.log("não defende")
-            console.log(this.defesa)
         }else{
             this.defesa += this.#defesa / 4
             this.#defedendo = true
-            console.log("defende")
-            console.log(this.defesa)
         }   
     }
 
@@ -66,17 +62,18 @@ class Person{
     }
 
     atacarMagia(inimigo){
-        let dano = this.#magia - inimigo.defesa
+        let dano = 100 - inimigo.defesa
+        
         if(this.#magia > 0){
             if(dano > 0){
-            inimigo.vida -= dano
-            this.#magia -= dano/2
-            }else{
-            inimigo.vida -= 10
-            this.#magia -= 20
+                inimigo.vida -= dano
+            }else if(dano < -1){
+                inimigo.vida += dano
             }
-        }
-                
+            this.#magia -= 50
+        }else{
+            this.#magia = 0
+        }         
     }
 
 

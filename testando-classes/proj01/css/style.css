@@ -58,7 +58,6 @@ header>nav>span:hover{
 
 main{
     position: relative;
-    min-height: 400px;
     background-color: rgb(20, 20, 20);
     max-width: 1000px;
     margin:auto;

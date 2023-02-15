@@ -1,11 +1,15 @@
 // funções para combate entre inimigo e personagem
 let inimigo = inimigos.esqueleto
 let person = personagens.test
+let magiaMaxPerson
+let morte
 
 function iniciarCombate() {
     person = personagens[selpersonCriados.value]
+    magiaMaxPerson = person.magia
     inimigo = inimigos[listInimigos[person.quantInimigos]]
     imagemInimigoGameplay.src = `imagens/inimigo-${listInimigos[person.quantInimigos]}.png`
+    morte = false
     
     //auterando a imagem do personagem na section gameplay
     if(person.sexo == "Masculino"){
@@ -31,25 +35,26 @@ function iniciarCombate() {
 let random
 
 function atacarPerson(){
-    random = 1//Math.floor(Math.random() * 3) + 1
+    random = Math.floor(Math.random() * 3) + 1
 
     let verificaVidaIni = inimigo.vida
     let exibDano = document.createElement("span")
     exibDano.setAttribute("class", "exibDano")
 
+
     if(random == 3){
         defenderInimigo()
     }else{
-        setTimeout(atacarInimigo, 2500)
+        setTimeout(atacarInimigo, 1000)
     }
 
+    hitInimigo.style.backgroundImage = `url(imagens/esfeito-corte.png)`
     hitInimigo.style.display = "block"
     setTimeout(()=>{hitInimigo.style.display = "none"}, 300)
 
     person.atacar(inimigo)
     setBarraVida("inimigo")
     verificaMorte(inimigo, person)
-    aparecerMensagem(person.nome + " atacou " + inimigo.nome, "person")
     exibDano.innerHTML = inimigo.vida - verificaVidaIni
 
     campInimigo.appendChild(exibDano)
@@ -58,9 +63,8 @@ function atacarPerson(){
 
 function defenderPerson(){
     person.setDefedendo()
-    aparecerMensagem(person.nome + " está se defendendo " + person.defesa, "person")
 
-    setTimeout(atacarInimigo, 2500)
+    setTimeout(atacarInimigo, 1000)
 }
 
 function usarMagiaPerson(){
@@ -72,24 +76,23 @@ function usarMagiaPerson(){
 
     if(random == 3){
         defenderInimigo()
+    }else if(random < 3){
+        setTimeout(atacarInimigo, 1000)
     }
    
     person.atacarMagia(inimigo)
-    hitInimigo.style.backgroundImage = `url(imagens/efeito-magia-${person.atrMagico.toLowerCase()}.png)`
-    setBarraVida('inimigo')
     verificaMorte(inimigo, person)
-    exibDano.innerHTML = inimigo.vida - verificaVidaIni
-    hitInimigo.style.display = "block"
-    setTimeout(()=>{hitInimigo.style.display = "none"}, 300)
-    campInimigo.appendChild(exibDano)
-    setTimeout(()=>{exibDano.remove()}, 400)
+    
 
-    if(inimigo.vida < verificaVidaIni){
-        aparecerMensagem(person.nome + " atacou " + inimigo.nome + " usando magia", "person")
-        //reação do inimigo
-        if(random < 3){
-            setTimeout(atacarInimigo, 2500)
-        }
+    if(person.magia > 0){
+        setBarraVida('inimigo')
+        hitInimigo.style.backgroundImage = `url(imagens/efeito-magia-${person.atrMagico.toLowerCase()}.png)`
+        exibDano.innerHTML = inimigo.vida - verificaVidaIni
+        hitInimigo.style.display = "block"
+        setTimeout(()=>{hitInimigo.style.display = "none"}, 300)
+        campInimigo.appendChild(exibDano)
+        setTimeout(()=>{exibDano.remove()}, 400)
+
     }else{
         aparecerMensagem(person.nome + " não possui magia suficente para atacar", "person")
     }
@@ -120,17 +123,14 @@ function atacarInimigo(){
     }
 
     campPerson.appendChild(exibDano)
-    aparecerMensagem(inimigo.nome + " atacou o " + person.nome, "inimigo")
-
     setTimeout(()=>{exibDano.remove()}, 400)
 }
 
 function defenderInimigo(){
     inimigo.setDefedendo()
-    
+    aparecerMensagem("Inimigo Defedendo", "inimigo")
     setTimeout(()=>{
-        inimigo.setDefedendo() 
-        aparecerMensagem("Inimigo Defedendo", "inimigo")
+        inimigo.setDefedendo()
     }, 1000)
 }
 
@@ -167,15 +167,21 @@ function setBarraVida(atacado){
     }
 }
 
+
+
 function verificaMorte(atacado, atacando){
-    if(atacado.vida < 1){
-        resultado.innerHTML = atacando.nome + " Ganhou"
-        resPartida.style.display = "block"
-        gameplay.style.display = "none"
-        
-        if(atacando.nome == person.nome){
-            person.quantInimigos += 1 
+    if(!morte){
+        if(atacado.vida < 1){
+            resultado.innerHTML = atacando.nome + " Ganhou"
+            resPartida.style.display = "block"
+            gameplay.style.display = "none"
+            
+            if(atacando.nome == person.nome){
+                person.quantInimigos += 1 
+            }
+            morte = true
         }
     }
+    
 }
 
