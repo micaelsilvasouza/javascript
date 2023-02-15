@@ -43,6 +43,7 @@ btmenu.onclick = ()=>{
     person.curar(100000)
     person.magia = magiaMaxPerson
     inimigo.curar(100000)
+    atualizarSelInimigos(person)
 }
 
 btencerrarCombate.onclick = function (){

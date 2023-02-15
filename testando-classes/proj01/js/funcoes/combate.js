@@ -7,8 +7,12 @@ let morte
 function iniciarCombate() {
     person = personagens[selpersonCriados.value]
     magiaMaxPerson = person.magia
+    nomePerson.innerHTML = person.nome
+
     inimigo = inimigos[listInimigos[person.quantInimigos]]
     imagemInimigoGameplay.src = `imagens/inimigo-${listInimigos[person.quantInimigos]}.png`
+    nomeInimi.innerHTML = inimigo.nome
+
     morte = false
     
     //auterando a imagem do personagem na section gameplay

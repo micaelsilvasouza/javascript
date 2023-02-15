@@ -78,6 +78,11 @@
                     <select id="selpersonStatus"></select>
                     <input id="btverStatus" type="button" value="Ver Status">
                 </div>
+                <div>
+                    <label for="selInimigoStatus">Selecione Inimigo:</label>
+                    <select id="selInimigoStatus"></select>
+                    <input id="btVerInimigo" type="button" value="Ver Sobre">
+                </div>
                 <p id="barraStatus"></p>
             </section>
             <section class="visuImg" id="visuPerson">
@@ -103,11 +108,10 @@
         <div id="campInimigo">
             <img id="imagemInimigoGameplay" src="imagens/inimigo-esqueleto.png" alt="imagem-inimigo">
             <div id="hitInimigo" class="hitDano"></div>
-            
+            <p id="nomeInimi" class="nomeGameplay">Nome do Inimigo</p>
             <div class="containerBarraVida">
                 <div id="barraDanoInimigo" class="barraDano"></div>
                 <div id="barraVidaInimigo" class="barraVida"></div>
-                
             </div>
         </div>
 
@@ -117,6 +121,7 @@
                 <div id="barraVidaPerson" class="barraVida"></div>
                 <div id="barraDanoPerson" class="barraDano"></div>
             </div>
+            <p id="nomePerson" class="nomeGameplay">Nome do Personagem</p>
 
             <img id="imagemPersonGameplay" src="imagens/person-masculino.png" alt="imagem-personagem">
             <div id="hitPerson" class="hitDano"></div>
@@ -146,6 +151,7 @@
     <script src="js/subscripts/mensagem.js"></script>
     <script src="js/subscripts/list_itens.js"></script>
     <script src="js/subscripts/list_inimigos.js"></script>
+    <script src="js/funcoes/sobre-inimigos.js"></script>
     <script src="js/funcoes/criar-persoange.js"></script>
     <script src="js/funcoes/itens.js"></script>
     <script src="js/funcoes/alteracao-imagens.js"></script>

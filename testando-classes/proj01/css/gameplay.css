@@ -125,6 +125,12 @@ div.barraDano{
     background-color: rgb(184, 21, 21);
 }
 
+.nomeGameplay{
+    text-align: center;
+    font-size: 3vw;
+    font-variant: small-caps;
+}
+
 button#btencerrarCombate{
     padding: 10px;
     position: absolute;

@@ -55,6 +55,8 @@ function atualizarSelPerson(){
     selpersonCriados.options[indexopt].selected = true
     selpersonItem.options[indexopt].selected = true
     selpersonStatus.options[indexopt].selected = true
+
+    atualizarSelInimigos(personagens[selpersonCriados.value])
 }
 
 //Visualização das informações de cada personagem criado////
