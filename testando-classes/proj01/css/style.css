@@ -74,7 +74,7 @@ main > section.campo > h1{
     padding: 10px;
 }
 
-main > section.campo > p{
+main > section.campo  p{
     font-size: 1.1em;
     text-align: justify;
     margin-bottom: 10px;
@@ -87,6 +87,12 @@ main > section.campo > div{
 
 main>section#campCriar{
     display: block;
+}
+
+div#barraStatus > img{
+    display: block;
+    height: 150px;
+    margin: auto;
 }
 
 main > section.visuImg{
