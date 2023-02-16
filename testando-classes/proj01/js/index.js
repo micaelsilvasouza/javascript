@@ -1,6 +1,7 @@
 //Chamada relacionadas a Personagem
 btCriarPersonagem.addEventListener("click",criarPersonagem)
 btverStatus.addEventListener("click", verStatus)
+btverInimigo.addEventListener("click", verSobreInimigo)
 
 //Chamadas para atualizar os selects de personagens
 selpersonCriados.addEventListener("change", atualizarSelPerson)

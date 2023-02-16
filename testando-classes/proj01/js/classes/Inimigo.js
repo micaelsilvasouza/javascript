@@ -1,6 +1,8 @@
 //Classe que cria os inimigos extendendo personagem
 
 class Inimgo extends Person{
+    sobreInimigo
+
     constructor(nome, sexo, atr, vida, ataque, defesa, magia){
         super()
         this.nome = nome
