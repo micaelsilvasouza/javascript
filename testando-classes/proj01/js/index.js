@@ -24,6 +24,7 @@ selpersonStatus.addEventListener("change", setImgAtributo)
 //Chamadas usando funções de itens
 selpersonItem.addEventListener("change", verificarItens)
 selAddItem.addEventListener("change", propriedadeItem)
+selItensConsu.addEventListener("change", propriedadeItem)
 btpropriedade.addEventListener("click", propriedadeItem)
 btaddItem.addEventListener("click", addItem)
 btremover.addEventListener("click", removerItem)

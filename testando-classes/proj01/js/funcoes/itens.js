@@ -35,7 +35,7 @@ function removerItem(){
     personagem.removeItem(i[item])
     verificarItens()
 
-    aparecerMensagem(item + " removido")
+    aparecerMensagem(item + " removido", "person")
 }
 
 //Substitui o item do personagem por outro do select de adicionar itens
@@ -51,9 +51,15 @@ function substituirItem(){
 
 function propriedadeItem(){
     if(this.value != "Propriedades"){
-        propItem.innerHTML = i[this.value].propriedades()
-        imgItem.src = `imagens/${this.value}.png`
-        imgItem.alt = this.value 
+        if(i[this.value]){
+            propItem.innerHTML = i[this.value].propriedades()
+            imgItem.src = `imagens/${this.value}.png`
+            imgItem.alt = this.nome
+        }else{
+            propItem.innerHTML = ic[this.value].propriedades()
+            imgItem.src = `imagens/${this.value}.png`
+            imgItem.alt = this.nome
+        }
     }else{
         let value = selRemoverItem.value
         propItem.innerHTML = i[value].propriedades()
