@@ -89,6 +89,15 @@ main>section#campCriar{
     display: block;
 }
 
+div#moedas{
+    font-size: 18px;
+    width: max-content;
+    padding: 10px;
+    position: absolute;
+    transform: translateX(-100%);
+    left: 100%;
+}
+
 div#barraStatus > img{
     display: block;
     height: 150px;

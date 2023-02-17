@@ -51,6 +51,8 @@
                 <select id="selpersonCriados"></select>
             </section>
             <section class="campo" id="campItens">
+                <div id="moedas">Moedas: 100</div>
+
                 <div>
                     <label for="selpersonItem">Selecione o Personagem: </label>
                     <select id="selpersonItem"></select>
@@ -62,13 +64,19 @@
                     <input id="btaddItem" type="button" value="Adicionar Item">
                 </div>
                 <h1>Remover e Substituir Item</h1>
-        
                 <div>
                     <label for="selRemoverItem">Item:</label>
                     <select id="selRemoverItem"></select>
                     <input type="button" value="Remover" id="btremover">
                     <input type="button" value="Substituir" id="btsubstituir">
                     <input type="button" value="Propriedades" id="btpropriedade">
+                </div>
+
+                <h1>Itens Consumiveis</h1>
+                <div>
+                    <label for="selItensConsu">Itens:</label>
+                    <select id="selItensConsu"></select>
+                    <input type="button" value="Comprar">
                 </div>
             </section>
             <section class="campo" id="campStatus">
@@ -147,9 +155,11 @@
     <script src="js/classes/Person.js"></script>
     <script src="js/classes/Inimigo.js"></script>
     <script src="js/classes/Item.js"></script>
+    <script src="js/classes/ItemConsu.js"></script>
     <script src="js/subscripts/menu.js"></script>
     <script src="js/subscripts/mensagem.js"></script>
     <script src="js/subscripts/list_itens.js"></script>
+    <script src="js/subscripts/list_itensConsu.js"></script>
     <script src="js/subscripts/list_inimigos.js"></script>
     <script src="js/funcoes/sobre-inimigos.js"></script>
     <script src="js/funcoes/criar-persoange.js"></script>
