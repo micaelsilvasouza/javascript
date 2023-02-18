@@ -15,7 +15,7 @@
 section#gameplay{
     height: 100vh;
     width: 100vw;
-    display: none;
+    display: block;
 }
 
 section#gameplay > div{
@@ -59,7 +59,8 @@ section#gameplay > div > span.exibDano{
 
 section#gameplay > div#campPerson > div#buttons{
     position: absolute;
-    top: 20%;
+    transform: translateY(-50%);
+    top: 50%;
     left: 10px;
     float: left;
 }
@@ -136,4 +137,32 @@ button#btencerrarCombate{
     position: absolute;
     top: 10px;
     left: 75vw;
+}
+
+div#itensConsuGameplay{
+    text-align: center;
+    width: 22vw;
+    position: absolute;
+    transform: translate(-100%, -50%);
+    top: 50%;
+    left: 97vw;
+}
+
+div#itensConsuGameplay > button{
+    background-color: transparent;
+    background-image: url(../imagens/atributo-agua.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    display: inline-block;
+    width: 8vw;
+    height: 8vw;
+    padding: 0px;
+    margin: 6px;
+    border: 2px solid white;
+    box-sizing: border-box;
+}
+
+div#itensConsuGameplay > button:hover{
+    border: 2px solid rgb(6, 129, 167);
 }

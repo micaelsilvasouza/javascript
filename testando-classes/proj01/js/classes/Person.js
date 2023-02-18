@@ -2,6 +2,7 @@
 class Person{
     #nome
     #sexo
+    #moedas = 0
     #quantInimigos = 0
     #vida = 100
     #ataque = 100
@@ -9,6 +10,12 @@ class Person{
     #magia = 100
     #atrMagico
     #item = {}
+    #itensConsu = {
+        cura10: 10,
+        maisAtk: 10,
+        maisDef: 10,
+        maisMag: 10
+    }
 
 
     constructor(nome, sexo, atr){
@@ -76,6 +83,10 @@ class Person{
         }         
     }
 
+    addItensConsu(nomeItem, quantItem){
+        this.#itensConsu[nomeItem] += quantItem
+    }
+
 
     addItem(item){ //Adiciona um objeto da classe Item numa array de trés itens
 
@@ -135,6 +146,14 @@ class Person{
 
     set sexo(sexo){
         this.#sexo = sexo
+    }
+
+    get moedas(){
+        return this.#moedas
+    }
+
+    set moedas(moedas){
+        this.#moedas += moedas
     }
 
     get quantInimigos(){
@@ -203,5 +222,9 @@ class Person{
 
     get item(){
         return this.#item
+    }
+
+    get itensConsu(){
+        return this.#itensConsu
     }
 }
