@@ -8,6 +8,10 @@ function iniciarCombate() {
     person = personagens[selpersonCriados.value]
     magiaMaxPerson = person.magia
     nomePerson.innerHTML = person.nome
+    btcurarPerson.innerHTML = person.itensConsu.cura10
+    btmaisAtk.innerHTML = person.itensConsu.maisAtk
+    btmaisDef.innerHTML = person.itensConsu.maisDef
+    btmaisMag.innerHTML = person.itensConsu.maisMag
 
     inimigo = inimigos[listInimigos[person.quantInimigos]]
     imagemInimigoGameplay.src = `imagens/inimigo-${listInimigos[person.quantInimigos]}.png`
@@ -68,7 +72,7 @@ function atacarPerson(){
 function defenderPerson(){
     person.setDefedendo()
 
-    setTimeout(atacarInimigo, 1000)
+    setTimeout(atacarInimigo, 200)
 }
 
 function usarMagiaPerson(){

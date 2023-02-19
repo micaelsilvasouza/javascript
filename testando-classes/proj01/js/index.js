@@ -36,6 +36,9 @@ btatacar.addEventListener("click", atacarPerson)
 btdefender.addEventListener('click', defenderPerson)
 btusarMagia.addEventListener("click", usarMagiaPerson)
 
+//chamadas usando funções de itensConsu
+btcurarPerson.addEventListener("click", curarPerson)
+
 //Chamadas depois do combate acabar
 btmenu.onclick = ()=>{
     resPartida.style.display = "none"
