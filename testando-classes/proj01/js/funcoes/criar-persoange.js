@@ -46,6 +46,7 @@ function criarPersonagem(){
     nome.value = ""
     setImgPerson()
     setImgAtributo()
+    moedas.innerHTML = "Moedas: " + personagens[selpersonCriados.value].moedas
 }
 
 //Atualizar todos os select de personagens, para sempre ficarem com mensmo persoangem selecioando////
@@ -57,6 +58,7 @@ function atualizarSelPerson(){
     selpersonStatus.options[indexopt].selected = true
 
     atualizarSelInimigos(personagens[selpersonCriados.value])
+    moedas.innerHTML = "Moedas: " + personagens[selpersonCriados.value].moedas
 }
 
 //Visualização das informações de cada personagem criado////

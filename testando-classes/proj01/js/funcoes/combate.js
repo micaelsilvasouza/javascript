@@ -1,7 +1,7 @@
 // funções para combate entre inimigo e personagem
 let inimigo = inimigos.esqueleto
 let person = personagens.test
-let magiaMaxPerson
+let magiaMaxPerson = person.magia
 let morte
 
 function iniciarCombate() {
@@ -85,7 +85,7 @@ function usarMagiaPerson(){
     if(random == 3){
         defenderInimigo()
     }else if(random < 3){
-        setTimeout(atacarInimigo, 1000)
+        setTimeout(atacarInimigo, 500)
     }
    
     person.atacarMagia(inimigo)
@@ -186,6 +186,9 @@ function verificaMorte(atacado, atacando){
             
             if(atacando.nome == person.nome){
                 person.quantInimigos += 1 
+                person.moedas += 1000 
+                //criar uma logica para aumentar o numero de moedas
+                console.log("moedas" + person.moedas)
             }
             morte = true
         }

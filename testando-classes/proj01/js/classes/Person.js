@@ -48,9 +48,10 @@ class Person{
     
     #defedendo = false
     #defesaMax = this.#defesa
+    #bonusDef = 0
     setDefedendo(){
         if(this.#defedendo){
-            this.defesa = this.#defesaMax
+            this.defesa = this.#defesaMax + this.#bonusDef
             this.#defedendo = false
         }else{
             this.defesa += this.#defesa / 4
@@ -58,9 +59,10 @@ class Person{
         }   
     }
 
+    #bonusAtk = 0
     atacar(inimigo){
-        let dano = this.#ataque - inimigo.defesa
-        
+        let dano = this.#ataque + this.#bonusAtk - inimigo.defesa
+        console.log(dano)
         if(dano > 0){
             inimigo.vida -= dano
         }else{
@@ -68,8 +70,9 @@ class Person{
         }
     }
 
+    #bonusMag = 0
     atacarMagia(inimigo){
-        let dano = 100 - inimigo.defesa
+        let dano = (150 + this.#bonusMag) - inimigo.defesa
         
         if(this.#magia > 0){
             if(dano > 0){
@@ -77,10 +80,8 @@ class Person{
             }else if(dano < -1){
                 inimigo.vida += dano
             }
-            this.#magia -= 50
-        }else{
-            this.#magia = 0
-        }         
+            this.#magia = this.#magia - 50 > 0 ? this.#magia - 50 : 0
+        }        
     }
 
     addItensConsu(nomeItem, quantItem){
@@ -194,6 +195,7 @@ class Person{
 
     set defesaMax(defesa){
         this.#defesaMax = defesa
+        this.#defesa = defesa
     }
 
     get ataque(){
@@ -226,5 +228,29 @@ class Person{
 
     get itensConsu(){
         return this.#itensConsu
+    }
+
+    get bonusAtk(){
+        return this.#bonusAtk
+    }
+
+    set bonusAtk(bonus){
+        this.#bonusAtk = bonus
+    }
+
+    get bonusDef(){
+        return this.#bonusDef
+    }
+
+    set bonusDef(bonus){
+        this.#bonusDef = bonus
+    }
+
+    get bonusMag(){
+        return this.#bonusMag
+    }
+
+    set bonusMag(bonus){
+        this.#bonusMag = bonus
     }
 }

@@ -38,6 +38,9 @@ btusarMagia.addEventListener("click", usarMagiaPerson)
 
 //chamadas usando funções de itensConsu
 btcurarPerson.addEventListener("click", curarPerson)
+btmaisAtk.addEventListener("click", aumentarAtaquePerson)
+btmaisDef.addEventListener("click", aumentarDefesaPerson)
+btmaisMag.addEventListener("click", aumentarMagiaPerson)
 
 //Chamadas depois do combate acabar
 btmenu.onclick = ()=>{
@@ -47,6 +50,12 @@ btmenu.onclick = ()=>{
     //setando a vida do personagem e do inimigo
     person.curar(100000)
     person.magia = magiaMaxPerson
+    person.defesa = person.defesaMax
+    person.bonusAtk = 0
+    person.bonusDef = 0
+    person.bonusMag = 0
+    moedas.innerHTML = "Moedas: " + personagens[selpersonCriados.value].moedas
+
     inimigo.curar(100000)
     atualizarSelInimigos(person)
 }
@@ -57,5 +66,11 @@ btencerrarCombate.onclick = function (){
 
     person.curar(100000)
     person.magia = magiaMaxPerson
+    person.defesa = person.defesaMax
+    person.bonusAtk = 0
+    person.bonusDef = 0
+    person.bonusMag = 0
+    moedas.innerHTML = "Moedas: " + personagens[selpersonCriados.value].moedas
+
     inimigo.curar(100000)
 }
