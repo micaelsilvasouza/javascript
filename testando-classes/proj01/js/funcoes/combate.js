@@ -185,10 +185,8 @@ function verificaMorte(atacado, atacando){
             gameplay.style.display = "none"
             
             if(atacando.nome == person.nome){
-                person.quantInimigos += 1 
-                person.moedas += 1000 
-                //criar uma logica para aumentar o numero de moedas
-                console.log("moedas" + person.moedas)
+                person.quantInimigos += 1
+                person.moedas += 1000
             }
             morte = true
         }

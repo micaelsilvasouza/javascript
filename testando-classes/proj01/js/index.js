@@ -37,6 +37,7 @@ btdefender.addEventListener('click', defenderPerson)
 btusarMagia.addEventListener("click", usarMagiaPerson)
 
 //chamadas usando funções de itensConsu
+btcompra.addEventListener("click", comprarItensConsu)
 btcurarPerson.addEventListener("click", curarPerson)
 btmaisAtk.addEventListener("click", aumentarAtaquePerson)
 btmaisDef.addEventListener("click", aumentarDefesaPerson)

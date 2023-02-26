@@ -62,7 +62,6 @@ class Person{
     #bonusAtk = 0
     atacar(inimigo){
         let dano = this.#ataque + this.#bonusAtk - inimigo.defesa
-        console.log(dano)
         if(dano > 0){
             inimigo.vida -= dano
         }else{
@@ -154,7 +153,7 @@ class Person{
     }
 
     set moedas(moedas){
-        this.#moedas += moedas
+        this.#moedas = moedas
     }
 
     get quantInimigos(){

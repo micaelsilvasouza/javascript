@@ -1,3 +1,17 @@
+function comprarItensConsu(){
+    let item = selItensConsu.value
+    let person = personagens[selpersonCriados.value]
+    if(person.moedas >= ic[item].valor){
+        person.addItensConsu(item, 1)
+        person.moedas -= ic[item].valor
+        moedas.innerHTML = "Moedas: " + person.moedas
+    	aparecerMensagem(`${person.nome} comprou ${ic[item].nome}`, "person")
+    }else{
+        aparecerMensagem(`${person.nome} não possui moedas suficientes`, "person")
+    }
+}
+
+
 function curarPerson(){
     if(person.vida < person.vidaMax){
         if(person.itensConsu["cura10"] > 0){
