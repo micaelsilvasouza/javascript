@@ -6,37 +6,42 @@ let morte
 
 function iniciarCombate() {
     person = personagens[selpersonCriados.value]
-    magiaMaxPerson = person.magia
-    nomePerson.innerHTML = person.nome
-    btcurarPerson.innerHTML = person.itensConsu.cura10
-    btmaisAtk.innerHTML = person.itensConsu.maisAtk
-    btmaisDef.innerHTML = person.itensConsu.maisDef
-    btmaisMag.innerHTML = person.itensConsu.maisMag
-
-    inimigo = inimigos[listInimigos[person.quantInimigos]]
-    imagemInimigoGameplay.src = `imagens/inimigo-${listInimigos[person.quantInimigos]}.png`
-    nomeInimi.innerHTML = inimigo.nome
-
-    morte = false
     
-    //auterando a imagem do personagem na section gameplay
-    if(person.sexo == "Masculino"){
-        imagemPersonGameplay.src = "imagens/person-masculino.png"
-    }else if(person.sexo == "Feminino"){
-        imagemPersonGameplay.src = `imagens/person-feminino.png`
+    if(person.quantInimigos <= listInimigos.length){
+        magiaMaxPerson = person.magia
+        nomePerson.innerHTML = person.nome
+        btcurarPerson.innerHTML = person.itensConsu.cura10
+        btmaisAtk.innerHTML = person.itensConsu.maisAtk
+        btmaisDef.innerHTML = person.itensConsu.maisDef
+        btmaisMag.innerHTML = person.itensConsu.maisMag
+
+        inimigo = inimigos[listInimigos[person.quantInimigos]]
+        imagemInimigoGameplay.src = `imagens/inimigo-${listInimigos[person.quantInimigos]}.png`
+        nomeInimi.innerHTML = inimigo.nome
+
+        morte = false
+        
+        //auterando a imagem do personagem na section gameplay
+        if(person.sexo == "Masculino"){
+            imagemPersonGameplay.src = "imagens/person-masculino.png"
+        }else if(person.sexo == "Feminino"){
+            imagemPersonGameplay.src = `imagens/person-feminino.png`
+        }else{
+            console.error("sexo indefinido")
+        }
+
+        //setando a barra de vida para ficar com 100%
+        barraDanoPerson.style.width = "100%" 
+        barraDanoInimigo.style.width = "100%" 
+        barraVidaPerson.style.width = "100%" 
+        barraVidaInimigo.style.width = "100%" 
+
+        //auterando a visibilidade das sections 
+        gameplay.style.display = "block"
+        criacao.style.display = "none"
     }else{
-        console.error("sexo indefinido")
+        aparecerMensagem(`${selpersonCriados.value} já derrotou todos os inimigos`, "person")
     }
-
-    //setando a barra de vida para ficar com 100%
-    barraDanoPerson.style.width = "100%" 
-    barraDanoInimigo.style.width = "100%" 
-    barraVidaPerson.style.width = "100%" 
-    barraVidaInimigo.style.width = "100%" 
-
-    //auterando a visibilidade das sections 
-    gameplay.style.display = "block"
-    criacao.style.display = "none"
 }
 
 // Funções Personagem
@@ -187,6 +192,10 @@ function verificaMorte(atacado, atacando){
             if(atacando.nome == person.nome){
                 person.quantInimigos += 1
                 person.moedas += 1000
+                person.xp += (person.vida * inimigo.vidaMax) / 10
+            }else{
+                person.moedas += 300
+                person.xp += Math.floor(inimigo.vidaMax / inimigo.vida * person.vidaMax)
             }
             morte = true
         }

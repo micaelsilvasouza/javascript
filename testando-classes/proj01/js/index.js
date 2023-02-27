@@ -48,14 +48,19 @@ btmenu.onclick = ()=>{
     resPartida.style.display = "none"
     criacao.style.display = "block"
 
+    if(person.xp / person.nivel >= person.nivel * 2000){
+        person.nivel++
+        person.vidaMax += 100
+    }
+
     //setando a vida do personagem e do inimigo
-    person.curar(100000)
     person.magia = magiaMaxPerson
     person.defesa = person.defesaMax
     person.bonusAtk = 0
     person.bonusDef = 0
     person.bonusMag = 0
     moedas.innerHTML = "Moedas: " + personagens[selpersonCriados.value].moedas
+
 
     inimigo.curar(100000)
     atualizarSelInimigos(person)

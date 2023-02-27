@@ -2,6 +2,8 @@
 class Person{
     #nome
     #sexo
+    #nivel = 1
+    #xp = 0
     #moedas = 0
     #quantInimigos = 0
     #vida = 100
@@ -28,12 +30,13 @@ class Person{
         return `<p>
                     Nome = ${this.#nome.toUpperCase()}<br>
                     Sexo = ${this.#sexo}<br>
-                    vida = ${this.#vida}<br>
+                    Vida = ${this.#vida}<br>
+                    XP = ${this.#xp}<br>
+                    Nivel = ${this.#nivel}<br>
                     Ataque = ${this.#ataque}<br>
                     Defesa = ${this.#defesa}<br>
                     Magia = ${this.#magia}<br>
                     Atributo Magico = ${this.#atrMagico.toUpperCase()}<br>
-                    itens = ${Object.keys(this.#item)}
                 </p>`
     }
     
@@ -148,6 +151,22 @@ class Person{
         this.#sexo = sexo
     }
 
+    get nivel(){
+        return this.#nivel
+    }
+
+    set nivel(nivel){
+        this.#nivel = nivel
+    }
+
+    get xp(){
+        return this.#xp
+    }
+
+    set xp(pontos){
+        this.#xp = pontos
+    }
+
     get moedas(){
         return this.#moedas
     }
@@ -178,6 +197,7 @@ class Person{
 
     set vidaMax(vida){
         this.#vidaMax = vida
+        this.#vida = vida
     }
 
     get defesa(){

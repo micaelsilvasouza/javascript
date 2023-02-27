@@ -10,7 +10,8 @@ p.mensagem{
     padding: 10px;
     border-radius: 20px;
     
-    position: fixed;
+    position: absolute;
+    transform: translateY(-100%);
     top: 90vh;
     left: -350px;
     transition-duration: 0.5s;
