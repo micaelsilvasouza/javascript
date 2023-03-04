@@ -14,7 +14,7 @@
 }
 
 section#resPartida{
-    display: block;
+    display: none;
     background-color: rgb(0, 0, 0);
     width: 100vw;
     height: 100vh;
@@ -69,4 +69,8 @@ section#resPartida > button:hover{
 
 section#resPartida > button:active{
     background-color: rgb(226, 92, 15);
+}
+
+section#resPartida > p{
+    margin: 10px;
 }

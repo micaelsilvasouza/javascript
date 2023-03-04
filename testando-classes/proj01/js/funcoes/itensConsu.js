@@ -45,7 +45,7 @@ function aumentarDefesaPerson(){
         person.defesa += person.bonusDef
         person.itensConsu["maisDef"]--
         btmaisDef.innerHTML = person.itensConsu["maisDef"]
-        aparecerMensagem(`${person.nome} usou o item ${ic["maisAtk"].nome}`, "person")
+        aparecerMensagem(`${person.nome} usou o item ${ic["maisDef"].nome}`, "person")
     }else{
         aparecerMensagem(`${person.nome} não possui esse item`, "person")
     }

@@ -19,7 +19,7 @@ body,html{
 }
 
 section#criacao{
-    display: none;
+    display: block;
 }
 
 header{

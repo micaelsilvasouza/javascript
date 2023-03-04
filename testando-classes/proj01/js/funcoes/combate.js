@@ -7,7 +7,7 @@ let morte
 function iniciarCombate() {
     person = personagens[selpersonCriados.value]
     
-    if(person.quantInimigos <= listInimigos.length){
+    if(person.quantInimigos < listInimigos.length){
         magiaMaxPerson = person.magia
         nomePerson.innerHTML = person.nome
         btcurarPerson.innerHTML = person.itensConsu.cura10
@@ -193,9 +193,26 @@ function verificaMorte(atacado, atacando){
                 person.quantInimigos += 1
                 person.moedas += 1000
                 person.xp += (person.vida * inimigo.vidaMax) / 10
+                
+                if(person.xp / person.nivel >= person.nivel * 2000){
+                    person.nivel++
+                    person.vidaMax += 100
+                }
+            
+
+                exibXp.innerHTML = 'Xp: ' + person.xp
+                exibNv.innerHTML = "Nivel: "+ person.nivel
             }else{
                 person.moedas += 300
                 person.xp += Math.floor(inimigo.vidaMax / inimigo.vida * person.vidaMax)
+
+                if(person.xp / person.nivel >= person.nivel * 2000){
+                    person.nivel++
+                    person.vidaMax += 100
+                }
+
+                exibXp.innerHTML = 'Xp: ' + person.xp
+                exibNv.innerHTML = "Nivel: "+ person.nivel
             }
             morte = true
         }

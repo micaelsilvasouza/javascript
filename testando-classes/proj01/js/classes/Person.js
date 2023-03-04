@@ -13,10 +13,10 @@ class Person{
     #atrMagico
     #item = {}
     #itensConsu = {
-        cura10: 10,
-        maisAtk: 10,
-        maisDef: 10,
-        maisMag: 10
+        cura10: 0,
+        maisAtk: 0,
+        maisDef: 0,
+        maisMag: 0
     }
 
 
