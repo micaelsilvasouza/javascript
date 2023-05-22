@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeyBoard Input</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            width: 100vw;
+            height: 100vh;
+        }
+        p{
+            width: 450px;
+            padding: 20;
+            background-color: beige;
+        }
+        /*input[type="text"]{
+            width: 0px;
+            height: 0px;
+            border: none;
+        }*/
+    </style>
+</head>
+<body onclick="document.getElementById('ent').focus()">
+    <h1>KeyBoard Input</h1>
+    <label for="ent">Entrada de dados</label>
+    <input type="text" id="ent" onkeydown="digitar(event)" autofocus>
+    <p>Digitado: <span id="dig"></span></p>
+    <script>
+        function digitar(event){
+            let key = event.key
+            let code = event.code
+            let loc = event.location
+            dig.innerHTML = key
+            ent.value = ""
+            if(key == "r"){
+                document.body.style.backgroundColor = "red"
+                document.body.style.color = "green"
+            }else if(key == "g"){
+                document.body.style.backgroundColor = 'green'
+                document.body.style.color = "blue"
+            }else if(key == 'b'){
+                document.body.style.backgroundColor = "blue"
+                document.body.style.color = "red"
+            }else if(key == "w"){
+                document.body.style.backgroundColor = "white"
+                document.body.style.color = "black"
+            }else if(key == "d"){
+                document.body.style.backgroundColor = "black"
+                document.body.style.color = "white"
+            }
+        }
+    </script>
+</body>
+</html>

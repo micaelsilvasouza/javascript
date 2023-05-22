@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Erros</title>
+</head>
+<body>
+    <h1>Tratamento de Erros</h1>
+    <input type="text" id="ent">
+    <button onclick="traErro()">Testar</button>
+    <p>Mensagem: <strong id="mensagem"></strong></p>
+
+    <script>
+        function traErro(){
+            let x = document.getElementById("ent").value
+            try{
+                if(x.trim() == "") throw "vazio"
+                if(isNaN(x)) throw "Não é um numero"
+                x = Number(x)
+                if(x<5) throw "Muito pequeno"
+                if(x>10) throw "Muito grande"
+            }
+            catch(err){
+                mensagem.innerHTML = "Entrada "+ err
+            }
+        }
+        
+    </script>
+</body>
+</html>

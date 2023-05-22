@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Erros</title>
+</head>
+<body>
+    <h1>Tratamento de Erros</h1>
+    <p>Mensagem: <strong id="mensagem"></strong></p>
+
+    <script>
+        let x = 1
+        let y = 5
+        let z = "Nada mal"
+        try{
+            //Coloque um numero muito grande para dar erro de Precisão
+            mensagem.innerHTML = "<br>" + x.toPrecision(2) + "<br>"
+            //Comente a variavel y ou x para dar erro de Referencia
+            mensagem.innerHTML += x+y + "<br>"
+            //Coloque uma chamada falsa para dar erro de Sintaxe
+            mensagem.innerHTML += eval("100**2") + "<br>"
+            //Mude o tipo da varavel z para dar erro de Tipo
+            mensagem.innerHTML += z.toUpperCase() + "<br>"
+            //Erro URI(Uniform Resource Indetifier)
+            mensagem.innerHTML += decodeURI("%%%%")
+        }
+        catch(err){
+            mensagem.innerHTML = err.name + ": "
+        }
+    </script>
+</body>
+</html>
