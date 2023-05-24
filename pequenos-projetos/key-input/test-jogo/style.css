@@ -5,7 +5,7 @@
     padding: 0px;
 }
 
-body, html{
+body{
     width: 100vw;
     height: 100vh;
     background-color: #00a2ff;
@@ -16,7 +16,6 @@ div{
     background-color: #04df58;
     width: 50px;
     height: 50px;
-    transition-duration: .1s;
     position: absolute;
     top: 200px;
     left: 200px;
