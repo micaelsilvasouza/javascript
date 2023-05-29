@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML-Canvas</title>
+    <style>
+        body{
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Canvas</h1>
+    <canvas class="mycanvas" width="200" height="100" style="border: 1px solid #000000;"></canvas>
+    <canvas class="mycanvas" width="200" height="100" style="border: 1px solid #000000;"></canvas>
+    <canvas class="mycanvas" width="200" height="100" style="border: 1px solid #000000;"></canvas>
+    <canvas class="mycanvas" width="200" height="100" style="border: 1px solid #000000;"></canvas>
+    
+    <script>
+        function random(num){
+            return Math.floor(Math.random() * (num + 1))
+        }
+        let forms = [
+            [100,50,40,0,2],
+            [100,50,10,0,2],
+            [0,0,50,0,2],
+            [200,50,50,1,1],
+            
+        ]
+        for(let pos of forms){
+            let c = document.getElementsByClassName("mycanvas")[forms.indexOf(pos)]
+            let ctx = c.getContext("2d")
+            ctx.beginPath()
+            ctx.arc(pos[0],pos[1],pos[2],pos[3],pos[4] * Math.PI)
+            ctx.stroke()
+        }
+        
+    </script>        
+</body>
+</html>

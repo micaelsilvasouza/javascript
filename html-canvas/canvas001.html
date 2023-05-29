@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML-Canvas</title>
+    <style>
+        body{
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Canvas</h1>
+    <canvas class="mycanvas" width="200" height="100" style="border: 1px solid #000000;"></canvas>
+    <canvas class="mycanvas" width="200" height="100" style="border: 1px solid #000000;"></canvas>
+    <canvas class="mycanvas" width="200" height="100" style="border: 1px solid #000000;"></canvas>
+    <canvas class="mycanvas" width="200" height="100" style="border: 1px solid #000000;"></canvas>
+    
+    <script>
+        function random(num){
+            return Math.floor(Math.random() * (num + 1))
+        }
+        let forms = [
+            [[100,0],[200,50],[100,100],[0,50],[100,0]],
+            [[10,10],[190,10],[190,90],[10,90],[10,10]],
+            [
+                [random(200), random(100)], 
+                [random(200), random(100)],
+                [random(200), random(100)], 
+                [random(200), random(100)],
+                [random(200), random(100)]
+            ],
+            [[0,100], [50,0], [100,100], [150,0], [200,100]]
+        ]
+        for(let pos of forms){
+            let c = document.getElementsByClassName("mycanvas")[forms.indexOf(pos)]
+            let ctx = c.getContext("2d")
+            for(let p of pos){
+                if(p == 0){
+                    ctx.moveTo(p[0],p[1])
+                }else{
+                    ctx.lineTo(p[0],p[1])
+                }
+                ctx.stroke()
+            }
+        }
+        
+    </script>        
+</body>
+</html>
