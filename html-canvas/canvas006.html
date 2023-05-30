@@ -13,7 +13,7 @@
 </head>
 <body>
     <h1>Canvas</h1>
-    <h2>Circulos ou Arcos</h2>
+    <h2>Cores</h2>
     <canvas class="mycanvas" width="200" height="100" style="border: 1px solid #000000;"></canvas>
     <canvas class="mycanvas" width="200" height="100" style="border: 1px solid #000000;"></canvas>
     <canvas class="mycanvas" width="200" height="100" style="border: 1px solid #000000;"></canvas>
@@ -24,18 +24,16 @@
             return Math.floor(Math.random() * (num + 1))
         }
         let forms = [
-            [100,50,40,0,360],//centro-x,centro-y,raio,angulo-inicial, angulo final
-            [100,50,10,0,180],
-            [0,0,50,0,2],
-            [100,100,50,3,7],
-            
+            ["#FF0000",0,0,150,75],
+            ["rgb(250,212,0)",0,0,200,100],
+            ["#00af00",0,25,200,50],
+            ["rgb(100,0,100)",50,0,100,100]
         ]
-        for(let pos of forms){
-            let c = document.getElementsByClassName("mycanvas")[forms.indexOf(pos)]
+        for(let p of forms){
+            let c = document.getElementsByClassName("mycanvas")[forms.indexOf(p)]
             let ctx = c.getContext("2d")
-            ctx.beginPath()
-            ctx.arc(pos[0],pos[1],pos[2],pos[3],pos[4])
-            ctx.stroke()
+            ctx.fillStyle = p[0]
+            ctx.fillRect(p[1],p[2],p[3],p[4])
         }
         
     </script>        

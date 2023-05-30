@@ -7,13 +7,13 @@
     <title>HTML-Canvas</title>
     <style>
         body{
-            background-color: rgb(255, 255, 255);
+            background-color: white;
         }
     </style>
 </head>
 <body>
     <h1>Canvas</h1>
-    <h2>Circulos ou Arcos</h2>
+    <h2>Textos de Traços</h2>
     <canvas class="mycanvas" width="200" height="100" style="border: 1px solid #000000;"></canvas>
     <canvas class="mycanvas" width="200" height="100" style="border: 1px solid #000000;"></canvas>
     <canvas class="mycanvas" width="200" height="100" style="border: 1px solid #000000;"></canvas>
@@ -24,18 +24,17 @@
             return Math.floor(Math.random() * (num + 1))
         }
         let forms = [
-            [100,50,40,0,360],//centro-x,centro-y,raio,angulo-inicial, angulo final
-            [100,50,10,0,180],
-            [0,0,50,0,2],
-            [100,100,50,3,7],
+            ["30px sans-serif","Sans-sarif(px)",10,50],
+            ["2em fantasy", "Fantasy(em)", 0,100],
+            ["20pt monospace", "Monospace(pt)", 15,20],
+            ["50px serif", "Serif(px)", -20,30]
             
         ]
         for(let pos of forms){
             let c = document.getElementsByClassName("mycanvas")[forms.indexOf(pos)]
             let ctx = c.getContext("2d")
-            ctx.beginPath()
-            ctx.arc(pos[0],pos[1],pos[2],pos[3],pos[4])
-            ctx.stroke()
+            ctx.font = pos[0]
+            ctx.strokeText(pos[1],pos[2],pos[3])
         }
         
     </script>        

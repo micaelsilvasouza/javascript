@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML-Canvas</title>
+    <style>
+        body{
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Canvas</h1>
+    <h2>Gradientes</h2>
+    <canvas class="mycanvas" width="200" height="100" style="border: 1px solid #000000;"></canvas>
+    <canvas class="mycanvas" width="200" height="100" style="border: 1px solid #000000;"></canvas>
+    <canvas class="mycanvas" width="200" height="100" style="border: 1px solid #000000;"></canvas>
+    <canvas class="mycanvas" width="200" height="100" style="border: 1px solid #000000;"></canvas>
+    <canvas class="mycanvas" width="200" height="100" style="border: 1px solid #000000;"></canvas>
+    <canvas class="mycanvas" width="200" height="100" style="border: 1px solid #000000;"></canvas>
+    
+    <script>
+        let linear = [
+            ["red","white",0,100,200,0],
+            ["rgb(0,10,200)", "rgb(200,255,90)", 0,0,150,0]
+        ]
+
+        let radio = [
+            ["red","purple",100,50,50,100,50,100],
+            ["blue","green",100,50,50,100,50,100]
+        ]
+        for(let l of linear){
+            let c = document.getElementsByClassName("mycanvas")[linear.indexOf(l)]
+            let ctxl = c.getContext("2d")
+            let grtl = ctxl.createLinearGradient(l[2],l[3],l[4],l[5])
+            grtl.addColorStop(0,l[0])
+            grtl.addColorStop(1,l[1])
+            ctxl.fillStyle = grtl
+            ctxl.fillRect(0,0,200,100)//x,y,width,height
+            /*ctxl.moveTo(0,0)
+            ctxl.lineTO(200,100)
+            ctxl.stroke()*/
+        }
+        
+        for(let l of radio){
+            let c = document.getElementsByClassName("mycanvas")[radio.indexOf(l)+2]
+            let ctxl = c.getContext("2d")
+            let grtl = ctxl.createRadialGradient(l[2],l[3],l[4],l[5],l[6],l[7])
+            grtl.addColorStop(0,l[0])
+            grtl.addColorStop(1,l[1])
+            ctxl.fillStyle = grtl
+            ctxl.fillRect(0,0,200,100)//x,y,width,height
+            /*ctxl.moveTo(0,0)
+            ctxl.lineTO(200,100)
+            ctxl.stroke()*/
+        }
+        let cr = document.getElementsByClassName("mycanvas")[4]
+        let ctxr = cr.getContext("2d")
+        let grtr = ctxr.createRadialGradient(100,50,10,100,50,50)
+        grtr.addColorStop(0,"white")
+        grtr.addColorStop(0.5,"grey")
+        grtr.addColorStop(1, "black")
+        ctxr.fillStyle = grtr
+        ctxr.fillRect(0,0,200,100)
+
+        let cl = document.getElementsByClassName("mycanvas")[5]
+        let ctxl = cl.getContext("2d")
+        let grtl = ctxl.createLinearGradient(0,100,200,0)
+        grtl.addColorStop(0,"white")
+        grtl.addColorStop(0.5,"grey")
+        grtl.addColorStop(1, "black")
+        ctxl.fillStyle = grtl
+        ctxl.fillRect(0,0,200,100)
+        
+    </script>        
+</body>
+</html>
