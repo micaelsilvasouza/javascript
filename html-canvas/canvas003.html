@@ -18,6 +18,8 @@
     <canvas class="mycanvas" width="200" height="100" style="border: 1px solid #000000;"></canvas>
     <canvas class="mycanvas" width="200" height="100" style="border: 1px solid #000000;"></canvas>
     <canvas class="mycanvas" width="200" height="100" style="border: 1px solid #000000;"></canvas>
+    <canvas class="mycanvas" width="200" height="100" style="border: 1px solid #000000;"></canvas>
+    <canvas class="mycanvas" width="200" height="100" style="border: 1px solid #000000;"></canvas>
     
     <script>
         function random(num){
@@ -38,6 +40,19 @@
             ctx.stroke()
         }
         
+        let c = document.getElementsByClassName("mycanvas")
+        let ctx = c[4].getContext("2d")
+        ctx.fillStyle = "red"
+        ctx.font = "30px Comic Sans Ms"
+        ctx.fillText("Hello World", 0,30)
+        ctx.stroke()
+
+        ctx = c[5].getContext("2d")
+        ctx.fillStyle = "blue"
+        ctx.textAlign = "center"
+        ctx.font = "30px Comic Sans Ms"
+        ctx.fillText("Hello World", 100,50)
+        ctx.stroke()
     </script>        
 </body>
 </html>
