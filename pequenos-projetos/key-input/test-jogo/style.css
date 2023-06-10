@@ -8,7 +8,7 @@
 body{
     width: 100vw;
     height: 100vh;
-    background-color: #00b7ff;
+    background-color: #188ab8;
     overflow: hidden;
 }
 
@@ -23,7 +23,7 @@ span{
     color: white;
 }
 
-div{
+div.obj{
     box-sizing: border-box;
     border: 2px solid;
     position: absolute;

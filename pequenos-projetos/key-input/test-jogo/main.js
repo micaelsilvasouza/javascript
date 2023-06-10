@@ -2,6 +2,8 @@
 //Recebendo o input e a div cubo do  html
 let input = document.getElementById("input")
 let cubo = document.getElementById("cubo")
+let objeto = new Cubo(50,50,"#00f1dc")
+objeto.posicionar(document.body,300,300)
 let boll = document.getElementById("boll")
 let timer = document.getElementById("timer")
 let pontos = document.getElementById("pontos")
@@ -68,9 +70,15 @@ function pararMove(){
 
 function moverEsq(){
     //Função que move a div cubo para a esquerda em 5px
-    if(cubo_posx > 30){
-        cubo_posx -= 10
+    if(objeto.posisoes[0] > 10){
+        //Movimentando o cubo
+        cubo_posx -= 5
         cubo.style.left = cubo_posx+"px"
+
+        //Movimentando o objeto
+        objeto.movimentar(-5,0)
+        
+        //Colisão cubo
         verificarColisao()
     }
     
@@ -78,9 +86,15 @@ function moverEsq(){
 
 function moverDir(){
     //Função que move a div cubo para a direita em 5 px
-    if(cubo_posx < larg - 40){
-        cubo_posx+=10
+    if(objeto.posisoes[0] < larg-objeto.largura-10){
+        //Movimentando o cubo
+        cubo_posx+=5
         cubo.style.left = cubo_posx+"px"
+
+        //Movimentando o objeto
+        objeto.movimentar(5,0)
+
+        //Colisão cubo
         verificarColisao()
     }
     
@@ -88,20 +102,30 @@ function moverDir(){
 
 function moverCima(){
     //Função que move a div cubo para cima em 5px
-    if(cubo_posy > 30){
-        cubo_posy -=10
+    if(objeto.posisoes[1] > 10){
+        //Movimentando cubo
+        cubo_posy -=5
         cubo.style.top = cubo_posy+"px"
+        //Colisão cubo
         verificarColisao()
+
+        //Movimentadno objedo
+        objeto.movimentar(0,-5)
     }
     
 }
 
 function moverBaixo(){
     //Função que move a div cubo para baixa em 5px
-    if(cubo_posy < altu-40){
-        cubo_posy +=10
+    if(objeto.posisoes[1] < altu-objeto.altura-10){
+        //Movimentando cubo
+        cubo_posy +=5
         cubo.style.top = cubo_posy+"px" 
+        //Colisão cubo
         verificarColisao()
+
+        //Movimentar objeto
+        objeto.movimentar(0,5)
     }
 }
 
