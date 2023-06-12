@@ -23,36 +23,10 @@ span{
     color: white;
 }
 
-div.obj{
-    box-sizing: border-box;
-    border: 2px solid;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    top: 200px;
-    left: 200px;
-}
-
-div#cubo{
-    background-color: #04df58;
-    width: 50px;
-    height: 50px;
-    border-color: #01a33f;
-}
-
-div#boll{
-    background-color: rgb(248, 28, 28);
-    color: white;
-    font-size: 15px;
-    font-family: sans-serif;
-    font-weight: bolder;
+div.boll{
     text-align: center;
-    width: 30px;
-    height: 30px;
-    line-height: 25px;
-    border-color: rgb(156, 0, 0);
     border-radius: 50%;
-    top: 300px;
-    left: 500px
+    line-height: 30px;
 }
 
 input[type="text"]{

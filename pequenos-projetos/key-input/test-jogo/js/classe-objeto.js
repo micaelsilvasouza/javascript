@@ -45,6 +45,10 @@ class Cubo{
         return [this._posx, this._posy]
     }
 
+    get colisores(){
+        return this._colisores
+    }
+
     posicionar(local, posx=0,posy=0){
         /*
         Adiciona o objeto a uma parte do documento HTML
@@ -80,6 +84,78 @@ class Cubo{
         */
 
        this.mudarPosisao(this._posx + incx, this._posy + incy)
-        
     }
+
+    criarPontosColisores(){
+        /* 
+        Cria os pontos para identificar alguma colisão
+        gera uma Matriz contendo os pontos de colisão do eixo x e y
+        esses pontos são determinados pela posição atual e a sua dimensão
+        um laço é passado inicando da posição atual até a 
+        posição que indica o fim da dimensão ou seja a 
+        posição atual mais o tamanho do eixo
+        */
+        let pontos = [[],[]]//Matriz que conterá os pontos x e y
+        let x = this._posx //A posição atual do eixo x
+        let y = this._posy //A posição atual do eixo Y
+        let lar = this._largura //A largura atual
+        let alt = this._altura //A altura atual
+
+        //laço contará os pontos de colisão do eixo x
+        for(let ponto = x; ponto <= x+lar; ponto++){
+            pontos[0].push(ponto)
+        }
+
+        //laço contará os pontos de colisão de eixo y
+        for(let ponto = y; ponto <=y+alt; ponto++){
+            pontos[1].push(ponto)
+        }
+        this._colisores = pontos
+    }
+
+    verificarColisao(objetos, muitos=false){
+        /*
+        Verifica se ouver uma colisão com um objeto da mesma 
+        classe ou de suas filhas
+        param:objeto: objeto a ser conferido se colidiu (padrão undefined)
+        param:objetos: uma array contendo todos os objetos a serem conferidos (padrão undefined)
+        return:colidiu: Retorna true se existe colisão e falso caso não exista
+        */
+
+       let colidiu = false //Variavel retornada
+
+        //Verificando se foi passado apenas um objeto
+        if(objetos && !muitos){
+            //criar os colisores
+            this.criarPontosColisores()
+            objeto.criarPontosColisores()
+            //passando pelos pontos do eixo x
+            for(let x of this.colisores[0]){
+                //verificando se existe no colisores objeto
+                if(objeto.colisores[0].includes(x)){
+                    //passando pelos pontos de eixo y
+                    for(let y of this._colisores[1]){
+                        //verificando se existe no objeto
+                        if(objeto.colisores[1].includes(y)){
+                            //detectando colisão
+                            colidiu = true
+                            break
+                        }
+                    }
+                    break
+                }
+            }
+        //verificando se foi passado mais objetos
+        }else if(objetos && muitos){
+            for(let objeto of objetos){
+                if(objeto.verificarColisao(this)){
+                    colidiu = true
+                    break
+                }
+            }
+        }
+
+        return colidiu
+    }
+
 }
