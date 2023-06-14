@@ -9,8 +9,9 @@ objeto.posicionar(document.body,300,300)
 bola.posicionar(document.body, 300,500)
 bola.objeto.innerHTML = "1s"
 bola.objeto.setAttribute("class", "boll")
-//Array para guardar os objetos bola
-let inimigos = []
+//Array para guardar os objetos inimigos
+let inimigos = [new Inimigo(50,50,"#ff005f")]
+inimigos[0].posicionar(document.body,10,120)
 //Mostradores de TIMER e PONTOS
 let timer = document.getElementById("timer")
 let pontos = document.getElementById("pontos")
@@ -121,9 +122,9 @@ function moverBaixo(){
 
 
 function verificarColisao(){
-    if(objeto.verificarColisao(bolas, true)){
-        let x = Math.floor(Math.random() * (larg - 100) +1 ) +bola.dimensao[0]
-        let y = Math.floor(Math.random() * (altu - 100) +1 ) +bola.dimensao[1]
+    if(objeto.verificarColisao(bola)){
+        let x = aleatorioEntre(bola.dimensao[0], larg-bola.dimensao[0])
+        let y = aleatorioEntre(bola.dimensao[1], altu-bola.dimensao[0])
         bola.mudarPosisao(x, y)
         pontos.innerHTML ++
         atualizarTimer(time + agrega_time)

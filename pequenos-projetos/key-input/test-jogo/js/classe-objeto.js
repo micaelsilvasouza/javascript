@@ -122,23 +122,24 @@ class Cubo{
         return:colidiu: Retorna true se existe colisão e falso caso não exista
         */
 
-       let colidiu = false //Variavel retornada
-
+        let colidiu = false //Variavel retornada
         //Verificando se foi passado apenas um objeto
         if(objetos && !muitos){
             //criar os colisores
             this.criarPontosColisores()
-            objeto.criarPontosColisores()
+            objetos.criarPontosColisores()
             //passando pelos pontos do eixo x
             for(let x of this.colisores[0]){
                 //verificando se existe no colisores objeto
-                if(objeto.colisores[0].includes(x)){
+                
+                if(objetos.colisores[0].includes(x)){
                     //passando pelos pontos de eixo y
                     for(let y of this._colisores[1]){
                         //verificando se existe no objeto
-                        if(objeto.colisores[1].includes(y)){
+                        if(objetos.colisores[1].includes(y)){
                             //detectando colisão
                             colidiu = true
+                            //console.log(x + " " + y)
                             break
                         }
                     }
