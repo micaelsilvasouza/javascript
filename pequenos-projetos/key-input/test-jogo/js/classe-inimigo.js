@@ -1,20 +1,13 @@
 class Inimigo extends Cubo{
-    direcoes = ["top","bai","esq","lef"]
-    moverInimigo(){
-        let dir = aleatorioLista(this.direcoes)
-        setInterval(()=>{
-            if(this.dir == "top"){
-                this.movimentar(0,-5)  
-            }
-            if(this.dir == "bai"){
-                this.movimentar(5,0)  
-            }
-            if(this.dir == "esq"){
-                this.movimentar(-5,0)  
-            }
-            if(this.dir == "dir"){
-                this.movimentar(5,0)  
-            }
-        }, 50)
+    direcoes = ["top","bai","esq","dir"]
+    direcao = aleatorioLista(this.direcoes)
+
+    mudarDirecao(){
+        let direcao = aleatorioLista(this.direcoes)
+        if(this.direcao == direcao){
+            this.mudarDirecao()
+        }else{
+            this.direcao = direcao
+        }
     }
 }

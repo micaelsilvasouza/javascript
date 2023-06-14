@@ -1,5 +1,5 @@
 function aleatorioLista(lista){
-    let index = Math.floor(Math.random() * lista.lenght)
+    let index = Math.floor(Math.random() * lista.length)
     return lista[index]
 }
 
