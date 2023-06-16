@@ -41,7 +41,9 @@ function timerMudarDirecao(){
 //Função para verificar colisão com o player e dar game over
 function colisaoInimigo(inimigo) {
     if(inimigo.verificarColisao(objeto)){
-        window.location.href = "game-over.html"
         objeto.objeto.remove()
+        objeto = {}
+        window.location.href = "game-over.html"
+        alert("Você colidiu com um inimigo")
     }
 }

@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+@font-face {
+    font-family: "evil-empire";
+    src: url("fonts/Evil\ Empire.otf");
+}
+
 *{
     margin: 0px;
     padding: 0px;
@@ -12,6 +17,11 @@ body{
     overflow: hidden;
 }
 
+header{
+    padding: 20px;
+    text-align: right;
+}
+
 main{
     position: absolute;
     transform: translate(-50%,-50%);
@@ -22,8 +32,8 @@ main{
 h1{
     background-color: #0d2ec2;
     color: #ce6400;
-    font: 3em verdana;
-    width: fit-content;
+    font: 4em 'evil-empire';
+    text-align: center;
     padding: 10px;
     border-radius: 10px;
     box-shadow: 2px 3px 5px #00000096;
@@ -31,9 +41,31 @@ h1{
 
 a{
     display: block;
-    font: bold 2em monospace;
+    font: bold 2em "evil-empire";
     text-decoration: none;
     background-color: #017c57;
+    color: #ada52d;
+    width: fit-content;
+    margin: auto;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.596);
+}
+
+
+a:active{
+    background-color: #ce6400;
+    color: white;
+}
+
+
+header > a{
+   font-size: 1em;
+   font-weight: 100;
+   display: inline; 
+   background-color: #8301fc;
+   color: white;
 }
 
 span{
@@ -42,15 +74,19 @@ span{
     font-family: monospace;
     display: block;
     text-align: right;
-    margin-top: -18px;
     padding: 10px;
     color: white;
+}
+
+header > span{
+    font-size: 14px; 
 }
 
 div.boll{
     text-align: center;
     border-radius: 50%;
     line-height: 30px;
+    color: white;
 }
 
 input[type="text"]{

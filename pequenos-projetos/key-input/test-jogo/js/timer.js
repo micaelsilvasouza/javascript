@@ -22,7 +22,8 @@ function iniciarTimer(){
             timer.innerText = `${minstr}:${segstr}`
         }else{
             pararTimer(timer_intervalo)
-            //window.location.href = "game-over.html"
+            alert("O Tempo Acabou")
+            window.location.href = "game-over.html"
         }
         return time
     }, 1000)
