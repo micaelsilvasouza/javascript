@@ -127,6 +127,10 @@ section#botoes > button.botao:active{
 
 
 @media screen and (max-width: 800px){
+    input[type="text"]{
+        display: none;
+    }
+
     section#botoes{
         display: flex;
     }
