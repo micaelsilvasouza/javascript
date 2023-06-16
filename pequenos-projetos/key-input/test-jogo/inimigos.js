@@ -24,6 +24,7 @@ function moverInimgo(inimigo){
     if(inimigo.direcao == "bai" && inimigo.posisoes[1] < altu - inimigo.dimensao[1]-10) {
         inimigo.movimentar(0,3)
     }
+    colisaoInimigo(inimigo)
 }
 
 //função que cria um timer mudar a direção do inimigo
@@ -31,7 +32,16 @@ function timerMudarDirecao(){
     setTimeout(() => {
         for(let inimigo of inimigos){
             inimigo.mudarDirecao()
-            timerMudarDirecao()  
+             
         }
+        timerMudarDirecao() 
     }, aleatorioEntre(2000,3000));
+}
+
+//Função para verificar colisão com o player e dar game over
+function colisaoInimigo(inimigo) {
+    if(inimigo.verificarColisao(objeto)){
+        window.location.href = "game-over.html"
+        objeto.objeto.remove()
+    }
 }

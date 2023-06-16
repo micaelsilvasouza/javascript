@@ -12,6 +12,30 @@ body{
     overflow: hidden;
 }
 
+main{
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+}
+
+h1{
+    background-color: #0d2ec2;
+    color: #ce6400;
+    font: 3em verdana;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 2px 3px 5px #00000096;
+}
+
+a{
+    display: block;
+    font: bold 2em monospace;
+    text-decoration: none;
+    background-color: #017c57;
+}
+
 span{
     font-weight: 900;
     font-size: 20px;
