@@ -1,11 +1,18 @@
 //Codidgo Principal do jogo
 //Recebendo o input text para ser o verificador de tecla
 let input = document.getElementById("input")
+//Recebendo os buttons para executar a movimentação
 let botoes = document.querySelectorAll(".botao")
-
-//Dimenções da tela
-let larg = window.innerWidth
-let altu = window.innerHeight
+//Campo principal pada adicionar os objetos
+let campo = document.getElementById("campo")
+//Dimenções do campo
+let larg = campo.clientWidth
+let altu = campo.clientHeight
+//Atualizar as medidas do campo
+window.onresize = ()=>{
+    larg = campo.clientWidth
+    altu = campo.clientHeight
+}
 
 //Mostradores de TIMER e PONTOS
 let timer = document.getElementById("timer")

@@ -8,16 +8,25 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body onclick="input.focus()">
-    <span id="timer">01:00</span>
-    <span id="pontos">0</span>
-    <input type="text" id="input" autofocus>
-    <section id="botoes">
-        <button>&#x2b06;</button>
-        <button>&#x2b07;</button>
-        <button>&#x2b05;</button>
-        <button>&#x27a1;</button>
-    </section>
+    <header>
+        <span id="timer">01:00</span>
+        <span id="pontos">0</span>
+        <input type="text" id="input" autofocus>
+    </header>
+    
 
+    <main>
+        <section id="campo"></section>
+        <section id="botoes">
+            <button id="top" class="botao">&#x2b06;</button>
+            <button id="bai" class="botao">&#x2b07;</button>
+            <button id="esq" class="botao">&#x2b05;</button>
+            <button id="dir" class="botao">&#x27a1;</button>
+        </section>
+    </main>
+
+    
+    
     <script src="js/random.js"></script>
     <script src="js/timer.js"></script>
     <script src="js/classe-objeto.js"></script>

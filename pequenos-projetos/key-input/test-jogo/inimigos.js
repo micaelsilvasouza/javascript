@@ -1,6 +1,6 @@
 //Array para guardar os objetos inimigos
 let inimigos = [new Inimigo(50,50,"#ff005f")]
-inimigos[0].posicionar(document.body,10,120)
+inimigos[0].posicionar(campo,10,120)
 
 //Loop para mover o inimigos constantemente
 setInterval(() => {

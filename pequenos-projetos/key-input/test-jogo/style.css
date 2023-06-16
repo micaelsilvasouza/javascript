@@ -18,16 +18,36 @@ body{
 }
 
 header{
+    position: fixed;
+    width: 93vw;
     padding: 20px;
     text-align: right;
 }
 
-main{
+header > a{
+   font-size: 1em;
+   font-weight: 100;
+   display: inline; 
+   background-color: #8301fc;
+   color: white;
+}
+
+header > span{
+    display: inline-block;
+    color: white;
+    font-size: 16px; 
+    font-family: monospace;
+    margin-left: 15px;
+}
+
+main#menu{
     position: absolute;
     transform: translate(-50%,-50%);
     top: 50%;
     left: 50%;
 }
+
+
 
 h1{
     background-color: #053fdd;
@@ -62,30 +82,6 @@ a:active{
     color: white;
 }
 
-
-
-header > a{
-   font-size: 1em;
-   font-weight: 100;
-   display: inline; 
-   background-color: #8301fc;
-   color: white;
-}
-
-span{
-    font-weight: 900;
-    font-size: 20px;
-    font-family: monospace;
-    display: block;
-    text-align: right;
-    padding: 10px;
-    color: white;
-}
-
-header > span{
-    font-size: 14px; 
-}
-
 div.boll{
     text-align: center;
     border-radius: 50%;
@@ -99,8 +95,13 @@ input[type="text"]{
     border: none;
 }
 
+section#campo{
+    width: 100vw;
+    height: 100vh;
+}
+
 section#botoes{
-    display: flex;
+    display: none;
     position: absolute;
     width: 100vw;
     transform: translateY(-100%);
@@ -122,4 +123,15 @@ section#botoes > button.botao{
 section#botoes > button.botao:active{
     background-color: #ce6400;
     color: white;
+}
+
+
+@media screen and (max-width: 800px){
+    section#botoes{
+        display: flex;
+    }
+
+    section#campo{
+        height: calc(100vh - 50px);
+    }
 }

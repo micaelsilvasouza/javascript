@@ -3,8 +3,8 @@
 let objeto = new Cubo(50,50,"#00f1dc")
 let bola = new Cubo(30,30,"#a1c4ff")
 //Posiconados os no body do HTML
-objeto.posicionar(document.body,300,300)
-bola.posicionar(document.body, 300,500)
+objeto.posicionar(campo,300,300)
+bola.posicionar(campo, 300,500)
 bola.objeto.innerHTML = "1s"
 bola.objeto.setAttribute("class", "boll")
 
@@ -87,7 +87,7 @@ function verificarColisao(){
         
             let inimigo = new Inimigo(50,50,"#ff005f")
             inimigos.push(inimigo)
-            inimigo.posicionar(document.body,x,y)
+            inimigo.posicionar(campo,x,y)
         }
     }
 }
