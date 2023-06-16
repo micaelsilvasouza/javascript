@@ -39,22 +39,22 @@ function inicairMove(event){
     key = event.key.toLowerCase()//tecla precionada coloca em minusculo
     //console.log(key)
     //Verificando a tecla precionada
-    if(!movimentando && key == "a" || key == "arrowleft"){
+    if(!movimentando && (key == "a" || key == "arrowleft")){
         //execultando movimento para esquerda
         movimentando = true
         move_intervalo = setInterval(moverEsq, 10)
     }
-    if(!movimentando && key == "d" || key == "arrowright"){
+    if(!movimentando && (key == "d" || key == "arrowright")){
         //execultando movimento para a direita
         movimentando = true
         move_intervalo = setInterval(moverDir, 10)
     }
-    if(!movimentando && key == "w" || key == "arrowup"){
+    if(!movimentando && (key == "w" || key == "arrowup")){
         //execultando movimento para a cima
         movimentando = true
         move_intervalo = setInterval(moverCima, 10)
     }
-    if(!movimentando && key == "s" || key == "arrowdown"){
+    if(!movimentando && (key == "s" || key == "arrowdown")){
         //execultando movimento para a baixo
         movimentando = true
         move_intervalo = setInterval(moverBaixo, 10)

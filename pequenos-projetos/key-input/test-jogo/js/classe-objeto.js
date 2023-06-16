@@ -102,12 +102,12 @@ class Cubo{
         let alt = this._altura //A altura atual
 
         //laço contará os pontos de colisão do eixo x
-        for(let ponto = x; ponto <= x+lar; ponto++){
+        for(let ponto = x+5; ponto <= x+lar-5; ponto++){
             pontos[0].push(ponto)
         }
 
         //laço contará os pontos de colisão de eixo y
-        for(let ponto = y; ponto <=y+alt; ponto++){
+        for(let ponto = y+5; ponto <=y+alt-5; ponto++){
             pontos[1].push(ponto)
         }
         this._colisores = pontos

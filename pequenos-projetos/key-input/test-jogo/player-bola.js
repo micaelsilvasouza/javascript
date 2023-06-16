@@ -64,9 +64,27 @@ function verificarColisao(){
         atualizarTimer(time + agrega_time)
         //Adicionar um novo inimigo se 
         if(pontos.innerHTML % 2 == 0){
-            console.log("adiconar um Inimigo")
             x = aleatorioEntre(100, larg-100)
             y = aleatorioEntre(100, altu-100)
+            cont = 0
+            while(cont<100){
+                if(x >= objeto.posisoes[0] && x <= objeto.posisoes[0] +200){
+                    x = aleatorioEntre(100, larg-100)
+                }else{
+                    break
+                }
+                cont++
+            }
+            cont = 0
+            while (cont <100) {
+                if(x >= objeto.posisoes[1] && y <= objeto.posisoes[1] +200){
+                    y = aleatorioEntre(100, altu-100)
+                }else{
+                    break
+                }
+                cont++
+            }
+        
             let inimigo = new Inimigo(50,50,"#ff005f")
             inimigos.push(inimigo)
             inimigo.posicionar(document.body,x,y)
