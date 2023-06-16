@@ -108,7 +108,7 @@ section#botoes{
     top: 100%;
 }
 
-section#botoes > button.botao{
+section#botoes > input.botao{
     font-size: 2em;
     background-color: #8301fc;
     color: white;
@@ -120,7 +120,7 @@ section#botoes > button.botao{
     height: 50px;
 }
 
-section#botoes > button.botao:active{
+section#botoes > input.botao:active{
     background-color: #ce6400;
     color: white;
 }
