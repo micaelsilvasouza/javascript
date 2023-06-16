@@ -30,12 +30,12 @@ main{
 }
 
 h1{
-    background-color: #0d2ec2;
+    background-color: #053fdd;
     color: #ce6400;
     font: 4em 'evil-empire';
     text-align: center;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 30px;
     box-shadow: 2px 3px 5px #00000096;
 }
 
@@ -43,7 +43,7 @@ a{
     display: block;
     font: bold 2em "evil-empire";
     text-decoration: none;
-    background-color: #017c57;
+    background-color: #1b8f6c;
     color: #ada52d;
     width: fit-content;
     margin: auto;
@@ -53,11 +53,15 @@ a{
     box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.596);
 }
 
+a:hover{
+    background-color: #188ab8;
+}
 
 a:active{
     background-color: #ce6400;
     color: white;
 }
+
 
 
 header > a{
@@ -93,4 +97,29 @@ input[type="text"]{
     width: 0px;
     height: 0px;
     border: none;
+}
+
+section#botoes{
+    display: flex;
+    position: absolute;
+    width: 100vw;
+    transform: translateY(-100%);
+    top: 100%;
+}
+
+section#botoes > button.botao{
+    font-size: 2em;
+    background-color: #8301fc;
+    color: white;
+    border: none;
+    border-top: 2px solid;
+    border-right: 2px solid;
+    border-color:#49008d;
+    width: 25%;
+    height: 50px;
+}
+
+section#botoes > button.botao:active{
+    background-color: #ce6400;
+    color: white;
 }
