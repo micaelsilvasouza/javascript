@@ -33,7 +33,9 @@ input.addEventListener("keyup", pararMove)
 //Adicionado os eventos e funçõe aos elementos buttons da classe botao
 for(let botao of botoes){
     botao.addEventListener("touchstart", inicairMoveBotao)
+    botao.addEventListener("mousedown", inicairMoveBotao)
     botao.addEventListener("touchend", pararMove)
+    botao.addEventListener("mouseup", pararMove)
 }
 
 function inicairMoveTeclado(event){
