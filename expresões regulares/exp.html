@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expressões Regulares</title>
+    <style>
+        *{
+            font-family: sans-serif;
+        }
+
+        table{
+            width: 500px;
+            border-collapse: collapse;
+        }
+
+        td,th{
+            padding: 10px;
+            border: 1px solid black;
+            text-align: left;
+        }
+        ul{
+            columns: 2;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Expressões Regulares</h1>
+    <script>
+        let text = "hoje é DIA de maldade"
+        let n = text.search(/dia/ig)
+        let trocan = text.replace(/dia/i,"NOITE")
+        let trocav = text.replace(/[aeiou]/ig, "@")
+        let temd = /dia/i.test(text)
+        document.write(`Na frase: ${text}<br>O valor dia começa na posição ${n}`)
+        document.write(`<br>Trocando dia pela noite: ${trocan}`)
+        document.write(`<br>Trocando as vogais: ${trocav}`)
+        document.write(`<br>Tem a palavra ida: ${trocav}`)
+    </script>
+    <h2>Modificadores de Expressões Regulares</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Modificador</th>
+                <th>Descrição</th> 
+            </tr>
+            
+        </thead>
+        <tbody>
+            <tr>
+               <td>i</td>
+               <td>Executar correspondência sem diferenciação de maiúsculas e minúsculas</td> 
+            </tr>
+            <tr>
+               <td>g</td>
+               <td>Realizar uma correspondência global (localizar todas as correspondências em vez de parar após a primeira partida)</td> 
+            </tr>
+            <tr>
+               <td>m</td>
+               <td>Executar correspondência de várias linhas</td> 
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Padrões de Expressões Regulares</h2>
+    <p>Os colchetes são usados para localizar um intervalo de caracteres:</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Expressão</th>
+                <th>Descrição</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>[abc]</td>
+                <td>Encontre qualquer um dos caracteres entre colchetes</td>
+            </tr>
+            <tr>
+                <td>[x|y]</td>
+                <td>Encontre qualquer uma das alternativas separadas com |</td>
+            </tr>
+            <tr>
+                <td>[0-9]</td>
+                <td>Encontre qualquer um dos dígitos entre colchetes</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>Metacaracteres são caracteres com um significado especial:</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Metacaracteres</th>
+                <th>Descrição</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>\d</td>
+                <td>Localizar um dígito</td>
+            </tr>
+            <tr>
+                <td>\s</td>
+                <td>Localizar um caractere de espaço em branco</td>
+            </tr>
+            <tr>
+                <td>\b</td>
+                <td>Localizar uma correspondência no início de uma palavra</td>
+            </tr>
+            <tr>
+                <td>\uxxxx</td>
+                <td>Localize o caractere Unicode especificado pelo número hexadecimal xxxx</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>Os quantificadores definem quantidades:</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Quantificadores</th>
+                <th>Descrição</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>n+</td>
+                <td>Corresponde a qualquer cadeia de caracteres que contenha pelo menos um n</td>
+            </tr>
+            <tr>
+                <td>n*</td>
+                <td>Corresponde a qualquer cadeia de caracteres que contenha zero ou mais ocorrências de n</td>
+            </tr>
+            <tr>
+                <td>n+</td>
+                <td>Corresponde a qualquer cadeia de caracteres que contenha zero ou uma ocorrência de n</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
