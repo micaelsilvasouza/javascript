@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conjunto</title>
+    <style>
+        *{
+            font-family: sans-serif;
+        }
+
+        table{
+            border-collapse: collapse;
+        }
+
+        td,th{
+            padding: 10px;
+            border: 1px solid black;
+            text-align: left;
+        }
+        ul{
+            columns: 2;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Mapas JavaScript</h1>
+    <p>Um Mapa contém pares chave-valor onde as chaves podem ser qualquer tipo de dados. Um Mapa lembra a ordem de inserção original das chaves.</p>
+    <h2>Métodos de mapas essenciais</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Método</th>
+                <th>Descrição</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>new Map()</td>
+                <td>Cria um novo mapa</td>
+            </tr>
+            <tr>
+                <td>set()</td>
+                <td>Define o valor de uma chave em um Mapa</td>
+            </tr>
+            <tr>
+                <td>get()</td>
+                <td>Obtém o valor de uma chave em um Mapa</td>
+            </tr>
+            <tr>
+                <td>delete()</td>
+                <td>Remove um elemento Map especificado pela chave</td>
+            </tr>
+            <tr>
+                <td>has()</td>
+                <td>Retorna true se uma chave existir em um Mapa</td>
+            </tr>
+            <tr>
+                <td>forEach()</td>
+                <td>Chama uma função para cada par chave/valor em um Mapa</td>
+            </tr>
+            <tr>
+                <td>entries()</td>
+                <td>Retorna um iterador com os pares [chave, valor] em um Mapa</td>
+            </tr>
+            <tr>
+                <th>Propriedade</th>
+                <th>Descrição</th>
+            </tr>
+            <tr>
+                <td>size</td>
+                <td>Retorna o número de elementos em um Mapa</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        const frutas = new Map([["maçãs", 500],["bananas",300],["laranjas",200]])
+        frutas.set("melancias",200)
+        frutas.set("abacates", 100)
+        document.write("Quantidades de maçãs: "+ frutas.get("maçãs"))
+        document.write("<br>Quantidades de frutas: "+ frutas.size)
+    </script>
+    <script src="mapas.js"></script>
+</body>
+</html>

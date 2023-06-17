@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conjunto</title>
+    <style>
+        *{
+            font-family: sans-serif;
+        }
+
+        table{
+            border-collapse: collapse;
+        }
+
+        td,th{
+            padding: 10px;
+            border: 1px solid black;
+            text-align: left;
+        }
+        ul{
+            columns: 2;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Criando um conjuto set</h1>
+    <p>Um conjunto JavaScript é uma coleção de valores exclusivos. Cada valor só pode ocorrer uma vez em um Set.</p>
+    <h2>Métodos de conjunto essenciais</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Método</th>
+                <th>Descrição</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>new Set()</td>
+                <td>Cria um novo conjunto</td>
+            </tr>
+            <tr>
+                <td>add()</td>
+                <td>Adiciona um novo elemento ao conjunto</td>
+            </tr>
+            <tr>
+                <td>delete()</td>
+                <td>Remove um elemento de um conjunto</td>
+            </tr>
+            <tr>
+                <td>has()</td>
+                <td>Retorna true se existir um valor no conjunto</td>
+            </tr>
+            <tr>
+                <td>forEach()</td>
+                <td>Invoca um retorno de chamada para cada elemento no conjunto</td>
+            </tr>
+            <tr>
+                <td>values()</td>
+                <td>Retorna um iterador com todos os valores em um conjunto</td>
+            </tr>
+            <tr>
+                <th>Propriedade</th>
+                <th>Descrição</th>
+            </tr>
+            <tr>
+                <td>size</td>
+                <td>Retorna o número de elementos em um conjunto</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <script>
+        const letras = new Set(["a","b","c"])
+        let g = "g"
+        let h = "h"
+        letras.add("d")
+        letras.add("e")
+        letras.add("f")
+        letras.add(g)
+        letras.add(h)
+        console.log(letras)
+        document.write("O conjunto: " + letras + "<br>")
+        document.write("O tipo: "+ typeof letras)
+    </script>
+    <script src="conj.js"></script>
+</body>
+</html>
