@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datas Javascript</title>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+
+        th, td{
+            border: 1px solid black;
+            padding: 5px 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Método de set Date</h1>
+    <p>Data de hoje é <span id="hoje"></span></p>
+    <script>
+        let hoje = document.getElementById("hoje")
+        const data = new Date()
+        hoje.innerHTML = data.toString()
+    </script>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Método</th>
+                <th>Descrição</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>setDate()</td>
+                <td>Define ano dia (1-31)</td>
+            </tr>
+            <tr>
+                <td>setFullYear()</td>
+                <td>Define o ano(mes e dia opciconal)</td>
+            </tr>
+            <tr>
+                <td>setHours()</td>
+                <td>Define as Horas (0-23)</td>
+            </tr>
+            <tr>
+                <td>setMiliseconds()</td>
+                <td>Define os milliseconds(0-999)</td>
+            </tr>
+            <tr>
+                <td>setMinutes()</td>
+                <td>Define os minutos (0-59)</td>
+            </tr>
+            <tr>
+                <td>setMonth()</td>
+                <td>Define o mes (0-11)</td>
+            </tr>
+            <tr>
+                <td>setSeconds()</td>
+                <td>Define os segundos (0-59)</td>
+            </tr>
+            <tr>
+                <td>setTime()</td>
+                <td>Define os Miliesegundos totais</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

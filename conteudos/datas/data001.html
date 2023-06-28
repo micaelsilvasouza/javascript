@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datas Javascript</title>
+</head>
+<body>
+    <h1>Objeto de data Javascript</h1>
+    <p>Data de hoje é <span id="hoje"></span></p>
+    <script>
+        let hoje = document.getElementById("hoje")
+        const data = new Date()
+        hoje.innerHTML = data.toString()
+        document.write("Data mais especifica: " + data.toDateString())
+        document.write("<br>Data UTC: " + data.toUTCString())
+        document.write("<br>Data ISO: " + data.toISOString())
+        document.write("<br>Data em milessegundos(desde 01 de janeiro de 1970): " + Date.parse(data))
+    </script>
+</body>
+</html>

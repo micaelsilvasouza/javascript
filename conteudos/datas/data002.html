@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datas Javascript</title>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+        td, th{
+            border: 1px solid black;
+            padding: 5px 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Objeto de data Javascript</h1>
+    <p>Data de hoje é <span id="hoje"></span></p>
+    <script>
+        let hoje = document.getElementById("hoje")
+        const data = new Date()
+        hoje.innerHTML = data.toString()
+    </script>
+    <table>
+        <thead>
+            <tr>
+                <th>Metodo</th>
+                <th>Descrição</th>
+                <th>Resultado</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>getFullYear()</td>
+                <td>Retonar o ano</td>
+                <td><script>document.write(data.getFullYear())</script></td>
+            </tr>
+            <tr>
+                <td>getMonth()</td>
+                <td>Retonar o mês (0 - 11)</td>
+                <td><script>document.write(data.getMonth())</script></td>
+            </tr>
+            <tr>
+                <td>getDate()</td>
+                <td>Retonar o dia do mês (0-6)</td>
+                <td><script>document.write(data.getDate())</script></td>
+            </tr>
+            <tr>
+                <td>getDay()</td>
+                <td>Retonar o dia da semana</td>
+                <td><script>document.write(data.getDay())</script></td>
+            </tr>
+            <tr>
+                <td>getHours()</td>
+                <td>Retonar as horas (0-23)</td>
+                <td><script>document.write(data.getHours())</script></td>
+            </tr>
+            <tr>
+                <td>getMinutes()</td>
+                <td>Retonar os Minutos (0-59) </td>
+                <td><script>document.write(data.getMinutes())</script></td>
+            </tr>
+            <tr>
+                <td>getSeconds()</td>
+                <td>Retonar os Segundos (0-59)</td>
+                <td><script>document.write(data.getSeconds())</script></td>
+            </tr>
+            <tr>
+                <td>getMillesecondsr()</td>
+                <td>Retonar os milessegundos</td>
+                <td><script>document.write(data.getMilliseconds())</script></td>
+            </tr>
+            <tr>
+                <td>getTime()</td>
+                <td>Retonar milessegundos desde 01/01/1970</td>
+                <td><script>document.write(data.getTime())</script></td>
+            </tr>
+            <tr>
+                <td>getTimezoneOffset()</td>
+                <td>Retonar a diferença em minutos(hora local e hora UTC)</td>
+                <td><script>document.write(data.getTimezoneOffset())</script></td>
+            </tr>
+        </tbody>
+    </table>
+    <p>
+        Os métodos UTC usam a hora UTC (Tempo Universal Coordenado).
+        <br>
+        A hora UTC é a mesma que GMT (Greenwich Mean Time).
+        <br>
+        A diferença entre a hora local e a hora UTC pode ser de até 24 horas.
+    </p>
+</body>
+</html>
