@@ -32,11 +32,11 @@
         let n = text.search(/dia/ig)
         let trocan = text.replace(/dia/i,"NOITE")
         let trocav = text.replace(/[aeiou]/ig, "@")
-        let temd = /dia/i.test(text)
+        let temd = /de/i.test(text)
         document.write(`Na frase: ${text}<br>O valor dia começa na posição ${n}`)
         document.write(`<br>Trocando dia pela noite: ${trocan}`)
         document.write(`<br>Trocando as vogais: ${trocav}`)
-        document.write(`<br>Tem a palavra ida: ${trocav}`)
+        document.write(`<br>Tem a palavra de: ${temd}`)
     </script>
     <h2>Modificadores de Expressões Regulares</h2>
     <table>
