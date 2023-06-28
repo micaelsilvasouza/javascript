@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+</head>
+<body>
+    <h1>JSON</h1>
+    <section>
+        <script>
+            let text = '{"funcionarios":[' +
+            '{"nome":"John","sobrenome":"Doe" },' +
+            '{"nome":"Anna","sobrenome":"Smith" },' +
+            '{"nome":"Peter","sobrenome":"Jones" }]}'
+            
+            const obj = JSON.parse(text)
+
+            document.write("Texto em formato JSON: "+text)
+            for(let fun of obj.funcionarios){
+                document.write(
+                    "<br>" + fun.nome + " " + fun.sobrenome 
+                )
+            }
+        </script>
+    </section>
+</body>
+</html>
