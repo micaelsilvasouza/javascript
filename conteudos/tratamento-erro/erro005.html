@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Erros</title>
+</head>
+<body>
+    <input type="text" id="inp" placeholder="digite um numero">
+    <span id="men"></span>
+    <script>
+        let inp = document.querySelector("#inp")
+        inp.addEventListener("input", testar)
+        function testar(){
+            let men = document.getElementById("men")
+            let val = inp.value
+            try{
+                if(val == "") throw "vazio "
+                if(isNaN(val)) throw "não é um numero "
+                val = Number(val)
+                if(val<10) throw "muito baixo "
+                if(val > 50) throw "Muito alto "
+
+                men.innerHTML = "Perfeito "
+            }catch(e){
+                men.innerHTML = e
+            }finally{
+                men.innerHTML += val
+            }
+        }
+    </script>
+</body>
+</html>
