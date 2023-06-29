@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assincrono</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+        }
+
+         .obj{
+            background-color: rgb(0, 255, 0);
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            border-radius: 50%;
+            transition-duration: .9s;
+            transition-timing-function: linear;
+            position: absolute;
+            transform: translate(-50%,-50%);
+            bottom: 70px;
+            left: 70px;
+            z-index: -1;
+        }
+
+        .obj:first-child{
+            top: 70px;
+            left: 50vw;
+        }
+    </style>
+</head>
+<body>
+    <div class="obj"></div>
+    <div class="obj"></div>
+
+    <script>
+        let objs = document.querySelectorAll(".obj")
+        let mov = 0
+
+        setInterval(()=>{
+            if(mov === 0){
+                objs[0].style.top = (window.innerHeight - 70) + "px"
+                objs[1].style.left = "70px"
+                mov = 1
+            }else{
+                objs[0].style.top = "70px"
+                objs[1].style.left = (window.innerWidth - 70) + "px"
+                mov = 0
+            }
+        }, 1000)
+    </script>
+</body>
+</html>

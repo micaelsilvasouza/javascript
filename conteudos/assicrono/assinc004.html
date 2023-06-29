@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assincono</title>
+    <style>
+        body{
+            background-color: #dd0;
+            color: white;
+            font: bolder 1.3em sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        Escolhi um numero aletorio entre 1 e 6 
+        <label for="num">qual foi?</label>
+        <input type="number" id="num" max="50" min="1">
+        <input type="submit" id="tes" value="Testa">
+    </p>
+
+    <script>
+        let certo = Math.floor(Math.random() * 6) + 1
+        let tes = document.getElementById("tes")
+        let num = document.getElementById("num")
+        const testar = new Promise((acertar,errar)=>{
+            let valor = Number(num.value)
+            if(num == certo){
+                acertar(valor)
+            }else{
+                errar(valor)
+            }
+        })
+
+        tes.addEventListener("click",()=>{
+            testar.then(
+                function(valor){acertarNumero(valor)}, 
+                function(valor){errarNumero(valor)}
+            )
+        })
+
+        function acertarNumero(value){
+            document.body.style.background = "#00dd00"
+            document.body.innerHTML = "<h1 style='text-align: center'>Você acertou</h1>"
+            console.log(value)
+            setTimeout(()=>{window.location = "assinc003.html"},2000)
+        }
+        
+        function errarNumero(value){
+            document.body.style.background = "#dd0000"
+            document.body.innerHTML = "<h1 style='text-align: center'>Você errou</h1>"
+            console.log(value)
+            setTimeout(()=>{window.location = "assinc003.html"},2000)
+        }
+    </script>
+</body>
+</html>

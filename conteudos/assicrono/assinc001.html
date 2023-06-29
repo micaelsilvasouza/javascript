@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assincrono</title>
+    <style>
+        .lembrete{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: yellow;
+            color: #d6d6d6;
+            font: bolder 25px sans-serif;
+            width: 30vw;
+            max-width: 200px;
+            height: 30vw;
+            max-height: 200px;
+            padding: 10px;
+            margin: 5px;
+            float: left;
+            border-radius: 10px;
+            box-shadow: 2px 4px 5px #00000054;
+        }
+    </style>
+</head>
+<body>
+    <h1>Adicione lembretes</h1>
+    <input type="text" id="tex" value="Lembrete">
+    <input type="color" id="cor" value="#f0f000">
+    <input type="button" id="bt" value="Adicionar">
+    <section id="lembretes">
+        <div class="lembrete">
+            Exemplo
+        </div>
+    </section>
+
+    <script>
+        let tex = document.getElementById("tex")
+        let cor = document.getElementById("cor")
+        let bt = document.getElementById("bt")
+        let lembretes = document.getElementById("lembretes")
+
+        bt.addEventListener("click", adicionarLembrete)
+
+        function adicionarLembrete(){
+            let lembrete = document.createElement("div")
+            lembrete.setAttribute("class", "lembrete")
+            lembrete.style.backgroundColor = cor.value
+            lembrete.innerText = tex.value
+            adicionar(lembrete,lembretes)
+        }
+        
+        function adicionar(add,ond) {
+            ond.appendChild(add)
+        }
+    </script>
+</body>
+</html>

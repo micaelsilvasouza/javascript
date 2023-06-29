@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assincono</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #dd0;
+            color: white;
+            font: bolder 3em sans-serif;
+            text-align: center;
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>tenha um bom dia</h1>
+    <script>
+        const testar = new Promise((noite,dia)=>{
+            let hora = new Date().getHours()
+            if([0,1,2,3,4,18,19,20,21,22,23].includes(hora)){
+                noite(hora)
+            }else{
+                dia(hora)
+            }
+        })
+
+        testar.then(
+            function(hora){noite(hora)},
+            function(hora){dia(hora)}
+        )
+
+        function dia(hora){
+            document.body.style.background = "#edad00"
+            document.querySelector("h1").innerHTML = "TENHA UM BOM DIA!<br>"+hora+"H"
+            
+        }
+        
+        function noite(hora){
+            document.body.style.background = "#08265b"
+            document.querySelector("h1").innerHTML = "TENHA UMA BOA NOITE!<br>"+hora+"H"
+        }
+    </script>
+</body>
+</html>
