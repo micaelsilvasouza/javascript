@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assíncrono</title>
+    <style>
+        body{
+            background-color: rgb(0, 88, 221);
+            color: white;
+            font: bolder 1.3em sans-serif;
+            text-align: center;
+            padding-top: 200px;
+            width: 60vw;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <p id="demo">Crie uma chamada para a função display ou problema no console do navegador</p>
+
+
+    <script>
+        async function display(){
+            let promise = new Promise(function(resolve){
+                resolve("Display Resolvido")
+            })
+            document.getElementById("demo").innerHTML = await promise
+        }
+
+        async function problema(){
+            let promise = new Promise(function(resolve){
+                setTimeout(() => {
+                    resolve("Problema resolvido")
+                }, 2000);
+            })
+
+            document.getElementById("demo").innerHTML = "Resolvendo..."
+            document.getElementById("demo").innerHTML = await promise
+        }
+    </script>
+</body>
+</html>

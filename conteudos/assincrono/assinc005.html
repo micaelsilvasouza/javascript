@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assíncrono</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(0, 221, 74);
+            color: white;
+            font: small-caps bolder 3em sans-serif;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <p id="demo">Aguarde</p>
+
+
+    <script>
+        let nome = prompt("Qual é o seu nome?")
+        let sex
+        while(true){
+            sex = prompt("É menino ou menina? [O/A]").toLocaleLowerCase()
+            if(sex == "a" || sex == "0"){
+                break
+            }else{
+                alert("digite apenas letra A ou letra O")
+            }
+        }
+        
+        function mostrar(mos){
+            document.getElementById("demo").innerHTML = mos
+        }
+
+        async function mensagem(){
+            if(sex == "o"){
+                return "Seja Muito Bem Vindo " + nome
+            }else{
+                return "Seja Muito Bem Vinda " + nome
+            }
+            
+        }
+
+        mensagem().then(
+            function(men){mostrar(men)} 
+        )
+    </script>
+</body>
+</html>

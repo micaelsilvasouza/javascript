@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assíncrono</title>
+    <style>
+        body{
+            background-color: rgb(0, 88, 221);
+            color: white;
+            font: bolder 1.3em sans-serif;
+            text-align: center;
+            padding-top: 200px;
+            width: 60vw;
+            margin: auto;
+        }
+
+        p{
+            transition-duration: 1s;;
+        }
+    </style>
+</head>
+<body>
+    <p id="demo">Qual o Tamanho do problema?</p>
+    <input type="number" id="tam" placeholder="Tamanho do Problema">
+    <input type="button" value="resolver" id="res">
+    
+
+
+    <script>
+        
+        let res = document.getElementById("res")
+        res.addEventListener("click", problema)
+        let input = document.getElementById("tam")
+        let promise
+        async function problema(){
+            let tam = Number(input.value)
+            promise = new Promise(function(resolve){
+                if(tam <= 15){
+                    resolve(1)
+                }
+                else if(tam == 30){
+                    resolve(["Problema grande", "yellow"])
+                }   
+                else{
+                    resolve(0)
+                }
+            })
+            
+            document.getElementById("demo").innerHTML = await promise?"Problema Resolvido":"Problema não Resolvido"
+            document.getElementById("demo").style.backgroundColor = await promise?"green":"red"
+            input.value = ""
+        }
+    </script>
+</body>
+</html>

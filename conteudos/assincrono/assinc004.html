@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assíncrono</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #dd0;
+            color: white;
+            font: bolder 1.3em sans-serif;
+            width: 70vw;
+            margin: auto;
+            padding-top: 150px;
+            text-align: center;
+        }
+
+        p{
+            background-color: rebeccapurple;
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px #00000096;
+        }
+        label{
+            display: block;
+            padding: 10px;
+            background-color: blueviolet;
+            border-radius: 15px 15px 0px 0px;
+            margin-bottom: 10px;
+        }
+
+        input{
+            display: block;
+            font-size: 1.3em;
+            margin: auto;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: transparent;
+            color: white;
+            border: none;
+            border-bottom: 1px solid white;
+            text-align: center;
+        }
+
+        #tes{
+            background-color: blueviolet;
+            width: 30%;
+            border: 2px solid white;
+            border-radius: 7px;
+        }
+
+        #tes:hover{
+            background-color: rgb(189, 43, 226);
+        }
+
+        #tes:active{
+            background-color: rgb(85, 8, 148);
+        }
+    </style>
+</head>
+<body>
+    <p>
+        <label for="num">Escolhi um numero aletorio entre 1 e 6 qual foi?</label>
+        <input type="number" id="num" max="6" min="1" value="1">
+        <input type="button" id="tes" value="Testa">
+    </p>
+
+    <script>
+        let certo = Math.floor(Math.random() * 6) + 1
+        let tes = document.getElementById("tes")
+        tes.addEventListener("click", testar)
+        async function testar(acertar, errar){
+            let valor = Number(document.getElementById("num").value)
+            let teste = new Promise((resultado)=>{    
+                if(valor == certo){
+                    resultado(1)
+                }else{
+                    resultado(0)
+                }
+            })
+            
+            document.body.style.background = await teste? "#00dd00":"#dd0000"
+            document.body.innerHTML = "<h1 style='text-align: center'>"
+                +(await teste?"Você Acertou":"Você Errou")+
+            "</h1>"
+            setTimeout(() => {
+                window.location = "assinc004.html"
+            }, 1500);
+        }
+        
+
+        
+
+        function acertarNumero(value){
+            
+            console.log(value)
+            setTimeout(()=>{window.location = "assinc004.html"},2000)
+        }
+    </script>
+</body>
+</html>
