@@ -6,10 +6,43 @@
     box-sizing: border-box;
 }
 
-body{
+main{
     background-color: transparent;
     position: relative;
     min-height: 100vh;
+    padding-top: 10px;
+}
+
+#men-vitoria{
+    display: none;
+    background-color: #0ff775;
+    color: white;
+    font: 25px Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    max-width: 300px;
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 5px 5px 9px #00000056;
+    text-shadow: 2px 1px 3px #00000076;
+}
+
+#men-vitoria > button{
+    display: block;
+    background-color: #1acaff;
+    font: bolder 16px sans-serif;
+    margin: auto;
+    margin-top: 5px;
+    padding: 5px 8px;
+    border: none;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+#men-vitoria > button:hover{
+    background-color: #00ea;
+}
+#men-vitoria > button:active{
+    color: white;
 }
 
 section{
@@ -17,6 +50,7 @@ section{
     transform: translate(-50%,-50%);
     top: 50%;
     left: 50%;
+    z-index: 1;
 }
 
 table{
@@ -47,7 +81,6 @@ line, circle{
 
 canvas{
     display: none;
-    background-color: #ffffff89;
     position: absolute;
     transform: translate(-50%, -50%);
     top: 50%;

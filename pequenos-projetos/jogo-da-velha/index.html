@@ -7,7 +7,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Jogo da Velha</h1>
+    <main>
+    <aside id="men-vitoria">
+        <span>
+            Parabéns Jogador <br> Você Ganhou
+        </span>
+        <button type="button" onclick="window.location = 'index.html'">Jogar Novamente</button>
+    </aside>
+    
     <section>
         <table>
             <tbody>
@@ -93,6 +100,8 @@
         </table>
         <canvas id="linha" width="308" height="320"></canvas>
     </section>
+    </main>
+    
     <script src="main.js"></script>
 </body>
 </html>
