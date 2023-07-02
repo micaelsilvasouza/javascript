@@ -21,14 +21,16 @@
         let canvas = document.getElementsByClassName("mycanvas")
         let ctx = canvas[0].getContext("2d")
         ctx.fillStyle = "orange"//cores/gradientes/pattern
-        ctx.strokeStyle = "#ff00ff"//define a cor da linha
-        ctx.moveTo(0,50)
-        ctx.lineTo(200,50)
+        ctx.strokeStyle = "#f00"//define a cor da linha
+        ctx.lineWidth = 10
+        ctx.moveTo(0,0)
+        ctx.lineTo(200,100)
         ctx.fillRect(10,10,180,80)//define um retangulo
         ctx.stroke()
 
         ctx = canvas[1].getContext("2d")
         ctx.strokeStyle = "#ff00ff"//cor/gradiente/pattern
+        ctx.lineWidth = 10
         ctx.strokeRect(10,10,180,80)// define um retangulo
     </script>        
 </body>
