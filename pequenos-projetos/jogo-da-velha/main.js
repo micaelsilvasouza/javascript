@@ -1,5 +1,5 @@
 let campos = document.querySelectorAll("td")
-let formas = document.querySelectorAll("svg")
+let formas = document.querySelectorAll(".formas")
 let men = document.getElementById("men-vitoria")
 let jogador1 = []
 let jogador2 = []
