@@ -13,15 +13,71 @@ body{
 }
 
 
-ul{
+header{
     background-color: #999;
     padding: 10px;
     list-style-type: none;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 1.3em;
-    width: 50%;
+    width: 70%;
     border-radius: 0px 20px 20px 0px;
+    position: relative;
 }
+
+header > nav{
+    text-align: right;
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    z-index: 2;
+}
+
+select{
+    display: none;
+    background-color: transparent;
+    text-align: center;
+    width: 200px;
+    border: none;
+    border-radius: 5px;
+}
+
+select::-webkit-scrollbar{
+    width: 0px;
+}
+
+nav:hover > select, nav:hover > button{
+    display: block;
+}
+
+option{
+    font: bolder 1em verdana;
+    padding: 8px 5px;
+    background-color: #0ff775;
+}
+option:hover{
+    background-color: #1acaff;
+}
+
+
+button{
+    display: block;
+    background-color: #1acaff;
+    font: bolder 16px sans-serif;
+    margin: auto;
+    margin-top: 5px;
+    padding: 5px 8px;
+    border: none;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+button:hover{
+    background-color: #00ea;
+}
+button:active{
+    color: white;
+}
+
+nav > button{width: 100%; display: none;}
 
 #men-vitoria{
     display: none;
@@ -41,23 +97,7 @@ ul{
     z-index: 2;
 }
 
-#men-vitoria > button{
-    display: block;
-    background-color: #1acaff;
-    font: bolder 16px sans-serif;
-    margin: auto;
-    margin-top: 5px;
-    padding: 5px 8px;
-    border: none;
-    border-radius: 10px;
-    box-sizing: border-box;
-}
-#men-vitoria > button:hover{
-    background-color: #00ea;
-}
-#men-vitoria > button:active{
-    color: white;
-}
+
 
 section{
     position: absolute;
@@ -116,16 +156,27 @@ canvas{
     left: 50%;
 }
 
-@media screen and (min-width: 740px) {
-    ul{
-        width: 20vw;
-        height: 100vh;
-        float: left;
-        padding-top: 200px;
-    }
-
+@media screen and (min-width: 1000px) {
     header{
         float: left;
+        margin: 0px;
+        width: 20vw;
+        height: 100vh;
+        border-radius: 0px;
+        border-top-right-radius: 50px;
+    }
+
+    header > nav{
+        position: relative;
+        width: 20vw;
+        text-align: center;
+        padding-top: 50px;
+    }
+
+    select{
+        display: block;
+        width: 100%;
+        margin: auto;
     }
 
     main{
