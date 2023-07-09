@@ -4,6 +4,7 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    font-size: 6vw;
 }
 
 body{
@@ -24,6 +25,10 @@ header{
     position: relative;
 }
 
+ul{
+    list-style: none;
+}
+
 header > nav{
     text-align: right;
     position: absolute;
@@ -36,7 +41,6 @@ select{
     display: none;
     background-color: transparent;
     text-align: center;
-    width: 200px;
     border: none;
     border-radius: 5px;
 }
@@ -50,7 +54,7 @@ nav:hover > select, nav:hover > button{
 }
 
 option{
-    font: bolder 1em verdana;
+    font: 0.8em verdana;
     padding: 8px 5px;
     background-color: #0ff775;
 }
@@ -62,7 +66,7 @@ option:hover{
 button{
     display: block;
     background-color: #1acaff;
-    font: bolder 16px sans-serif;
+    font: bolder 1em verdana;
     margin: auto;
     margin-top: 5px;
     padding: 5px 8px;
@@ -83,10 +87,10 @@ nav > button{width: 100%; display: none;}
     display: none;
     background-color: #0ff775;
     color: white;
-    font: 25px Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    max-width: 300px;
-    padding: 10px;
+    font: 1em verdana;
+    width: 80vw;
     text-align: center;
+    padding: 10px;
     border-radius: 20px;
     box-shadow: 5px 5px 9px #00000056;
     text-shadow: 2px 1px 3px #00000076;
@@ -97,21 +101,27 @@ nav > button{width: 100%; display: none;}
     z-index: 2;
 }
 
+#men-vitoria > button{
+    font-size: 1em;
+}
 
+main{
+    width: 100vw;
+    padding-top: 100px;
+}
 
 section{
-    position: absolute;
-    transform: translate(-50%,-50%);
-    top: 50%;
-    left: 50%;
-    z-index: 1;
+    display: block;
+    margin: auto;
 }
 
 table{
     border-collapse: collapse;
     border-radius: 20px;
     box-shadow: 5px 8px 12px #00000036;
+    margin: auto;
 }
+
 
 td{
     background-color: #999;
@@ -144,12 +154,21 @@ tr:last-child > td{
     border-bottom: none;
 }
 
+main  svg{
+    width: calc(100vw*0.8/3);
+    height: calc(100vw*0.8/3);
+}
+
+main circle, main line{
+    stroke-width: 10%;
+}
+
 .formas{
     visibility: hidden;
 }
 
 canvas{
-    display: none;
+    display: block;
     position: absolute;
     transform: translate(-50%, -50%);
     top: 50%;
@@ -161,6 +180,7 @@ canvas{
         float: left;
         margin: 0px;
         width: 20vw;
+        min-width: 300px;
         height: 100vh;
         border-radius: 0px;
         border-top-right-radius: 50px;
@@ -168,7 +188,7 @@ canvas{
 
     header > nav{
         position: relative;
-        width: 20vw;
+        width: 100%;
         text-align: center;
         padding-top: 50px;
     }
@@ -177,6 +197,10 @@ canvas{
         display: block;
         width: 100%;
         margin: auto;
+    }
+
+    nav> button{
+        display: block;
     }
 
     main{
