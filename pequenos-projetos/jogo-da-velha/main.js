@@ -85,24 +85,10 @@ function verficarVitoria(jogador) {
 }
 
 function vitoria(id, jogador){
-    document.querySelector("#linha").style.display = "block"
-    let linha = document.querySelector("#linha").getContext("2d")
+    let linha = document.getElementById("linha")
+    linha.style.display = "block"
+    linha.children[id].style.display = "block"
     
-    let direções = [
-        [0,54,308,54],
-        [0,160,308,160],
-        [0,266,308,266],
-        [52,0,52,320],
-        [154,0,154,320],
-        [256,0,256,320],
-        [0,0,308,320],
-        [308,0,0,320]
-    ]
-    linha.moveTo(direções[id][0],direções[id][1])
-    linha.lineTo(direções[id][2], direções[id][3])
-    linha.lineWidth = 10
-    linha.strokeStyle = '#f00'
-    linha.stroke()
     men.children[0].innerHTML = "Parabéns "+jogador+"<br> Você Ganhou"
     men.style.display = "block"
 }
