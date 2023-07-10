@@ -2,7 +2,7 @@ let campos = document.querySelectorAll("td")
 let formas = document.querySelectorAll(".formas")
 let men = document.getElementById("men-vitoria")
 let ganhou = [false, 0,false]
-let nivel = "n2"
+let nivel = "n1"
 let jogador1 = []
 let jogador2 = []
 let jogador = 1
@@ -26,6 +26,11 @@ function adicinarForma(){
     if(!this.escolhido && nivel == "n2" && !ganhou[0]){
         nivel1(this.posicao) 
         nivel2() 
+    }
+    
+    if(!this.escolhido && nivel == "n3" && !ganhou[0]){
+        nivel1(this.posicao) 
+        nivel3() 
     }
     
     if(!ganhou[0] && jogador1.length >= 5){
@@ -53,39 +58,74 @@ function nivel1(id){
     }
 }
 
-function nivel2(){
+function nivel2() {
+    let campo = undefined
+    let chance = verficarVitoria(jogador2)[2]
+
+    if(chance[0]){
+        campo = finalizar(chance)
+    }
+
+    if(jogador2.length < 4 && campo == undefined){
+        campo = escolherAleatorio()
+    }
+
+    adicinarFormaComputador(campo)
+}
+
+function nivel3(){
     let campo = undefined
     let chance = verficarVitoria(jogador2)[2]
     if(chance[0]){
-        console.log("Chance")
-        for(let i = 1; i < chance.length; i++){
-            if(!campos[chance[i]].escolhido){
-                campo = campos[chance[i]]
-                break
-            }
-        }
+        campo = finalizar(chance)
     }else if(ganhou[2][0] && Math.floor(Math.random()*2) == 0){
-        //impedindo o jogador de ganhar
-        console.log("imperdir")
-        for(let i = 1; i < ganhou[2].length; i++){
-            if(!campos[ganhou[2][i]].escolhido){
-                campo = campos[ganhou[2][i]]
-                break
-            }
-        }
+        campo = impedir() 
     }
     
     if(jogador2.length < 4 && campo == undefined){
-        console.log("chutar")
-        //escolhendo uma posição aleataria
-        while (true) {
-            campo = campos[Math.floor(Math.random() * 9)]
-            if(!campo.escolhido){
-                break
-            }
-        }
+        campo = escolherAleatorio()
     }   
 
+    adicinarFormaComputador(campo)
+}
+
+function finalizar(chance) {
+    let campo = undefined
+    for(let i = 1; i < chance.length; i++){
+        if(!campos[chance[i]].escolhido){
+            campo = campos[chance[i]]
+            break
+        }
+    }
+
+    return campo
+}
+
+function impedir() {
+    let campo
+    for(let i = 1; i < ganhou[2].length; i++){
+        if(!campos[ganhou[2][i]].escolhido){
+            campo = campos[ganhou[2][i]]
+            break
+        }
+    }
+    return campo
+}
+
+function escolherAleatorio() {
+    let campo
+    //escolhendo uma posição aleataria
+    while (true) {
+        campo = campos[Math.floor(Math.random() * 9)]
+        if(!campo.escolhido){
+            break
+        }
+    }
+
+    return campo
+}
+
+function adicinarFormaComputador(campo) {
     if(!ganhou[0]){
         //Colocando depois de um tempo a figura
         setTimeout(() => {
@@ -99,6 +139,7 @@ function nivel2(){
         }, 200);
     }
 }
+
 function verficarVitoria(jogador) {
     let campeao = false
     let perto = [false]
