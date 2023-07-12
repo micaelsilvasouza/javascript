@@ -8,8 +8,12 @@ let jogador2 = []
 let jogador = 1
 
 //Escolhedo como o computador vai se comportar no nivel 4
-let comportar = "velha"
-console.log(comportar)
+let condicao_nivel = ""
+if(nivel == "n4"){
+    condicao_nivel = Math.floor(Math.random()*1)?"velha":"arriscar"
+}
+
+console.log(condicao_nivel)
 
 //adicionado a função principal da todo os campos
 for(let id = 0; id < campos.length; id++){
@@ -106,9 +110,14 @@ function nivel4() {
     if(chance[0]){
         campo = finalizar(chance)
     }
+
+    if(condicao_nivel == "arriscar" && campo == undefined){
+        campo = arriscar()
+    }
     
-    if(comportar == "velha" && campo == undefined){
+    if(condicao_nivel == "velha" && campo == undefined){
         campo = velha()
+        console.log("velha")
     }
 
     adicinarFormaComputador(campo)
@@ -169,6 +178,146 @@ function velha() {
         campo = escolherAleatorio()
     }
 
+    return campo
+}
+
+let opcao = []
+
+function arriscar(){
+    let campo = undefined
+    let opcoes = [
+        [0,8],
+        [2,6],
+        [1,3],
+        [7,5]
+    ]
+    let continuacao = []
+    let continuacao1 = [
+        [[3,6],[1,2],[4,2],[5,4],[7,5]],
+        [[7,6],[5,2],[4,6],[3,4],[1,3]],
+        [[5,8],[1,0],[4,8],[3,4],[7,3]],
+        [[7,8],[3,0],[4,0],[5,4],[1,5]],
+        [[2,0],[8,4],[6,4],[5,8],[7,4]],
+        [[6,0],[8,4],[2,4],[7,8],[5,4]],
+        [[6,8],[0,4],[2,4],[3,0],[1,4]],
+        [[2,8],[0,4],[6,4],[1,0],[3,4]]
+    ]
+
+    let continuacao2 = [
+        [[7,2],[5,6],[undefined],[undefined],[undefined]],
+        [[3,2],[1,6],[undefined],[undefined],[undefined]],
+        [[7,0],[3,8],[undefined],[undefined],[undefined]],
+        [[5,0],[1,8],[undefined],[undefined],[undefined]],
+        [[6,4],[undefined],[5,8],[undefined],[5,0]],
+        [[2,4],[undefined],[7,8],[undefined],[7,2]],
+        [[2,4],[undefined],[3,0],[undefined],[3,8]],
+        [[6,4],[undefined],[1,0],[undefined],[1,8]]
+    ]
+
+    let posicao = jogador1[jogador1.length - 1]
+    
+    if(jogador2.length == 0){
+        switch(posicao){
+            case opcoes[0][0]:
+                campo = campos[opcoes[0][1]]
+                opcao.push(0)
+                break
+            case opcoes[0][1]:
+                campo = campos[opcoes[0][0]]
+                opcao.push(1)
+                break
+            case opcoes[1][0]:
+                campo = campos[opcoes[1][1]]
+                opcao.push(2)
+                break
+            case opcoes[1][1]:
+                campo = campos[opcoes[1][0]]
+                opcao.push(3)
+                break
+            case opcoes[2][0]:
+                campo = campos[opcoes[2][1]]
+                opcao.push(4) 
+                break
+            case opcoes[2][1]:
+                campo = campos[opcoes[2][0]]
+                opcao.push(5) 
+                break
+            case opcoes[3][0]:
+                campo = campos[opcoes[3][1]]
+                opcao.push(6)
+                break
+            case opcoes[3][1]:
+                campo = campos[opcoes[3][0]]
+                opcao.push(7)
+                break
+            case 4:
+                campo = velha()
+                condicao_nivel = "velha"
+                break
+            default:
+                campo = undefined
+                break
+        }
+    }else if(jogador2.length == 1){
+        continuacao = continuacao1[opcao[0]]
+        switch (posicao) {
+            case continuacao[0][0]:
+                campo = campos[continuacao[0][1]]
+                opcao.push(0)
+                break;
+            
+            case continuacao[1][0]:
+                campo = campos[continuacao[1][1]]
+                opcao.push(1)
+                break;
+            
+            case continuacao[2][0]:
+                campo = campos[continuacao[2][1]]
+                opcao.push(2)
+                break;
+            
+            case continuacao[3][0]:
+                campo = campos[continuacao[3][1]]
+                opcao.push(3)
+                break;
+            
+            case continuacao[4][0]:
+                campo = campos[continuacao[4][1]]
+                opcao.push(4)
+                break;
+
+            case 4:
+                campo = velha()
+                condicao_nivel = "velha"
+                break
+            
+            default:
+                campo = undefined
+                //console.log(opcao)
+                break;
+        }
+    }else if(jogador2.length == 2 && opcao.length == 2){
+        continuacao = continuacao2[opcao[0]][opcao[1]]
+        switch (posicao) {
+            case continuacao[0]:
+                campo = campos[continuacao[1]]
+                break;
+        
+            default:
+                break;
+        }
+    }
+
+    if(jogador2.length > 0 && campo == undefined){
+        console.log("impedir Arriscar")
+        campo = impedir()
+    }
+    
+    if(campo == undefined){
+        console.log("aleatorio")
+        campo = escolherAleatorio()
+    }
+    //console.log(opcao)
     return campo
 }
 
