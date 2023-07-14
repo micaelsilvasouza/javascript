@@ -2,7 +2,6 @@ let campos = document.querySelectorAll("td")
 let formas = document.querySelectorAll(".formas")
 let men = document.getElementById("men-vitoria")
 let ganhou = [false, 0,false]
-let nivel = "n4"
 let jogador1 = []
 let jogador2 = []
 let jogador = 1
@@ -11,9 +10,10 @@ let jogador = 1
 let condicao_nivel = ""
 if(nivel == "n4"){
     condicao_nivel = Math.floor(Math.random()*2)?"velha":"arriscar"
+    console.log(condicao_nivel)
 }
 
-console.log(condicao_nivel)
+
 
 //adicionado a função principal da todo os campos
 for(let id = 0; id < campos.length; id++){
