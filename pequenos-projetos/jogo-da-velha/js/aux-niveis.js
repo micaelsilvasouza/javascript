@@ -199,3 +199,28 @@ function arriscar(){
     //console.log(opcao)
     return campo
 }
+
+//Função que adicina a forma no campo passado
+function adicinarFormaComputador(campo) {
+    if(!ganhou[0]){
+        //Colocando depois de um tempo a figura
+        setTimeout(() => {
+            campo.figuras[0].style.visibility = "visible"
+            campo.escolhido = true
+            jogador2.push(campo.posicao)
+            jogador = 1
+            ganhou = verficarVitoria(jogador2)
+
+            //Salvando a quantidade de vezes que o computador ganhou
+            if(ganhou[0]){
+                vitoria(ganhou[1],"Computador")
+                if(typeof(sessionStorage) != "undefined"){
+                    sessionStorage.setItem(
+                        "computador",
+                        Number(sessionStorage.getItem("computador")) +1
+                    )
+                }
+            }
+        }, 200);
+    }
+}

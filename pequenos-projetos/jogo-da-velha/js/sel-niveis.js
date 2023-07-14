@@ -1,5 +1,5 @@
 let niveis = ["n1","n2","n3","n4"]
-let nivel = sessionStorage.getItem("nivel")
+let nivel = sessionStorage.getItem("nivel")??"n3"
 let alterar = document.getElementById("alterar")
 let select = document.getElementById("nivel")
 let lista = document.getElementById("lista-jogadores")
@@ -16,11 +16,10 @@ if(nivel == "n1"){
 
 //Função adiconada ao botão alterar para alterar o nivel
 alterar.onclick = function(){
-    
-    console.log(select.value)
+    //zerar toda os resultados e mudar o nivel atualizando a pagina
+    zerar()
     sessionStorage.setItem("nivel", select.value)
     window.location = "index.html"
-    
 }
 
 //verificando suporte ao Armazenamento Web

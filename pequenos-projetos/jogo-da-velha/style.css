@@ -29,7 +29,7 @@ header{
     position: relative;
 }
 
-ul{
+header > ul{
     list-style: none;
 }
 
@@ -198,6 +198,48 @@ main > section > svg > line{
     display: none;
     stroke-width: 8%;
     stroke: #fa010f;
+}
+
+div#resultados{
+    background-color: #0ff775;
+    color: white;
+    padding: 10px;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-radius: 0px 10px 0px 0px;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
+
+div#resultados li,div#resultados span , div#resultados p{
+    font-size: 0.8em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 5px;
+}
+
+div#resultados > p{
+    font-weight: bolder;
+    margin: 0;
+}
+
+div#resultados ul{
+    display: none;
+    list-style-type: none;
+}
+div#resultados:hover ul{
+    display: block;
+}
+
+div#resultados  li {
+   border-bottom: 1px solid black;
+}
+
+div#resultados span {
+   display: block;
+   text-align: center;
+   width: 50px;
+   float: right;
 }
 
 @media screen and (min-width: 1000px) {

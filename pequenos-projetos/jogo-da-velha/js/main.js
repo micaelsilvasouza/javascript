@@ -50,6 +50,14 @@ function adicinarForma(){
     if(!ganhou[0] && jogador1.length >= 5){
         men.children[0].innerHTML = "Deu Velha<br>Ninguém Ganhou"
         men.style.display = "block"
+
+        //Salvando a quantidade de velhas se sessionStorage diferende undefined
+        if(typeof(sessionStorage) != "undefined"){
+            sessionStorage.setItem(
+                "velhas", 
+                Number(sessionStorage.getItem("velhas"))+1
+            )
+        }
     }
 }
 
