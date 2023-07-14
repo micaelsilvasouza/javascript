@@ -1,129 +1,8 @@
-let campos = document.querySelectorAll("td")
-let formas = document.querySelectorAll(".formas")
-let men = document.getElementById("men-vitoria")
-let ganhou = [false, 0,false]
-let nivel = "n4"
-let jogador1 = []
-let jogador2 = []
-let jogador = 1
+//Funções auxiliares para cada um dos niveis de jogo
 
-//Escolhedo como o computador vai se comportar no nivel 4
-let condicao_nivel = ""
-if(nivel == "n4"){
-    condicao_nivel = Math.floor(Math.random()*1)?"velha":"arriscar"
-}
+let opcao = []//para a função arriscar, quarda as opções
 
-console.log(condicao_nivel)
-
-//adicionado a função principal da todo os campos
-for(let id = 0; id < campos.length; id++){
-    campos[id].addEventListener('click', adicinarForma)
-    campos[id].posicao = id
-    campos[id].figuras = [
-        formas[id].children[0],
-        formas[id].children[1],
-        formas[id].children[2]
-    ]
-    campos[id].escolhido = false
-}
-
-//função pricipal que é adicinada a cada um dos campos
-function adicinarForma(){
-    if(!this.escolhido && nivel == "n1"){
-        nivel1(this.posicao) 
-    }
-    if(!this.escolhido && nivel == "n2" && !ganhou[0]){
-        nivel1(this.posicao) 
-        nivel2() 
-    }
-    
-    if(!this.escolhido && nivel == "n3" && !ganhou[0]){
-        nivel1(this.posicao) 
-        nivel3() 
-    }
-    
-    if(!this.escolhido && nivel == "n4" && !ganhou[0]){
-        nivel1(this.posicao) 
-        nivel4() 
-    }
-    
-    if(!ganhou[0] && jogador1.length >= 5){
-        men.children[0].innerHTML = "Deu Velha<br>Ninguém Ganhou"
-        men.style.display = "block"
-    }
-}
-
-//função para cada um dos niveis de jogo
-function nivel1(id){
-    if(jogador == 1){
-        campos[id].figuras[1].style.visibility = "visible"
-        campos[id].figuras[2].style.visibility = "visible"
-        campos[id].escolhido = true
-        jogador1.push(campos[id].posicao)
-        jogador = 2
-        ganhou = verficarVitoria(jogador1)
-        ganhou[0]?vitoria(ganhou[1], "Jogador 1"): 0
-    }else if(jogador == 2){
-        campos[id].figuras[0].style.visibility = "visible"
-        campos[id].escolhido = true
-        jogador2.push(campos[id].posicao)
-        jogador = 1
-        ganhou = verficarVitoria(jogador2)
-        ganhou[0]?vitoria(ganhou[1], "Jogador 2"): 0
-    }
-}
-
-function nivel2() {
-    let campo = undefined
-    let chance = verficarVitoria(jogador2)[2]
-
-    if(chance[0]){
-        campo = finalizar(chance)
-    }
-
-    if(jogador2.length < 4 && campo == undefined){
-        campo = escolherAleatorio()
-    }
-
-    adicinarFormaComputador(campo)
-}
-
-function nivel3(){
-    let campo = undefined
-    let chance = verficarVitoria(jogador2)[2]
-    if(chance[0]){
-        campo = finalizar(chance)
-    }else if(ganhou[2][0] && Math.floor(Math.random()*2) == 0){
-        campo = impedir() 
-    }
-    
-    if(jogador2.length < 4 && campo == undefined){
-        campo = escolherAleatorio()
-    }   
-
-    adicinarFormaComputador(campo)
-}
-
-function nivel4() {
-    let campo = undefined
-    let chance = verficarVitoria(jogador2)[2]
-    if(chance[0]){
-        campo = finalizar(chance)
-    }
-
-    if(condicao_nivel == "arriscar" && campo == undefined){
-        campo = arriscar()
-    }
-    
-    if(condicao_nivel == "velha" && campo == undefined){
-        campo = velha()
-        console.log("velha")
-    }
-
-    adicinarFormaComputador(campo)
-}
-
-//Funções auxilares para o computador
+//Função que verifica se o computador tem chance de ganhar, retorna o campo certo
 function finalizar(chance) {
     let campo = undefined
     for(let i = 1; i < chance.length; i++){
@@ -136,6 +15,7 @@ function finalizar(chance) {
     return campo
 }
 
+//Função que verifica se o jogador tem chance de ganhar
 function impedir() {
     let campo
     for(let i = 1; i < ganhou[2].length; i++){
@@ -147,6 +27,7 @@ function impedir() {
     return campo
 }
 
+//Funçõa chamda que retorna um campo aleatorio
 function escolherAleatorio() {
     let campo
     if(jogador2.length < 4){
@@ -162,6 +43,7 @@ function escolherAleatorio() {
     return campo
 }
 
+//Função auxiliar nivel 4 para fazer o jogo sempre dar velha
 function velha() {
     let campo = undefined
     if(jogador2.length == 0 && !campos[4].escolhido){
@@ -181,8 +63,7 @@ function velha() {
     return campo
 }
 
-let opcao = []
-
+//Função auxiliar nivel 4 para escolher as melhores formas de ganhar
 function arriscar(){
     let campo = undefined
     let opcoes = [
@@ -309,84 +190,12 @@ function arriscar(){
     }
 
     if(jogador2.length > 0 && campo == undefined){
-        console.log("impedir Arriscar")
         campo = impedir()
     }
     
     if(campo == undefined){
-        console.log("aleatorio")
         campo = escolherAleatorio()
     }
     //console.log(opcao)
     return campo
-}
-
-function adicinarFormaComputador(campo) {
-    if(!ganhou[0]){
-        //Colocando depois de um tempo a figura
-        setTimeout(() => {
-            campo.figuras[0].style.visibility = "visible"
-            campo.escolhido = true
-            jogador2.push(campo.posicao)
-            jogador = 1
-            ganhou = verficarVitoria(jogador2)
-            ganhou[0]?vitoria(ganhou[1],"Computador"):0
-        }, 200);
-    }
-}
-
-
-///Funções Para Vitoria de um jogador
-function verficarVitoria(jogador) {
-    let campeao = false
-    let perto = [false]
-    let total = 0
-    let id = 0
-    let condicoes = [
-        [0,1,2],
-        [3,4,5],
-        [6,7,8],
-        [0,3,6],
-        [1,4,7],
-        [2,5,8],
-        [0,4,8],
-        [2,4,6]
-    ]
-
-    for(let condicao of condicoes){
-        for(let termo of condicao){
-            if(jogador.includes(termo)){
-                total++
-            }else{
-                id = termo
-            }
-        }
-        
-        if(total >= 3){
-            campeao = true
-            id = condicoes.indexOf(condicao)
-            break
-        }
-
-        if(total == 2){
-            perto.push(id)
-        }
-
-        total = 0
-    }
-
-    if(perto.length > 1){
-        perto[0] = true
-    }
-    return [campeao, id, perto]
-}
-
-
-function vitoria(id, jogador){
-    let linha = document.getElementById("linha")
-    linha.style.display = "block"
-    linha.children[id].style.display = "block"
-    
-    men.children[0].innerHTML = "Parabéns "+jogador+"<br> Você Ganhou"
-    men.style.display = "block"
 }
