@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StringiFy</title>
+</head>
+<body>
+    <h1>StringiFy</h1>
+    <p>Um uso comum do JSON é trocar dados de/para um servidor Web. Ao enviar dados para um servidor Web, os dados devem ser uma corda. Converter um objeto JavaScript em uma cadeia de caracteres com JSON.stringify().</p>
+    <div class="demo"></div>
+
+    <h1>StringiFy matriz JavaScript</h1>
+    <p>Também é possível stringify matrizes JavaScript:</p>
+    <div class="demo"></div>
+    <script>
+        //Convertendo um objeto javascript para JSON
+        let demo = document.getElementsByClassName("demo")
+        let obj = {
+            titulo: "A vida louca",
+            duracao: 120,
+            estudio: "Os vida louca",
+            escrito: "O vida louca"
+        }
+
+        let json_obj = JSON.stringify(obj)
+
+        demo[0].innerHTML += "<p>O objeto a ser usado na conversão para JSON:</p>"
+        for (const x in obj) {
+            demo[0].innerHTML += `<p>${x}: ${obj[x]}</p>`
+        }
+        demo[0].innerHTML += "<p>A string JSON após a conversão: " + json_obj + "</p>"
+    </script>
+
+    <script>
+        //Convertendo uma matriz javascript para JSON
+        let matriz = ["nada demais", 45, true, 75.3]
+        let json_matriz = JSON.stringify(matriz)
+
+        demo[1].innerHTML += "<p>A matriz usada para a conversão</p>"
+        for (const x in matriz) {
+            demo[1].innerHTML += `<p>${x}: ${matriz[x]}</p>`
+        }
+        demo[1].innerHTML += "<p>O JSON da Matriz: " + json_matriz + "</p>"
+    </script>
+</body>
+</html>

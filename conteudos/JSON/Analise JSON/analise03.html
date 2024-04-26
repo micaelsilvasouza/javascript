@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analise JSON</title>
+</head>
+<body>
+    <h1>JSON Data</h1>
+    <div id="demo">
+        <p>Objetos de data não são permitidos no JSON. Se você precisar incluir uma data, escreva-a como uma cadeia de caracteres. Você pode convertê-lo novamente em um objeto de data mais tarde:</p>
+    </div>
+    <h2>Exemplo:</h2>
+    <code>
+        const text = '{"name":"John", "birth":"1986-12-14", "city":"New York"}';<br>
+        const obj = JSON.parse(text);<br>
+        obj.birth = new Date(obj.birth);<br>
+        document.getElementById("demo").innerHTML = obj.name + ", " + obj.birth;
+    </code>
+    <p>
+        Ou, você pode usar o segundo parâmetro, da função JSON.parse(), chamado reviver. O parâmetro reviver é uma função que verifica cada propriedade, antes de devolver o valor.
+    </p>
+    <h2>Exemplo:</h2>
+    <code>
+        const text = '{"name":"John", "birth":"1986-12-14", "city":"New York"}';<br>
+        const obj = JSON.parse(text, function (key, value) {<br>
+        if (key == "birth") {<br>
+            return new Date(value);<br>
+        } else {<br>
+            return value;<br>
+        }<br>
+        });<br>
+
+        document.getElementById("demo").innerHTML = obj.name + ", " + obj.birth;
+    </code>
+   
+   <script>
+        let json_text = '{"tarefa": "Converter em um objeto data a string contendo data em um objeto JSON", "data":"2024-04-23"}'
+        let json_obj = JSON.parse(json_text, (key, value)=>{
+            if(key == "data"){
+                return new Date(value)
+            }else{
+                return value
+            }
+        })
+
+        for(let x in json_obj){
+            document.getElementById("demo").innerHTML += `<p>${x}: ${json_obj[x]}</p>`
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analise JSON</title>
+</head>
+<body>
+    <h1>JSON Objeto</h1>
+    <div id="demo">
+        <p>Um uso comum do JSON é trocar dados de/para um servidor Web. Ao receber dados de um servidor Web, os dados são sempre uma cadeia de caracteres. Analise os dados com o JSON.parse(), e os dados se tornam um objeto JavaScript.</p>
+    </div>
+
+    <script>
+        let json_text = '{"string": "Uma string","number-int": 35,"number-float": 35.4,"boolian": true}'
+        let json_obj = JSON.parse(json_text)
+
+        for(let x in json_obj){
+            document.getElementById("demo").innerHTML += "<p>" + json_obj[x] + "</p>"
+        }
+    </script>
+</body>
+</html>

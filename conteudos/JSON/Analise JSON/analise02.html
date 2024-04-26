@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analise JSON</title>
+</head>
+<body>
+    <h1>JSON Matriz</h1>
+    <div id="demo">
+        <p>Ao usar o JSON.parse() em um JSON derivado de uma matriz, o método retornar uma matriz JavaScript, em vez de um objeto JavaScript.</p>
+    </div>
+
+    <script>
+        let json_text = '["item a", 34, true, 445.4]'
+        let json_matriz = JSON.parse(json_text)
+
+        for(let x of json_matriz){
+            document.getElementById("demo").innerHTML += "<p>" + x + "</p>"
+        }
+    </script>
+</body>
+</html>

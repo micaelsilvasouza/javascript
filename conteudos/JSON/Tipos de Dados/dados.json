@@ -1,0 +1,9 @@
+{
+    "string": "Uma string",
+    "number-int": 35,
+    "number-float": 35.4,
+    "boolian": true,
+    "nulo": null,
+    "objeto": {"a":"Item a", "b":45},
+    "matriz": ["item a", 34, true, 445.4]
+}
